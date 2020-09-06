@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B-KOM Sklep internetowy", "B-KOM Sklep internetowy\B-KOM Sklep internetowy.csproj", "{94766ACD-C25E-4783-BB1D-B5FD64FD8542}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B-KOM Sklep internetowy", "B-KOM Sklep internetowy\B-KOM Sklep internetowy.csproj", "{F8B436AE-30CC-410D-BA88-549C4CA5520E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{94766ACD-C25E-4783-BB1D-B5FD64FD8542}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{94766ACD-C25E-4783-BB1D-B5FD64FD8542}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{94766ACD-C25E-4783-BB1D-B5FD64FD8542}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{94766ACD-C25E-4783-BB1D-B5FD64FD8542}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B436AE-30CC-410D-BA88-549C4CA5520E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B436AE-30CC-410D-BA88-549C4CA5520E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B436AE-30CC-410D-BA88-549C4CA5520E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B436AE-30CC-410D-BA88-549C4CA5520E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DAA743CC-DAF9-4F6A-ACB4-B9B2E1011658}
+		SolutionGuid = {C9E734C2-0BD8-4F0E-B89C-6B1034D2C893}
 	EndGlobalSection
 EndGlobal
