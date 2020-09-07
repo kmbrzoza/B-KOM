@@ -74,3 +74,5 @@ K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internet
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B-KOM Sklep internetowy.csproj.CopyComplete
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B-KOM Sklep internetowy.dll
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B-KOM Sklep internetowy.pdb
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.InitialCreate.resources
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B-KOM Sklep internetowy.csproj.GenerateResource.cache
