@@ -95,15 +95,83 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\avatar.svg" />
+    <Content Include="Content\images\calendar.png" />
+    <Content Include="Content\images\Categories\accessories.png" />
+    <Content Include="Content\images\Categories\cpu.png" />
+    <Content Include="Content\images\Categories\laptop.png" />
+    <Content Include="Content\images\Categories\peripherals.png" />
+    <Content Include="Content\images\Categories\smarthome.png" />
+    <Content Include="Content\images\Categories\smartphone.png" />
+    <Content Include="Content\images\clock.png" />
+    <Content Include="Content\images\clock.svg" />
+    <Content Include="Content\images\copyright.svg" />
+    <Content Include="Content\images\delivery.png" />
+    <Content Include="Content\images\email.svg" />
+    <Content Include="Content\images\fb.svg" />
+    <Content Include="Content\images\headset.svg" />
+    <Content Include="Content\images\hotDeal.png" />
+    <Content Include="Content\images\ig.svg" />
+    <Content Include="Content\images\ip11promax.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\next.svg" />
+    <Content Include="Content\images\placeholder.svg" />
+    <Content Include="Content\images\promo1.png" />
+    <Content Include="Content\images\promo2.png" />
+    <Content Include="Content\images\promo3.png" />
+    <Content Include="Content\images\recommended1.png" />
+    <Content Include="Content\images\recommended2.png" />
+    <Content Include="Content\images\recommended3.png" />
+    <Content Include="Content\images\recommended4.png" />
+    <Content Include="Content\images\recommended5.png" />
+    <Content Include="Content\images\recommended6.png" />
+    <Content Include="Content\images\recommended7.png" />
+    <Content Include="Content\images\recommended8.png" />
+    <Content Include="Content\images\rotating-arrow-symbol.svg" />
+    <Content Include="Content\images\security.svg" />
+    <Content Include="Content\images\shop.png" />
+    <Content Include="Content\images\shopping-cart.svg" />
+    <Content Include="Content\images\smsngnote20u.png" />
+    <Content Include="Content\images\star.svg" />
+    <Content Include="Content\images\telephone-handle-silhouette.svg" />
+    <Content Include="Content\images\twit.svg" />
+    <Content Include="Content\images\xiaomi 1.png" />
+    <Content Include="Content\images\xiaomi 2.png" />
+    <Content Include="Content\images\xiaomi 3.png" />
+    <Content Include="Content\images\xiaomi 4.png" />
+    <Content Include="Content\images\xiaomi descr.png" />
+    <Content Include="Content\images\xiaomiminote10lite.png" />
+    <Content Include="Content\images\xiaomirm9.png" />
+    <Content Include="Content\images\yt.svg" />
+    <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
+    <Content Include="Prototype\index.html" />
+    <Content Include="Prototype\kategoria.html" />
+    <Content Include="Prototype\koszyk.html" />
+    <Content Include="Prototype\produkt.html" />
+    <Content Include="Prototype\pustyKoszyk.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\DatabaseInitializer.cs" />
+    <Compile Include="DAL\InternetShopContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009070855440_InitialCreate.cs" />
+    <Compile Include="Migrations\202009070855440_InitialCreate.designer.cs">
+      <DependentUpon>202009070855440_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\MainCategory.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductSpecification.cs" />
+    <Compile Include="Models\Specification.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -119,7 +187,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009070855440_InitialCreate.resx">
+      <DependentUpon>202009070855440_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
