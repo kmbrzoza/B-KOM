@@ -180,6 +180,13 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Dostawa.cshtml" />
+    <Content Include="Views\Home\Zwrot_i_reklamacje.cshtml" />
+    <Content Include="Views\Home\Raty.cshtml" />
+    <Content Include="Views\Home\Montaz.cshtml" />
+    <Content Include="Views\Home\O_nas.cshtml" />
+    <Content Include="Views\Home\Regulamin.cshtml" />
+    <Content Include="Views\Home\Polityka_prywatnosci.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

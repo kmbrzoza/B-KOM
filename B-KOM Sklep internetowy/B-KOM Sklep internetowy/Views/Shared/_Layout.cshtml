@@ -36,7 +36,7 @@
             </button>
 
             <!-- LOGO?    <a id="navbarLogoLink" class="navbar-brand p-0 m-0" href="#"><img id="navbarLogoImg" class="" src="images/logo.png" alt="" /></a>-->
-            <a id="navbarLogoLink" class="navbar-brand p-0 m-0" href="#" title="B-KOM">
+            <a id="navbarLogoLink" class="navbar-brand p-0 m-0" href="@Url.Content("~/")" title="B-KOM">
                 <span class="text-primary">B</span>-KOM
             </a>
 
@@ -369,19 +369,19 @@
                 <div id="footerCol" class="col">
                     <h5>Zamówienia</h5>
                     <ul id="footerUl">
-                        <li class="footerLi"><a href="#" class="footerLink">Dostawa</a></li>
-                        <li class="footerLi"><a href="#" class="footerLink">Zwrot i reklamacje</a></li>
-                        <li class="footerLi"><a href="#" class="footerLink">Raty</a></li>
-                        <li class="footerLi"><a href="#" class="footerLink">Montaż</a></li>
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "Dostawa"})" class="footerLink">Dostawa</a></li>
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "Zwrot_i_reklamacje"})" class="footerLink">Zwrot i reklamacje</a></li>
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "Raty"})" class="footerLink">Raty</a></li>
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "Montaz"})" class="footerLink">Montaż</a></li>
                     </ul>
                 </div>
                 <!-- Third Column - About us -->
                 <div id="footerCol" class="col">
                     <h5>B-KOM</h5>
                     <ul id="footerUl">
-                        <li class="footerLi"><a href="#" class="footerLink">O nas</a></li>
-                        <li class="footerLi"><a href="#" class="footerLink">Regulamin</a></li>
-                        <li class="footerLi"><a href="#" class="footerLink">Polityka prywatności</a></li>
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "O_nas"})" class="footerLink">O nas</a></li>
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "Regulamin"})" class="footerLink">Regulamin</a></li>
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "Polityka_prywatnosci"})" class="footerLink">Polityka prywatności</a></li>
                     </ul>
                 </div>
                 <!-- Fourth Column - Promotions -->

@@ -13,6 +13,13 @@ namespace B_KOM_Sklep_internetowy
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            routes.MapRoute(
+                name: "FooterPages",
+                url: "{footerPageName}",
+                defaults: new { controller = "Home", action = "FooterPage"}
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
