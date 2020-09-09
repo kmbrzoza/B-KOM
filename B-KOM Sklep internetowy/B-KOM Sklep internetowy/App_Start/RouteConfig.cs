@@ -13,11 +13,28 @@ namespace B_KOM_Sklep_internetowy
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            routes.MapRoute(
+                name: "AddToCart",
+                url: "koszyk/dodaj/{id}",
+                defaults: new { controller = "Cart", action = "AddToCart" }
+                );
+
+            routes.MapRoute(
+                name: "Product",
+                url: "produkt/{id}",
+                defaults: new { controller = "Product", action = "Details" }
+                );
+
+            routes.MapRoute(
+                name: "Categories",
+                url: "produkt/kategorie/{categoryLinkName}",
+                defaults: new { controller = "Product", action = "Categories" }
+                );
 
             routes.MapRoute(
                 name: "FooterPages",
                 url: "{footerPageName}",
-                defaults: new { controller = "Home", action = "FooterPage"}
+                defaults: new { controller = "Home", action = "FooterPage" }
             );
 
             routes.MapRoute(

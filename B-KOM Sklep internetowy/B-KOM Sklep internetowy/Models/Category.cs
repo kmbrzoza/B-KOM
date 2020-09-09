@@ -14,6 +14,7 @@ namespace B_KOM_Sklep_internetowy.Models
         [Required(ErrorMessage = "Wprowadź nazwę Kategorii")]
         [StringLength(100)]
         public string Name { get; set; }
+        public string LinkName { get; set; }
 
         public virtual MainCategory MainCategory { get; set; }
         public virtual List<Product> Products { get; set; }

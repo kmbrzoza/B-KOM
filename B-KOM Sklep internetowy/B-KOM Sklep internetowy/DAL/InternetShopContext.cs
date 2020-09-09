@@ -25,6 +25,7 @@ namespace B_KOM_Sklep_internetowy.DAL
         public DbSet<Specification> Specifications { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
 
     }
 }

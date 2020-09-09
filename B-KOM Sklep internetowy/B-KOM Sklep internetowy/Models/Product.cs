@@ -25,5 +25,6 @@ namespace B_KOM_Sklep_internetowy.Models
 
         public virtual Category Category { get; set; }
         public virtual List<ProductSpecification> ProductSpecifications { get; set; }
+        public virtual List<ProductImage> ProductImages { get; set; }
     }
 }

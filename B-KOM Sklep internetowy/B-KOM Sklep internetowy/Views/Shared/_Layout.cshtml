@@ -1,4 +1,11 @@
-﻿<!doctype html>
+﻿@using B_KOM_Sklep_internetowy.Models
+@using B_KOM_Sklep_internetowy.Infrastructure
+@{
+
+    var listMainCategories = (List<MainCategory>)ViewData["ListMainCatWithCat"];
+}
+
+<!doctype html>
 <html lang="pl">
 
 <head>
@@ -29,8 +36,11 @@
                      xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                      y="0px" viewBox="0 0 124 124" style="enable-background:new 0 0 124 124;" xml:space="preserve">
                 <path d="M112,6H12C5.4,6,0,11.4,0,18s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,6,112,6z" />
+
                 <path d="M112,50H12C5.4,50,0,55.4,0,62c0,6.6,5.4,12,12,12h100c6.6,0,12-5.4,12-12C124,55.4,118.6,50,112,50z" />
+
                 <path d="M112,94H12c-6.6,0-12,5.4-12,12s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,94,112,94z" />
+
                 </svg>
                 <span>Menu</span>
             </button>
@@ -106,8 +116,6 @@
                                     M327.373,409.814c-10.543,0-19.116-8.573-19.116-19.116s8.573-19.117,19.116-19.117s19.116,8.574,19.116,19.117
 		                          S337.916,409.814,327.373,409.814z" />
 
-
-
                             </svg>
                             <span class="navbarMenuText">Koszyk <span class="badge badge-primary">2</span></span>
                         </a>
@@ -120,102 +128,26 @@
         <nav id="navbar2" class="navbar navbar-expand-md p-0 shadow rounded">
             <div id="navbarCategory" class="collapse navbar-collapse px-2">
                 <ul id="navbarListCategory" class="navbar-nav justify-content-center flex-nowrap">
-                    <li class="navbarCategoryLi nav-item rounded">
-                        <div class="dropdown">
-                            <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
-                            <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <img fill="currentColor" class="navbarImgCategory" src="images/laptop.png">
-                                Laptopy i komputery
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Laptopy</a>
-                                <a class="dropdown-item" href="#">Notebooki</a>
-                                <a class="dropdown-item" href="#">Komputery</a>
-                                <a class="dropdown-item" href="#">Komputery biurowe</a>
+                    @foreach (var mainCategory in listMainCategories)
+                    {
+                        <li class="navbarCategoryLi nav-item rounded">
+                            <div class="dropdown">
+                                <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
+                                <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
+                                   aria-haspopup="true" aria-expanded="false">
+                                    <img fill="currentColor" class="navbarImgCategory" src="@Url.MainCategoryIconsPath(mainCategory.ImgPath)">
+                                    @mainCategory.Name
+                                </a>
+                                <div class="dropdown-menu">
+                                    @foreach (var category in mainCategory.Categories)
+                                    {
+                                        <a class="dropdown-item" href="@Url.Action("Categories", "Product", new { categoryLinkName = category.LinkName.ToLower()})">@category.Name</a>
+                                    }
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li class="navbarCategoryLi nav-item rounded">
-                        <div class="dropdown">
-                            <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
-                            <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <img class="navbarImgCategory" src="images/cpu.png">
-                                Podzespoły komputerowe
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Procesory</a>
-                                <a class="dropdown-item" href="#">Karty graficzne</a>
-                                <a class="dropdown-item" href="#">Pamięci RAM</a>
-                                <a class="dropdown-item" href="#">Dyski</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="navbarCategoryLi nav-item rounded">
-                        <div class="dropdown">
-                            <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
-                            <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <img class="navbarImgCategory" src="images/peripherals.png">
-                                Urządzenia peryferyjne
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Monitory</a>
-                                <a class="dropdown-item" href="#">Myszki</a>
-                                <a class="dropdown-item" href="#">Klawiatury</a>
-                                <a class="dropdown-item" href="#">Słuchawki</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="navbarCategoryLi nav-item rounded">
-                        <div class="dropdown">
-                            <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
-                            <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <img class="navbarImgCategory" src="images/smartphone.png">
-                                Smartfony i akcesoria
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Smartfony</a>
-                                <a class="dropdown-item" href="#">Etui do smartfonów</a>
-                                <a class="dropdown-item" href="#">Szkła i folie do smartfonów</a>
-                                <a class="dropdown-item" href="#">Akcesoria do smartfonów</a>
-                                <a class="dropdown-item" href="#">Smartwatche</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="navbarCategoryLi nav-item rounded">
-                        <div class="dropdown">
-                            <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
-                            <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <img class="navbarImgCategory" src="images/accessories.png">
-                                Akcesoria
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Kable i przejściówki</a>
-                                <a class="dropdown-item" href="#">Zasilanie</a>
-                                <a class="dropdown-item" href="#">Pamięci Flash</a>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="navbarCategoryLi nav-item rounded">
-                        <div class="dropdown">
-                            <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
-                            <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
-                                <img class="navbarImgCategory" src="images/smarthome.png">
-                                TV, Smarthome, Lifestyle
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Telewizory</a>
-                                <a class="dropdown-item" href="#">Kino domowe</a>
-                                <a class="dropdown-item" href="#">Aparaty fotograficzne i kamery</a>
-                                <a class="dropdown-item" href="#">Drony i akcesoria</a>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    }
+
                 </ul>
             </div>
         </nav>
@@ -260,6 +192,8 @@
                                  c4.856,0.657,9.853,0.996,14.989,0.996c17.508,0,35.214-4.856,53.105-14.562c19.219-10.656,30.826-20.745,34.823-30.269
                                  c2.102-4.754,4.093-11.273,5.996-19.555c1.909-8.278,2.857-14.985,2.857-20.126C401.99,314.814,401.703,312.819,401.129,311.475z" />
 
+
+
                         </svg>
                         123 456 789
                     </p>
@@ -272,13 +206,21 @@
 
                         <path d="M230,49.585c0-0.263,0.181-0.519,0.169-0.779l-70.24,67.68l70.156,65.518c0.041-0.468-0.085-0.94-0.085-1.418V49.585z" />
 
+
+
                         <path d="M149.207,126.901l-28.674,27.588c-1.451,1.396-3.325,2.096-5.2,2.096c-1.836,0-3.672-0.67-5.113-2.013l-28.596-26.647
                                  L11.01,195.989c1.717,0.617,3.56,1.096,5.49,1.096h197.667c2.866,0,5.554-0.873,7.891-2.175L149.207,126.901z" />
+
+
 
                         <path d="M115.251,138.757L222.447,35.496c-2.427-1.443-5.252-2.411-8.28-2.411H16.5c-3.943,0-7.556,1.531-10.37,3.866
                                  L115.251,138.757z" />
 
+
+
                         <path d="M0,52.1v128.484c0,1.475,0.339,2.897,0.707,4.256l69.738-67.156L0,52.1z" />
+
+
 
                         </svg>
                         b-kom@b-kom.pl
@@ -290,9 +232,13 @@
 
                         <path d="M217.087,119.397c-24.813,0-45,20.187-45,45s20.187,45,45,45s45-20.187,45-45S241.901,119.397,217.087,119.397z" />
 
+
+
                         <path d="M217.087,0c-91.874,0-166.62,74.745-166.62,166.619c0,38.93,13.421,74.781,35.878,103.177l130.742,164.378l130.742-164.378
                                  c22.457-28.396,35.878-64.247,35.878-103.177C383.707,74.745,308.961,0,217.087,0z M217.087,239.397c-41.355,0-75-33.645-75-75
                                  s33.645-75,75-75s75,33.645,75,75S258.443,239.397,217.087,239.397z" />
+
+
 
                         </svg>
                         Salony B-KOM
@@ -308,6 +254,8 @@
                                      c-2.293,2.084-3.23,5.469-3.23,8.541v0.989H14.41v5.833h3.333v17.729C7.694,40.334,0,31.661,0,21.168
                                      C0,9.555,9.415,0.14,21.028,0.14C32.641,0.139,42.054,9.554,42.054,21.168z" />
 
+
+
                             </svg>
                         </a>
                         <a href="#" class="footerSocialmedia">
@@ -321,13 +269,19 @@
                                      c0,17.455-14.201,31.655-31.656,31.655H46.654C29.2,154.063,15,139.862,15,122.407V46.655C15,29.201,29.2,15,46.654,15h75.752
                                      c17.455,0,31.656,14.201,31.656,31.655V122.407z" />
 
+
+
                             <path d="M84.531,40.97c-24.021,0-43.563,19.542-43.563,43.563c0,24.02,19.542,43.561,43.563,43.561s43.563-19.541,43.563-43.561
                                      C128.094,60.512,108.552,40.97,84.531,40.97z M84.531,113.093c-15.749,0-28.563-12.812-28.563-28.561
                                      c0-15.75,12.813-28.563,28.563-28.563s28.563,12.813,28.563,28.563C113.094,100.281,100.28,113.093,84.531,113.093z" />
 
+
+
                             <path d="M129.921,28.251c-2.89,0-5.729,1.17-7.77,3.22c-2.051,2.04-3.23,4.88-3.23,7.78c0,2.891,1.18,5.73,3.23,7.78
                                      c2.04,2.04,4.88,3.22,7.77,3.22c2.9,0,5.73-1.18,7.78-3.22c2.05-2.05,3.22-4.89,3.22-7.78c0-2.9-1.17-5.74-3.22-7.78
                                      C135.661,29.421,132.821,28.251,129.921,28.251z" />
+
+
 
                             </svg>
                         </a>
@@ -342,6 +296,8 @@
                                      c12.107,0.007,24.264,0,36.275-1.342c5.07-0.567,9.285-4.368,10.471-9.52c1.689-7.337,1.695-15.345,1.695-22.898
                                      C96.875,40.884,96.889,32.875,95.201,25.538z M35.936,63.474c0-10.716,0-21.32,0-32.037c10.267,5.357,20.466,10.678,30.798,16.068
                                      C56.434,52.847,46.23,58.136,35.936,63.474z" />
+
+
 
                             </svg>
                         </a>
@@ -360,6 +316,8 @@
                                      c-8.186,0-15.607-0.373-22.27-1.139c42.827,27.596,90.03,41.394,141.612,41.394c32.738,0,63.478-5.181,92.21-15.557
                                      c28.746-10.369,53.297-24.267,73.665-41.686c20.362-17.415,37.925-37.448,52.674-60.097c14.75-22.651,25.738-46.298,32.977-70.946
                                      c7.23-24.653,10.848-49.344,10.848-74.092c0-5.33-0.096-9.325-0.287-11.991C421.785,120.202,437.202,104.306,449.956,85.657z" />
+
+
 
                             </svg>
                         </a>
@@ -404,11 +362,15 @@
 	            	S214.648,0,138.357,0z M138.357,258.715C71.992,258.715,18,204.723,18,138.357S71.992,18,138.357,18
 		            s120.357,53.992,120.357,120.357S204.723,258.715,138.357,258.715z" />
 
+
+
                 <path d="M194.798,160.903c-4.188-2.677-9.753-1.454-12.432,2.732c-8.694,13.593-23.503,21.708-39.614,21.708
 		            c-25.908,0-46.985-21.078-46.985-46.986s21.077-46.986,46.985-46.986c15.633,0,30.2,7.747,38.968,20.723
 	            	c2.782,4.117,8.375,5.201,12.496,2.418c4.118-2.782,5.201-8.377,2.418-12.496c-12.118-17.937-32.262-28.645-53.882-28.645
 	            	c-35.833,0-64.985,29.152-64.985,64.986s29.152,64.986,64.985,64.986c22.281,0,42.759-11.218,54.778-30.009
                     C200.208,169.147,198.985,163.582,194.798,160.903z" />
+
+
 
                 </svg>
                 <span>B-KOM 2020</span>
