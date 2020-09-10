@@ -1,4 +1,6 @@
-﻿using System;
+﻿using B_KOM_Sklep_internetowy.DAL;
+using B_KOM_Sklep_internetowy.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,16 +10,29 @@ namespace B_KOM_Sklep_internetowy.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Produkty/Index
-        public ActionResult Index()
+        public ProductController()
         {
-            return View();
+
         }
 
-        // GET: produkt/kategorie{categoryLinkName}
+        InternetShopContext db = new InternetShopContext();
+
+
+        // GET: produkt/kategorie/{categoryLinkName}
         public ActionResult Categories(string categoryLinkName)
         {
-            return View(categoryLinkName);
+            var category = db.Categories.Include("Products").Where(c => c.LinkName.ToLower() == categoryLinkName).Single();
+            ViewBag.categoryName = category.Name;
+            var products = category.Products.ToList();
+
+            var productsDTO = new List<ProductDTO>();
+
+            foreach (var prod in products)
+            {
+                productsDTO.Add(new ProductDTO() { Product = prod });
+            }
+
+            return View(productsDTO);
         }
 
         // GET: produkt/{id}

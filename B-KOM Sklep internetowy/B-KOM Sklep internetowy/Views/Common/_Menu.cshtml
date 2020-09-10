@@ -1,0 +1,33 @@
+﻿@using B_KOM_Sklep_internetowy.Models
+@{
+    var listMainCategories = (List<MainCategory>)ViewData["mainCategories"];
+}
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+<!--        SECOND NAVBAR - CATEGORY MENU -->
+<nav id="navbar2" class="navbar navbar-expand-md p-0 shadow rounded">
+    <div id="navbarCategory" class="collapse navbar-collapse px-2">
+        <ul id="navbarListCategory" class="navbar-nav justify-content-center flex-nowrap">
+            @foreach (var mainCategory in listMainCategories)
+            {
+                <li class="navbarCategoryLi nav-item rounded">
+                    <div class="dropdown">
+                        <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
+                        <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            <img fill="currentColor" class="navbarImgCategory" src="@Url.MainCategoryIconsPath(mainCategory.ImgPath)">
+                            @mainCategory.Name
+                        </a>
+                        <div class="dropdown-menu">
+                            @foreach (var category in mainCategory.Categories)
+                            {
+                                <a class="dropdown-item" href="@Url.Action("Categories", "Product", new { categoryLinkName = category.LinkName.ToLower()})">@category.Name</a>
+                            }
+                        </div>
+                    </div>
+                </li>
+            }
+
+        </ul>
+    </div>
+</nav>

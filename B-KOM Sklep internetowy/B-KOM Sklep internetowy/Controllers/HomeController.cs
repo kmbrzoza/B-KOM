@@ -15,10 +15,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
     {
         public HomeController()
         {
-            //GETTING MAIN CATEGORIES AND THEIR CATEGORIES TO LAYOUT
-            var mainCategories = db.MainCategories.ToList();
-            ViewData["ListMainCatWithCat"] = mainCategories;
-            ///////////////////////////////////////////////////////////
+
         }
 
         InternetShopContext db = new InternetShopContext();
