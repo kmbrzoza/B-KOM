@@ -86,3 +86,4 @@ K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internet
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.editedSpecsv1.resources
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.addedOpinions.resources
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.editedOpinionV1.resources
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\bin\WebActivatorEx.dll

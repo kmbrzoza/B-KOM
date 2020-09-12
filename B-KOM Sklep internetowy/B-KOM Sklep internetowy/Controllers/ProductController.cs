@@ -23,6 +23,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
         {
             var category = db.Categories.Include("Products").Where(c => c.LinkName.ToLower() == categoryLinkName).Single();
             ViewBag.categoryName = category.Name;
+            ViewBag.mainCategoryName = category.MainCategory.Name;
 
             var products = category.Products.ToList();
 
