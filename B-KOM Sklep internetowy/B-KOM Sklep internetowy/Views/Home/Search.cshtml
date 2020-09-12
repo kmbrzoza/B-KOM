@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Wyniki wyszukania";
+}
+
+<main>
+    <div class="m-0 my-2 p-0">
+        <ol class="breadcrumb m-0 p-0 bg-white">
+            <li class="breadcrumb-item"><a href="@Url.Content("~/")">B-KOM</a></li>
+            <li class="breadcrumb-item"><a href="#">@ViewBag.searchQuery</a></li>
+        </ol>
+    </div>
+
+    <h3 class="font-weight-normal">Wyniki wyszukania?</h3>
+
+    <div class="row m-0 p-0">
+        <div class="col-12 col-md-3 m-0 p-0 border rounded">
+            <div class="navbar navbar-expand-md p-0">
+                <button id="buttonFiltr" class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#filtr" aria-controls="filtr" aria-expanded="false"
+                        aria-label="Toggle navigation" title="Filtruj">
+                    <span>Filtruj</span>
+                </button>
+            </div>
+
+            <div class="navbar navbar-expand-md p-0">
+                <div id="filtr" class="collapse navbar-collapse px-2">
+                    <div class="">
+                        Tutaj będą w przyszłości filtry
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 col-md-9 m-0">
+            <div class="row row-cols-2 row-cols-md-3 mx-2 py-4 border-top border-bottom">
+                @Html.Partial("_SearchList")
+
+            </div>
+        </div>
+    </div>
+
+</main>
+

@@ -242,10 +242,12 @@
     <Content Include="Views\Home\O_nas.cshtml" />
     <Content Include="Views\Home\Regulamin.cshtml" />
     <Content Include="Views\Home\Polityka_prywatnosci.cshtml" />
-    <Content Include="Views\Product\Categories.cshtml" />
-    <Content Include="Views\Product\_CategoriesProductsList.cshtml" />
+    <Content Include="Views\Product\CategoryProducts.cshtml" />
+    <Content Include="Views\Product\_CategoryProductsList.cshtml" />
     <Content Include="Views\Common\_Menu.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\_SearchList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

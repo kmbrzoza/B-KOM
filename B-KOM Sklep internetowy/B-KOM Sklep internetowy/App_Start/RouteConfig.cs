@@ -26,10 +26,16 @@ namespace B_KOM_Sklep_internetowy
                 );
 
             routes.MapRoute(
-                name: "Categories",
+                name: "CategoryProducts",
                 url: "produkt/kategorie/{categoryLinkName}",
-                defaults: new { controller = "Product", action = "Categories" }
+                defaults: new { controller = "Product", action = "CategoryProducts" }
                 );
+
+            routes.MapRoute(
+                name: "Search",
+                url: "Szukaj",
+                defaults: new { controller = "Home", action = "Search"}
+            );
 
             routes.MapRoute(
                 name: "FooterPages",

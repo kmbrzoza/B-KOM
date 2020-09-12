@@ -39,7 +39,6 @@ namespace B_KOM_Sklep_internetowy.Controllers
                 Recommended = recommendedExtModel,
                 Bestsellers = bestsellersExtModel
             };
-
             return View(homeVM);
         }
 
@@ -47,6 +46,20 @@ namespace B_KOM_Sklep_internetowy.Controllers
         public ActionResult FooterPage(string footerPageName)
         {
             return View(footerPageName);
+        }
+
+        //GET: /
+        public ActionResult Search(string wyszukaj)
+        {
+            ViewBag.searchQuery = wyszukaj;
+
+            var products = db.Products.Where(c => c.Name.ToLower().Contains(wyszukaj.ToLower()));
+            var productsDTO = new List<ProductDTO>();
+
+            foreach (var prod in products)
+                productsDTO.Add(new ProductDTO() { Product = prod });
+
+            return View(productsDTO);
         }
     }
 }

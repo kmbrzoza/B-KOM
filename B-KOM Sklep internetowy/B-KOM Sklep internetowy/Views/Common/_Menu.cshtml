@@ -21,7 +21,7 @@
                         <div class="dropdown-menu">
                             @foreach (var category in mainCategory.Categories)
                             {
-                                <a class="dropdown-item" href="@Url.Action("Categories", "Product", new { categoryLinkName = category.LinkName.ToLower()})">@category.Name</a>
+                                <a class="dropdown-item" href="@Url.Action("CategoryProducts", "Product", new { categoryLinkName = category.LinkName.ToLower()})">@category.Name</a>
                             }
                         </div>
                     </div>

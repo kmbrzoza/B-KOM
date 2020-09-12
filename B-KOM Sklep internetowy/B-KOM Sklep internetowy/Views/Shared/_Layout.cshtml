@@ -49,8 +49,8 @@
             </button>
 
             <div id="navbarSearch" class="collapse navbar-collapse">
-                <form id="navbarFormSearch" class="form-inline flex-nowrap px-2">
-                    <input id="navbarFormSearchInput" class="form-control" type="text" placeholder="Wyszukaj">
+                <form method="get" action="@Url.Action("Search", "Home")" id="navbarFormSearch" class="form-inline flex-nowrap px-2">
+                    <input name="wyszukaj" id="navbarFormSearchInput" class="form-control" type="text" placeholder="Wyszukaj">
                     <button id="navbarFormSearchButton" class="btn btn-primary" type="submit" title="Wyszukaj">
                         <!-- Icon search -->
                         @Html.Raw(HtmlImages.searchIcon)

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<B_KOM_Sklep_internetowy.DTO.ProductDTO>
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+@foreach (var productDTO in Model)
+{
+    <div class="productCard card col">
+        <a href="@Url.Action("Details", "Product", new { id = productDTO.Product.ProductId })" class="productLink">
+            <img src="@Url.ProductImgPath(productDTO.GetMainImg())" class="card-img-top">
+            <div class="card-body p-0">
+                <h6 class="card-title m-0">@productDTO.Product.Name</h6>
+            </div>
+            <div class="">
+                @for (int i = 0; i < 6; i++)
+                {
+                    if (i < productDTO.GetNumberScoreYellowStarsInt())
+                    {
+                        @Html.Raw(HtmlImages.starOpinionYellow)
+                    }
+                    else
+                    {
+                        @Html.Raw(HtmlImages.starOpinionGrey)
+                    }
+                }
+                <span class="cardOpinionNumber p-0 m-0 text-secondary">(@productDTO.GetNumberOpinionInt())</span>
+            </div>
+            <div class="productPricesButton">
+                <a href="@Url.Action("AddToCart", "Cart", new { id = productDTO.Product.ProductId})" class="button-circle-buy" title="Dodaj do koszyka">
+                    @Html.Raw(HtmlImages.cartAddToCartCircle)
+                </a>
+                @if (!productDTO.Product.Promo)
+                {
+                    <div class="productActualPrice">
+                        <p class="m-0">@productDTO.GetProductPrice()</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="productCrossedPrice">
+                        <p class="m-0">@productDTO.GetProductPrice()</p>
+                    </div>
+                    <div class="productActualPrice">
+                        <p class="m-0">@productDTO.GetProductPromoPrice()</p>
+                    </div>
+                }
+
+            </div>
+        </a>
+    </div>
+}
