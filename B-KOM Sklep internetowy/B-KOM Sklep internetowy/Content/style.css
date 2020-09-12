@@ -525,13 +525,6 @@
     display: flex;
     align-items: center;
 }
-.starOpinion
-{
-    color: #d1d1d1;
-    width: 14px;
-    padding: 0;
-    margin: 0;
-}
 .codeBKOM
 {
     font-size: 14px;
@@ -638,15 +631,19 @@
 }
 
 
-.starYellow
-{
+.starUnderScoreYellow {
     color: orange;
     width: 20px;
     padding: 0;
-    margin: 0;
+    margin: 0 1px;
 }
-.starOpinionGrey
-{
+.starUnderScoreGrey {
+    color: #6b6b6b;
+    width: 20px;
+    padding: 0;
+    margin: 0 1px;
+}
+.starStatisticGrey {
     color: #6b6b6b;
     width: 16px;
     padding: 0;
@@ -665,6 +662,12 @@
 .starOpinionYellow
 {
     color: orange;
+    width: 16px;
+    padding: 0;
+    margin: 0 1px;
+}
+.starOpinionGrey {
+    color: #6b6b6b;
     width: 16px;
     padding: 0;
     margin: 0 1px;

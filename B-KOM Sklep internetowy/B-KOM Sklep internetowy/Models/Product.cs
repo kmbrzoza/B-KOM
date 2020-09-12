@@ -17,6 +17,8 @@ namespace B_KOM_Sklep_internetowy.Models
         public decimal Price { get; set; }
         public string ImgPath { get; set; }
         public DateTime AddDate { get; set; }
+        public string ShortDescription { get; set; }
+        public string Description { get; set; }
         public bool Hidden { get; set; }
         public bool Recommended { get; set; }
         public bool Bestseller { get; set; }
@@ -26,5 +28,6 @@ namespace B_KOM_Sklep_internetowy.Models
         public virtual Category Category { get; set; }
         public virtual List<ProductSpecification> ProductSpecifications { get; set; }
         public virtual List<ProductImage> ProductImages { get; set; }
+        public virtual List<Opinion> Opinions { get; set; }
     }
 }

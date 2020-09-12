@@ -1,0 +1,404 @@
+﻿@model B_KOM_Sklep_internetowy.DTO.ProductDTO
+
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+<div class="m-0 my-2 p-0">
+    <ol class="breadcrumb m-0 p-0 pl-2 bg-white">
+        <li class="breadcrumb-item"><a href="#">Smartfony i akcesoria</a></li>
+        <li class="breadcrumb-item"><a href="#">Smartfony</a></li>
+    </ol>
+</div>
+
+<div class="row m-0 p-0 pt-2">
+    <!-- CAROUSEL WITH IMG OF PRODUCT (left side) -->
+    <div class="col-12 col-md-6 col-xl-5 m-0 p-0">
+        <div id="carouselProduct" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                @for (int i = 0; i < Model.GetProductImagesList().Count(); i++)
+                {
+                    if (i == 0)
+                    {
+                        <li data-target="#carouselProduct" data-slide-to="@i" class="active"></li>
+                    }
+                    else
+                    {
+                        <li data-target="#carouselProduct" data-slide-to="@i"></li>
+                    }
+                }
+            </ol>
+            <div id="carouselProductInner" class="carousel-inner">
+                @for (int i = 0; i < Model.GetProductImagesList().Count(); i++)
+                {
+                    if (i == 0)
+                    {
+                        <div class="carousel-item active">
+                            <a>
+                                <img src="@Url.ProductImgPath(Model.GetProductImagesList().ElementAt(i).ImgPath)" class="productImgCarousel rounded">
+                            </a>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="carousel-item">
+                            <a>
+                                <img src="@Url.ProductImgPath(Model.GetProductImagesList().ElementAt(i).ImgPath)" class="productImgCarousel rounded">
+                            </a>
+                        </div>
+                    }
+
+                }
+
+            </div>
+            <a class="carousel-control-prev" href="#carouselProduct" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselProduct" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- INFO ABOUT PRODUCT (right side) -->
+    <div class="col-12 col-md-6 col-xl-7 row m-0 p-0">
+        <!-- Name Product -->
+        <div class="col-12 m-0 p-0">
+            <h2 class="productName p-0 pl-1 m-0">@Model.Product.Name</h2>
+            <p class="opinionsProduct p-1 m-0">
+                @for (int i = 0; i < 6; i++)
+                {
+                    if (i < Model.GetNumberScoreYellowStarsInt())
+                    {
+                        @Html.Raw(HtmlImages.starOpinionYellow);
+                    }
+                    else
+                    {
+                        @Html.Raw(HtmlImages.starOpinionGrey)
+                    }
+                }
+                (@Model.GetNumberOpinionInt() opinii)
+            </p>
+            <p class="codeBKOM p-1 m-0">kod B-KOM: @Model.Product.ProductId</p>
+        </div>
+
+        <!-- Short description -->
+        <div class="col-12 col-xl-6 p-1 m-0">
+            <div class="border-top border-bottom">
+                <p class="shortDescription p-2 m-0">
+                    @Model.Product.ShortDescription
+                </p>
+            </div>
+        </div>
+        <!-- Add to cart, delivery info -->
+        <div id="addToCart" class="col-12 col-xl-6 p-1 m-0">
+            <div id="addToCartBorder" class="rounded">
+                <span class="addToCartSavedPrice">
+                    @if (Model.Product.Promo)
+                    {<text>Oszczędź @Model.GetProductSavedPrice()</text>}
+            </span>
+            <div class="d-flex align-items-center justify-content-end pb-2 text-break">
+                @if (!Model.Product.Promo)
+                {
+                    <span class="addToCartActualPrice">@Model.GetProductPrice()</span>
+                }
+                else
+                {
+                    <span class="addToCartCrossedPrice">@Model.GetProductPrice()</span>
+                    <span class="addToCartActualPrice">@Model.GetProductPromoPrice()</span>
+                }
+            </div>
+            <div class="d-flex align-items-center justify-content-center m-0 pb-2 border-bottom">
+                <input type="number" value="1" min="1" max="100"
+                       class="addToCartInputNumber form-control form-control-sm m-0 mr-2"
+                       title="Ilość sztuk">
+                <button class="addToCartButton btn btn-success" type="submit" title="Dodaj do koszyka">
+                    @Html.Raw(HtmlImages.cartAddToCartButton)
+                    Dodaj do koszyka
+                </button>
+
+            </div>
+
+            <button class="addToCartUnderButtons btn btn-light d-flex align-items-center pl-1"
+                    type="button" data-toggle="modal" data-target="#whenDeliver">
+                <img class="addToCartUnderButtonsImg" src="~/Content/images/clock.png">
+                <div class="addToCartUnderButtonsText">
+                    <p class="addToCartUnderButtonsHeader">Zamów teraz, otrzymasz za 2 dni</p>
+                    <p class="addToCartUnderButtonsSmall">Dowiedz się więcej</p>
+                </div>
+            </button>
+            <button class="addToCartUnderButtons btn btn-light d-flex align-items-center pl-1"
+                    type="button" data-toggle="modal" data-target="#infoDeliver">
+                <img class="addToCartUnderButtonsImg" src="~/Content/images/delivery.png">
+                <div class="addToCartUnderButtonsText">
+                    <p class="addToCartUnderButtonsHeader text-break">Informacje o dostawie</p>
+                    <p class="addToCartUnderButtonsSmall">Dowiedz się więcej</p>
+                </div>
+            </button>
+            <button class="addToCartUnderButtons btn btn-light d-flex align-items-center pl-1"
+                    type="button" data-toggle="modal" data-target="#checkAvailable">
+                <img class="addToCartUnderButtonsImg" src="~/Content/images/shop.png">
+                <div class="addToCartUnderButtonsText">
+                    <p class="addToCartUnderButtonsHeader text-break">Sprawdź dostępność w salonach</p>
+                    <p class="addToCartUnderButtonsSmall">Wybierz salon</p>
+                </div>
+            </button>
+            <button class="addToCartUnderButtons btn btn-light d-flex align-items-center pl-1"
+                    type="button" data-toggle="modal" data-target="#installments">
+                <img class="addToCartUnderButtonsImg" src="~/Content/images/calendar.png">
+                <div class="addToCartUnderButtonsText">
+                    <p class="addToCartUnderButtonsHeader text-break">Weź na raty</p>
+                    <p class="addToCartUnderButtonsSmall">Oblicz ratę</p>
+                </div>
+            </button>
+
+            <!-- Modals for previous buttons -->
+            <div id="whenDeliver" class="modal fade">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Kiedy dostawa?</h5>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Wszystkie przesyłki dostarczamy w przeciągu 2 dni roboczych.
+                                W przypadku niedostarczenia przesyłku w ciągu 4 dni roboczych od
+                                zamówienia,
+                                prosimy o kontakt telefoniczny.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">
+                                Zamknij
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="infoDeliver" class="modal fade">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Informacje o dostawie</h5>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Na razie koszt każdej przesyłki wynosi 15zł.
+                                Za niedługo zaczniemy współpracować z firmami kurierskimi,
+                                wtedy nasz cennik może się zmienić.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">
+                                Zamknij
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="checkAvailable" class="modal fade">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Sprawdź dostepność</h5>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Wszystkie produkty dostępne są w sklepie internetowym.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">
+                                Zamknij
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="installments" class="modal fade">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Weź na raty</h5>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span>&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Na razie raty w naszym sklepie są niedostępne.
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">
+                                Zamknij
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="productDescription text-center border-top mt-4 py-4">
+    <img src="@Url.ProductImgPath(Model.GetDescriptionImg())" class="imgDescription">
+    <p class="productDescriptionText">
+        @Model.Product.Description
+    </p>
+</div>
+
+<div class="border-top m-0 p-0 py-1">
+    <h2>Specyfikacja</h2>
+    <table class="table table-hover table-striped">
+        <tbody>
+            @foreach (var specs in Model.Product.ProductSpecifications)
+            {
+                <tr>
+                    <td class="font-weight-bold m-0 p-2">
+                        @specs.Specification.Name
+                    </td>
+                    <td class="m-0 p-2">
+                        @specs.Value
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="border-top m-0 p-0 py-1">
+    <h2>Opinie</h2>
+    <div class="row d-flex justify-content-between align-items-center m-0 p-0">
+        <div class="col-12 col-md-3 text-center p-0 m-0">
+            <h1 class="p-0 m-0">@Model.GetOpinionScoreStr() <span class="small">/ 6</span></h1>
+            <p class="p-0 m-0">
+                @for (int i = 0; i < 6; i++)
+                {
+                    if (i < Model.GetNumberScoreYellowStarsInt())
+                    {
+                        @Html.Raw(HtmlImages.starUnderScoreYellow);
+                    }
+                    else
+                    {
+                        @Html.Raw(HtmlImages.starUnderScoreGrey);
+                    }
+                }
+            </p>
+            <p class="small text-dark p-0 m-0">
+                (@Model.GetNumberOpinionInt() opinii)
+            </p>
+        </div>
+
+        <div class="col-12 col-md-6 text-center p-0 m-0">
+            @for (int i = 6; i > 0; i--)
+            {
+                <div class="d-flex align-items-center justify-content-center pt-1">
+                    @Html.Raw(HtmlImages.starStatisticGrey)
+                    <span class="pr-1">@i</span>
+                    <div class="progress opinionProgresBar">
+                        <div class="progress-bar bg-secondary" role="progressbar" style="width: @Model.GetPercentageStatisticStarStr(i);"></div>
+                    </div>
+                    <span class="pl-1">@Model.GetNumberStatisticStarInt(i)</span>
+                </div>
+            }
+        </div>
+
+        <div class="col-12 col-md-3 border rounded text-center p-4 m-0">
+            <h4>Posiadasz ten produkt?</h4>
+            <p class="p-0 m-0 pb-2">Pomóż innym użytkownikom w wyborze</p>
+            <button class="btn btn-primary m-0" data-toggle="modal" data-target="#addOpinion">
+                Dodaj
+                opinię
+            </button>
+        </div>
+
+        <div id="addOpinion" class="modal fade">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Dodaj opinię</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <input class="form-control" type="text" title="Imię" placeholder="Podaj imię">
+                            <textarea class="form-control my-2" placeholder="Wpisz komentarz"></textarea>
+                            @Html.Raw(HtmlImages.starOpinionYellow)
+                            <select name="Gwiazdki">
+                                <option value="6">6</option>
+                                <option value="5">5</option>
+                                <option value="4">4</option>
+                                <option value="3">3</option>
+                                <option value="2">2</option>
+                                <option value="1">1</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary ml-1">Prześlij opinię</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">
+                            Zamknij
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <h5 class="pt-4">Opinie użytkowników <span class="small text-secondary">(@Model.GetNumberOpinionInt())</span></h5>
+    <div class="p-0 m-0">
+        @foreach (var opinion in Model.Product.Opinions)
+        {
+            <div class="row border-top m-0 py-4">
+                <div class="col-2 d-flex align-items-center justify-content-center">
+                    @Html.Raw(HtmlImages.opinionAvatar)
+                    <p class="pl-2 m-0">@opinion.UserName</p>
+                </div>
+                <div class="col-10">
+                    <div class="p-0 m-0 d-flex">
+                        @for (int i = 0; i < 6; i++)
+                        {
+                            if (i < opinion.StarsValue)
+                            {
+                                @Html.Raw(HtmlImages.starOpinionYellow)
+                            }
+                            else
+                            {
+                                @Html.Raw(HtmlImages.starOpinionGrey)
+                            }
+                        }
+                        <span class="p-0 pl-1 m-0">@opinion.DateTime.ToShortDateString()</span>
+                    </div>
+                    <p class="text-break">
+                        @opinion.OpinionText
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</div>

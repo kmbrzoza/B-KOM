@@ -26,6 +26,6 @@ namespace B_KOM_Sklep_internetowy.DAL
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
-
+        public DbSet<Opinion> Opinions { get; set; }
     }
 }

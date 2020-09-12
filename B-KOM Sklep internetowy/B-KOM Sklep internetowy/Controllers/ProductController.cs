@@ -23,6 +23,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
         {
             var category = db.Categories.Include("Products").Where(c => c.LinkName.ToLower() == categoryLinkName).Single();
             ViewBag.categoryName = category.Name;
+
             var products = category.Products.ToList();
 
             var productsDTO = new List<ProductDTO>();
@@ -36,9 +37,11 @@ namespace B_KOM_Sklep_internetowy.Controllers
         }
 
         // GET: produkt/{id}
-        public ActionResult Details(string id)
+        public ActionResult Details(int id)
         {
-            return View(id);
+            var product = db.Products.Find(id);
+            var productDTO = new ProductDTO() { Product = product };
+            return View(productDTO);
         }
     }
 }

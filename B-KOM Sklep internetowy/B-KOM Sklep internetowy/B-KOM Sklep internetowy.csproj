@@ -97,12 +97,6 @@
   <ItemGroup>
     <Content Include="Content\images\avatar.svg" />
     <Content Include="Content\images\calendar.png" />
-    <Content Include="Content\images\MainCategories\accessories.png" />
-    <Content Include="Content\images\MainCategories\cpu.png" />
-    <Content Include="Content\images\MainCategories\laptop.png" />
-    <Content Include="Content\images\MainCategories\peripherals.png" />
-    <Content Include="Content\images\MainCategories\smarthome.png" />
-    <Content Include="Content\images\MainCategories\smartphone.png" />
     <Content Include="Content\images\clock.png" />
     <Content Include="Content\images\clock.svg" />
     <Content Include="Content\images\copyright.svg" />
@@ -113,20 +107,30 @@
     <Content Include="Content\images\hotDeal.png" />
     <Content Include="Content\images\ig.svg" />
     <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\MainCategories\accessories.png" />
+    <Content Include="Content\images\MainCategories\cpu.png" />
+    <Content Include="Content\images\MainCategories\laptop.png" />
+    <Content Include="Content\images\MainCategories\peripherals.png" />
+    <Content Include="Content\images\MainCategories\smarthome.png" />
+    <Content Include="Content\images\MainCategories\smartphone.png" />
     <Content Include="Content\images\next.svg" />
     <Content Include="Content\images\placeholder.svg" />
-    <Content Include="Content\images\Products\1.png" />
-    <Content Include="Content\images\Products\10.png" />
-    <Content Include="Content\images\Products\11.png" />
-    <Content Include="Content\images\Products\12.png" />
-    <Content Include="Content\images\Products\2.png" />
-    <Content Include="Content\images\Products\3.png" />
-    <Content Include="Content\images\Products\4.png" />
-    <Content Include="Content\images\Products\5.png" />
-    <Content Include="Content\images\Products\6.png" />
-    <Content Include="Content\images\Products\7.png" />
-    <Content Include="Content\images\Products\8.png" />
-    <Content Include="Content\images\Products\9.png" />
+    <Content Include="Content\images\Products\10\1.png" />
+    <Content Include="Content\images\Products\11\1.png" />
+    <Content Include="Content\images\Products\12\1.png" />
+    <Content Include="Content\images\Products\1\1.png" />
+    <Content Include="Content\images\Products\2\1.png" />
+    <Content Include="Content\images\Products\3\1.png" />
+    <Content Include="Content\images\Products\4\1.png" />
+    <Content Include="Content\images\Products\5\1.png" />
+    <Content Include="Content\images\Products\6\1.png" />
+    <Content Include="Content\images\Products\6\2.png" />
+    <Content Include="Content\images\Products\6\3.png" />
+    <Content Include="Content\images\Products\6\4.png" />
+    <Content Include="Content\images\Products\6\description.png" />
+    <Content Include="Content\images\Products\7\1.png" />
+    <Content Include="Content\images\Products\8\1.png" />
+    <Content Include="Content\images\Products\9\1.png" />
     <Content Include="Content\images\promo1.png" />
     <Content Include="Content\images\promo2.png" />
     <Content Include="Content\images\promo3.png" />
@@ -134,17 +138,9 @@
     <Content Include="Content\images\security.svg" />
     <Content Include="Content\images\shop.png" />
     <Content Include="Content\images\shopping-cart.svg" />
-    <Content Include="Content\images\smsngnote20u.png" />
     <Content Include="Content\images\star.svg" />
     <Content Include="Content\images\telephone-handle-silhouette.svg" />
     <Content Include="Content\images\twit.svg" />
-    <Content Include="Content\images\xiaomi 1.png" />
-    <Content Include="Content\images\xiaomi 2.png" />
-    <Content Include="Content\images\xiaomi 3.png" />
-    <Content Include="Content\images\xiaomi 4.png" />
-    <Content Include="Content\images\xiaomi descr.png" />
-    <Content Include="Content\images\xiaomiminote10lite.png" />
-    <Content Include="Content\images\xiaomirm9.png" />
     <Content Include="Content\images\yt.svg" />
     <Content Include="Content\style.css" />
     <Content Include="Global.asax" />
@@ -168,6 +164,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AppConfig.cs" />
+    <Compile Include="Infrastructure\HtmlImages.cs" />
     <Compile Include="Infrastructure\UrlHelpers.cs" />
     <Compile Include="Migrations\202009070855440_InitialCreate.cs" />
     <Compile Include="Migrations\202009070855440_InitialCreate.designer.cs">
@@ -193,9 +190,30 @@
     <Compile Include="Migrations\202009091352576_addedProductImgV3.designer.cs">
       <DependentUpon>202009091352576_addedProductImgV3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009101511147_editedProduct.cs" />
+    <Compile Include="Migrations\202009101511147_editedProduct.designer.cs">
+      <DependentUpon>202009101511147_editedProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009101525307_editedProductv2.cs" />
+    <Compile Include="Migrations\202009101525307_editedProductv2.designer.cs">
+      <DependentUpon>202009101525307_editedProductv2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009111331072_editedSpecsv1.cs" />
+    <Compile Include="Migrations\202009111331072_editedSpecsv1.designer.cs">
+      <DependentUpon>202009111331072_editedSpecsv1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009120729316_addedOpinions.cs" />
+    <Compile Include="Migrations\202009120729316_addedOpinions.designer.cs">
+      <DependentUpon>202009120729316_addedOpinions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009121004000_editedOpinionV1.cs" />
+    <Compile Include="Migrations\202009121004000_editedOpinionV1.designer.cs">
+      <DependentUpon>202009121004000_editedOpinionV1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\MainCategory.cs" />
+    <Compile Include="Models\Opinion.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />
@@ -221,6 +239,7 @@
     <Content Include="Views\Product\Categories.cshtml" />
     <Content Include="Views\Product\_CategoriesProductsList.cshtml" />
     <Content Include="Views\Common\_Menu.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -231,7 +250,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Cart\" />
-    <Folder Include="Views\Category\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202009070855440_InitialCreate.resx">
@@ -251,6 +269,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009091352576_addedProductImgV3.resx">
       <DependentUpon>202009091352576_addedProductImgV3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009101511147_editedProduct.resx">
+      <DependentUpon>202009101511147_editedProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009101525307_editedProductv2.resx">
+      <DependentUpon>202009101525307_editedProductv2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009111331072_editedSpecsv1.resx">
+      <DependentUpon>202009111331072_editedSpecsv1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009120729316_addedOpinions.resx">
+      <DependentUpon>202009120729316_addedOpinions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009121004000_editedOpinionV1.resx">
+      <DependentUpon>202009121004000_editedOpinionV1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -72,7 +72,15 @@ namespace B_KOM_Sklep_internetowy.DAL
                                 AddDate=DateTime.Now, Hidden=false, Recommended=true, Bestseller=true, Promo=false, PromoPrice=0 },
                 new Product() { ProductId=6, CategoryId=11, Name = "Xiaomi Mi 10 8/128", Price=3499,
                                 ImgPath="6/1.png",
-                                AddDate=DateTime.Now, Hidden=false, Recommended=true, Bestseller=true, Promo=true, PromoPrice=2999 },
+                                AddDate=DateTime.Now, Hidden=false, Recommended=true, Bestseller=true, Promo=true, PromoPrice=2999,
+                                ShortDescription="Najnowszy flagowy model Xiaomi Mi 10 ze świetnymi"+
+                                "parametrami w niesamowitej cenie!"+
+                                ""+
+                                "Ekran: 6,67\""+
+                                "Procesor: Qualcomm Snapdragon 865"+
+                                "Pamięć: 128 GB",
+                                Description="Światła, kamera, akcja. Oto Xiaomi Mi 10 szary, smartfon wypełniony po brzegi najnowocześniejszymi technologiami. Ultrawydajny procesor oraz 8GB pamięci RAM sprawiają, że wszystkie procesy realizowane są w mgnieniu oka. Z Mi 10 możesz wejść do nowej ery, za sprawą obsługiwanej łączności 5G oraz niebywale szybkiemu standardowi WiFi 6. Rób niesamowite zdjęcia za sprawą czterech obiektywów, z czego obiektyw główny oferuje aż 108 Mpix. Nagrywaj filmy w rozdzielczości 8K, a efekty swoich prac podziwiaj na ekranie AMOLED z częstotliwością odświeżania 90Hz. Sprawdź, jak Xiaomi Mi 10 szary wygląda w rzeczywistości. Chwyć zdjęcie poniżej i przeciągnij je w lewo lub prawo aby obrócić produkt lub skorzystaj z przycisków nawigacyjnych. Będąc pionierem aparatów w smartfonach, Mi 10 przenosi fotografię na zupełnie nowy poziom. Wspierany przez technologię Qualcomm Spectra™ 480 ISP, sztuczną inteligencję AI oraz bezstratnej kompresji HEIF jest w stanie w pełni wykorzystać potencjał obiektywu 108 Mpix. Bardziej wydajny i responsywny system aparatu pozwala szybciej robić zjawiskowe zdjęcia w niepowtarzanej rozdzielczości i przechowywać je przy użyciu o 50% mniej miejsca. Dodatkowo korzystaj z obiektywu ultraszerokokątnego, obiektywu makro, czy aparatu służącego do nadania głębi fotografii. Zarejestruj piękne wspomnienia nagrywające w rozdzielczości 8K."
+                                },
                 new Product() { ProductId=7, CategoryId=3, Name = "AMD Ryzen 5 3600", Price=849,
                                 ImgPath="7/1.png",
                                 AddDate=DateTime.Now, Hidden=false, Recommended=true, Bestseller=true, Promo=false, PromoPrice=0 },
@@ -111,13 +119,60 @@ namespace B_KOM_Sklep_internetowy.DAL
                 new ProductImage() { ProductImageId=10, ProductId=10, ImgPath="10/1.png", MainImg=true},
                 new ProductImage() { ProductImageId=11, ProductId=11, ImgPath="11/1.png", MainImg=true},
                 new ProductImage() { ProductImageId=12, ProductId=12, ImgPath="12/1.png", MainImg=true},
-                new ProductImage() { ProductImageId=13, ProductId=6, ImgPath="2/1.png"},
-                new ProductImage() { ProductImageId=14, ProductId=6, ImgPath="3/1.png"},
-                new ProductImage() { ProductImageId=15, ProductId=6, ImgPath="4/1.png"},
-                new ProductImage() { ProductImageId=16, ProductId=6, ImgPath="4/description.png", DescriptionImg=true},
+                new ProductImage() { ProductImageId=13, ProductId=6, ImgPath="6/2.png"},
+                new ProductImage() { ProductImageId=14, ProductId=6, ImgPath="6/3.png"},
+                new ProductImage() { ProductImageId=15, ProductId=6, ImgPath="6/4.png"},
+                new ProductImage() { ProductImageId=16, ProductId=6, ImgPath="6/description.png", DescriptionImg=true},
             };
 
             productImg.ForEach(c => context.ProductImages.AddOrUpdate(c));
+            context.SaveChanges();
+
+            var specs = new List<Specification>()
+            {
+                new Specification() { SpecificationId=1, Name="Producent" },
+                new Specification() { SpecificationId=2, Name="Procesor" },
+                new Specification() { SpecificationId=3, Name="Układ graficzny" },
+                new Specification() { SpecificationId=4, Name="Pamięc RAM" },
+                new Specification() { SpecificationId=5, Name="Pamięć wbudowana" },
+                new Specification() { SpecificationId=6, Name="Typ ekranu" },
+                new Specification() { SpecificationId=7, Name="Częstotliwość odświeżania ekranu" },
+                new Specification() { SpecificationId=8, Name="Przekątna ekranu" },
+                new Specification() { SpecificationId=9, Name="Rozdzielczość ekranu" },
+                new Specification() { SpecificationId=10, Name="Pojemność baterii" },
+            };
+
+            specs.ForEach(c => context.Specifications.AddOrUpdate(c));
+            context.SaveChanges();
+
+            var prodSpecs = new List<ProductSpecification>()
+            {
+                new ProductSpecification() { ProductSpecificationId=1, SpecificationId=1, ProductId=6, Value="Xiaomi" },
+                new ProductSpecification() { ProductSpecificationId=2, SpecificationId=2, ProductId=6, Value="Qualcomm Snapdragon 865 (8 rdzeni, 2.84 GHz, Kryo)" },
+                new ProductSpecification() { ProductSpecificationId=3, SpecificationId=3, ProductId=6, Value="Adreno 650" },
+                new ProductSpecification() { ProductSpecificationId=4, SpecificationId=4, ProductId=6, Value="8 GB" },
+                new ProductSpecification() { ProductSpecificationId=5, SpecificationId=5, ProductId=6, Value="128 GB" },
+                new ProductSpecification() { ProductSpecificationId=6, SpecificationId=6, ProductId=6, Value="Dotykowy, AMOLED" },
+                new ProductSpecification() { ProductSpecificationId=7, SpecificationId=7, ProductId=6, Value="90 Hz" },
+                new ProductSpecification() { ProductSpecificationId=8, SpecificationId=8, ProductId=6, Value="6,67\"" },
+                new ProductSpecification() { ProductSpecificationId=9, SpecificationId=9, ProductId=6, Value="2340 x 1080" },
+                new ProductSpecification() { ProductSpecificationId=10, SpecificationId=10, ProductId=6, Value="4780 mAh" },
+            };
+
+            prodSpecs.ForEach(c => context.ProductSpecifications.AddOrUpdate(c));
+            context.SaveChanges();
+
+            var opinions = new List<Opinion>()
+            {
+                new Opinion(){ Opinionid=1, ProductId=6, StarsValue=6, UserName="Kris", DateTime=DateTime.Now,
+                    OpinionText="Bardzo dobry telefon. Polecam serdecznie każdemu kto nie może się zdecydować!", Accepted=true },
+                new Opinion(){ Opinionid=2, ProductId=6, StarsValue=5, UserName="Maucin", DateTime=DateTime.Now,
+                    OpinionText="Świetny telefon. Nie mogłem się zdecydować, ale ostateczny wybór padł na Mi 10. Nie żałuję decyzji.", Accepted=true },
+                new Opinion(){ Opinionid=3, ProductId=6, StarsValue=1, UserName="Patec", DateTime=DateTime.Now,
+                    OpinionText="Bardzo dobry polecam każdemu", Accepted=true },
+            };
+
+            opinions.ForEach(c => context.Opinions.AddOrUpdate(c));
             context.SaveChanges();
         }
     }
