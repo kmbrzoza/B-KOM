@@ -70,9 +70,9 @@
                         </a>
                     </li>
                     <li class="navbarMenuLi nav-item text-center">
-                        <a class="nav-link" href="#" title="Koszyk">
+                        <a class="nav-link" href="@Url.Action("Index", "Koszyk")" title="Koszyk">
                             @Html.Raw(HtmlImages.cartIcon)
-                            <span class="navbarMenuText">Koszyk <span class="badge badge-primary">2</span></span>
+                            <span class="navbarMenuText">Koszyk <span class="badge badge-primary">@Html.Action("GetAmountCartItems", "Cart")</span></span>
                         </a>
                     </li>
                 </ul>
@@ -164,7 +164,7 @@
     </div>
 
 
-    @RenderSection("Scripts", required: false);
+    @RenderSection("Scripts", required: false)
 
 
     <!-- Optional JavaScript -->

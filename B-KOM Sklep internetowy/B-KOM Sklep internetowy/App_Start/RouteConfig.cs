@@ -20,6 +20,12 @@ namespace B_KOM_Sklep_internetowy
                 );
 
             routes.MapRoute(
+                name: "Cart",
+                url: "koszyk/",
+                defaults: new { controller = "Cart", action = "Index" }
+                );
+
+            routes.MapRoute(
                 name: "Product",
                 url: "produkt/{id}",
                 defaults: new { controller = "Product", action = "Details" }

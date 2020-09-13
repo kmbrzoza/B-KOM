@@ -696,3 +696,14 @@
 {
     font-size: 14px;
 }
+
+
+
+/* **** */
+
+
+.login-validation-message
+{
+    color: red;
+    font-size: 14px;
+}

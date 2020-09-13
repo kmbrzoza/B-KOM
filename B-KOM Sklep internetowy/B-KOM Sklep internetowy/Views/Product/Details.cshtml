@@ -12,7 +12,7 @@
         <li class="breadcrumb-item"><a href="@Url.Content("~/")">B-KOM</a></li>
         <li class="breadcrumb-item"><a href="#">@Model.Product.Category.MainCategory.Name</a></li>
         <li class="breadcrumb-item">
-            <a href="@Url.Action("Categories", "Product", new {categoryLinkName = Model.Product.Category.LinkName })">
+            <a href="@Url.Action("CategoryProducts", "Product", new {categoryLinkName = Model.Product.Category.LinkName })">
                 @Model.Product.Category.Name
             </a>
         </li>
@@ -122,10 +122,10 @@
                     <input type="number" value="1" min="1" max="100"
                            class="addToCartInputNumber form-control form-control-sm m-0 mr-2"
                            title="Ilość sztuk">
-                    <button class="addToCartButton btn btn-success" type="submit" title="Dodaj do koszyka">
+                    <a href="@Url.Action("AddToCart", "Cart", new { id = Model.Product.ProductId })" class="addToCartButton btn btn-success" title="Dodaj do koszyka">
                         @Html.Raw(HtmlImages.cartAddToCartButton)
                         Dodaj do koszyka
-                    </button>
+                    </a>
 
                 </div>
 
@@ -266,7 +266,10 @@
 </div>
 
 <div class="productDescription text-center border-top mt-4 py-4">
-    <img src="@Url.ProductImgPath(Model.GetDescriptionImg())" class="imgDescription">
+    @if (Model.GetDescriptionImg() != "")
+    {
+        <img src="@Url.ProductImgPath(Model.GetDescriptionImg())" class="imgDescription">
+    }
     <p class="productDescriptionText">
         @Model.Product.Description
     </p>
