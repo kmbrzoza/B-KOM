@@ -3,7 +3,7 @@
     ViewBag.Title = "Register";
 }
 
-<h2>Zarejestruj</h2>
+<h2 class="pt-2">Zarejestruj</h2>
 
 <div>
     @using (Html.BeginForm("Register", "Account"))
@@ -12,13 +12,14 @@
 
         <div id="login-error">
             @Html.ValidationMessage("loginerror")
+            @Html.ValidationSummary()
         </div>
 
         <table id="login-table" class="justify-content-center d-flex">
             <tr>
                 <td>@Html.LabelFor(c => c.Email)</td>
                 <td>
-                    @Html.TextBoxFor(c => c.Email)
+                    @Html.TextBoxFor(c => c.Email, new { @class = "form-control" })
                     <div class="login-validation-message">
                         @Html.ValidationMessageFor(c => c.Email)
                     </div>
@@ -27,7 +28,7 @@
             <tr>
                 <td>@Html.LabelFor(c => c.Password)</td>
                 <td>
-                    @Html.PasswordFor(c => c.Password)
+                    @Html.PasswordFor(c => c.Password, new { @class = "form-control" })
                     <div class="login-validation-message">
                         @Html.ValidationMessageFor(c => c.Password)
                     </div>
@@ -36,7 +37,7 @@
             <tr>
                 <td>@Html.LabelFor(c => c.ConfirmPassowrd)</td>
                 <td>
-                    @Html.PasswordFor(c => c.ConfirmPassowrd)
+                    @Html.PasswordFor(c => c.ConfirmPassowrd, new { @class = "form-control" })
                     <div class="login-validation-message">
                         @Html.ValidationMessageFor(c => c.ConfirmPassowrd)
                     </div>
@@ -44,7 +45,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type="submit" value="Zarejestruj" />
+                    <input type="submit" value="Zarejestruj" class="btn btn-primary" />
                 </td>
             </tr>
         </table>

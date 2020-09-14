@@ -707,3 +707,8 @@
     color: red;
     font-size: 14px;
 }
+
+.login-buttons{
+    border-radius: 20px;
+    width: 85%;
+}

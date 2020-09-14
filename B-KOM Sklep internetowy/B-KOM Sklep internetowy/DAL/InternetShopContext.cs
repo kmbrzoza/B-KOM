@@ -1,4 +1,5 @@
 ﻿using B_KOM_Sklep_internetowy.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +8,7 @@ using System.Web;
 
 namespace B_KOM_Sklep_internetowy.DAL
 {
-    public class InternetShopContext: DbContext
+    public class InternetShopContext: IdentityDbContext<ApplicationUser>
     {
         public InternetShopContext():base("InternetShopContext")
         {
@@ -16,6 +17,11 @@ namespace B_KOM_Sklep_internetowy.DAL
         static InternetShopContext()
         {
             Database.SetInitializer<InternetShopContext>(new DatabaseInitializer());
+        }
+
+        public static InternetShopContext Create()
+        {
+            return new InternetShopContext();
         }
 
         public DbSet<MainCategory> MainCategories { get; set; }

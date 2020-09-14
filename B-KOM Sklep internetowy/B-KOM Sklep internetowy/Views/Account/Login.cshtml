@@ -3,7 +3,7 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Zaloguj</h2>
+<h2 class="pt-2">Zaloguj</h2>
 
 <div>
     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
@@ -18,7 +18,7 @@
             <tr>
                 <td>@Html.LabelFor(c => c.Email)</td>
                 <td>
-                    @Html.TextBoxFor(c => c.Email)
+                    @Html.TextBoxFor(c => c.Email, new { @class = "form-control" })
                     <div class="login-validation-message">
                         @Html.ValidationMessageFor(c => c.Email)
                     </div>
@@ -27,7 +27,7 @@
             <tr>
                 <td>@Html.LabelFor(c => c.Password)</td>
                 <td>
-                    @Html.PasswordFor(c => c.Password)
+                    @Html.PasswordFor(c => c.Password, new { @class = "form-control" })
                     <div class="login-validation-message">
                         @Html.ValidationMessageFor(c => c.Password)
                     </div>
@@ -43,7 +43,7 @@
             </tr>
             <tr>
                 <td>
-                    <input type="submit" value="Zaloguj" />
+                    <input type="submit" value="Zaloguj" class="btn btn-primary" />
                 </td>
             </tr>
         </table>

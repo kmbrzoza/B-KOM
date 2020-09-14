@@ -67,15 +67,29 @@
                 </form>
                 <ul id="navbarMenu" class="navbar-nav">
                     <li class="navbarMenuLi nav-item text-center">
-                        <a class="nav-link" href="#" title="Konto">
-                            <svg fill="currentColor" class="navbarMenuImg" xmlns="http://www.w3.org/2000/svg"
-                                viewBox="0 0 24 24">
-                                <path fill-rule="evenodd"
-                                    d="M12 2.5a5.5 5.5 0 00-3.096 10.047 9.005 9.005 0 00-5.9 8.18.75.75 0 001.5.045 7.5 7.5 0 0114.993 0 .75.75 0 101.499-.044 9.005 9.005 0 00-5.9-8.181A5.5 5.5 0 0012 2.5zM8 8a4 4 0 118 0 4 4 0 01-8 0z">
-                                </path>
-                            </svg>
-                            <span class="navbarMenuText">Konto</span>
-                        </a>
+                        <div class="dropdown">
+                            <a class=" nav-link" href="#" role="button" id="dropdownMenuLink"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <svg fill="currentColor" class="navbarMenuImg" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24">
+                                    <path fill-rule="evenodd"
+                                        d="M12 2.5a5.5 5.5 0 00-3.096 10.047 9.005 9.005 0 00-5.9 8.18.75.75 0 001.5.045 7.5 7.5 0 0114.993 0 .75.75 0 101.499-.044 9.005 9.005 0 00-5.9-8.181A5.5 5.5 0 0012 2.5zM8 8a4 4 0 118 0 4 4 0 01-8 0z">
+                                    </path>
+                                </svg>
+                                <span class="navbarMenuText">Konto</span>
+                            </a>
+
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <span class="small pl-2">Cześć</span>
+                                <h4 class="pl-2">Krzysztof</h4>
+                                <a class="dropdown-item" href="#">Twoje konto</a>
+                                <a class="dropdown-item" href="#">Zamówienia</a>
+                                <a class="dropdown-item" href="#">Ulubione</a>
+                                <a class="dropdown-item" href="#">Ustawienia konta</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Wyloguj się</a>
+                            </div>
+                        </div>
                     </li>
                     <li class="navbarMenuLi nav-item text-center">
                         <a class="nav-link" href="#" title="Ulubione">

@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNet.Identity
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+
+@if (Request.IsAuthenticated)
+{
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <span class="pl-2">Cześć</span>
+        <h4 class="pl-2">
+            @Html.ActionLink(User.Identity.GetUserName(), "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </h4>
+        <a class="dropdown-item" href="#">Twoje konto</a>
+        <a class="dropdown-item" href="#">Zamówienia</a>
+        <a class="dropdown-item" href="#">Ulubione</a>
+        <a class="dropdown-item" href="#">Ustawienia konta</a>
+        <div class="dropdown-divider"></div>
+        <div class="text-center">
+            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <button type="submit" class="btn btn-primary login-buttons">Wyloguj</button>
+            }
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="dropdown-menu text-center" aria-labelledby="dropdownMenuLink">
+        <div>
+            @Html.ActionLink("Zaloguj", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "btn btn-primary login-buttons" })
+        </div>
+        <div class="dropdown-divider"></div>
+        <div>
+            @Html.ActionLink("Zarejestruj", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-outline-primary login-buttons" })
+        </div>
+    </div>
+}

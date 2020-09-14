@@ -58,11 +58,17 @@
                 </form>
                 <ul id="navbarMenu" class="navbar-nav">
                     <li class="navbarMenuLi nav-item text-center">
-                        <a class="nav-link" href="#" title="Konto">
-                            @Html.Raw(HtmlImages.accountIcon)
-                            <span class="navbarMenuText">Konto</span>
-                        </a>
-                    </li>
+                        <div class="dropdown">
+                            <a class=" nav-link" href="#" role="button" id="dropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @Html.Raw(HtmlImages.accountIcon)
+                                <span class="navbarMenuText">Konto</span>
+                            </a>
+
+                            @Html.Partial("_LoginPartial")
+
+                        </div>
+</li>
                     <li class="navbarMenuLi nav-item text-center">
                         <a class="nav-link" href="#" title="Ulubione">
                             @Html.Raw(HtmlImages.favouriteIcon)
