@@ -89,11 +89,11 @@
                     <div id="cartPriceOrderSum">
                         <span class="float-left">Łączna kwota:</span> <span class="float-right">@Model.GetTotalPrice()</span>
                     </div>
-                    <button id="cartPriceOrderGoToOrder" class="btn btn-success" type="submit"
+                    <a href="@Url.Action("Order", "Cart")" id="cartPriceOrderGoToOrder" class="btn btn-success"
                             title="Przejdź do dostawy">
                         Przejdź do dostawy
                         @Html.Raw(HtmlImages.rightArrow)
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

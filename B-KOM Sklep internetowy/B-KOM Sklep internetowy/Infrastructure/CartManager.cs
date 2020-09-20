@@ -98,6 +98,7 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
         {
             var cart = GetCart();
             newOrder.OrderDate = DateTime.Now;
+            newOrder.UserId = userId;
 
             db.Orders.Add(newOrder);
 
@@ -108,15 +109,29 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
 
             foreach (var cartItem in cart)
             {
-                var orderItem = new OrderItem()
+                if(cartItem.Product.Promo)
                 {
-                    ProductId = cartItem.Product.ProductId,
-                    Amount = cartItem.Amount,
-                    Price = cartItem.Product.Price //ITS BAD I THINK (Promo)
-                };
+                    var orderItem = new OrderItem()
+                    {
+                        ProductId = cartItem.Product.ProductId,
+                        Amount = cartItem.Amount,
+                        Price = cartItem.Product.PromoPrice
+                    };
+                    cartValue += (cartItem.Amount * cartItem.Product.PromoPrice);
+                    newOrder.OrderItems.Add(orderItem);
+                }
+                else
+                {
+                    var orderItem = new OrderItem()
+                    {
+                        ProductId = cartItem.Product.ProductId,
+                        Amount = cartItem.Amount,
+                        Price = cartItem.Product.Price
+                    };
+                    cartValue += (cartItem.Amount * cartItem.Product.Price);
+                    newOrder.OrderItems.Add(orderItem);
+                }
 
-                cartValue += (cartItem.Amount * cartItem.Product.Price);
-                newOrder.OrderItems.Add(orderItem);
             }
 
             newOrder.OrderValue = cartValue;

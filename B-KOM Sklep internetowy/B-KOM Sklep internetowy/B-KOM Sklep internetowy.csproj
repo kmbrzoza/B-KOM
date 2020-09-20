@@ -189,8 +189,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DAL\DatabaseInitializer.cs" />
@@ -257,6 +259,18 @@
     <Compile Include="Migrations\202009141339498_addedAspIdentity.designer.cs">
       <DependentUpon>202009141339498_addedAspIdentity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009161314339_updatedOrder.cs" />
+    <Compile Include="Migrations\202009161314339_updatedOrder.designer.cs">
+      <DependentUpon>202009161314339_updatedOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009161325399_updateOrdersv2.cs" />
+    <Compile Include="Migrations\202009161325399_updateOrdersv2.designer.cs">
+      <DependentUpon>202009161325399_updateOrdersv2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009191445086_Admin.cs" />
+    <Compile Include="Migrations\202009191445086_Admin.designer.cs">
+      <DependentUpon>202009191445086_Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
@@ -275,6 +289,7 @@
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -299,6 +314,17 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Cart\Order.cshtml" />
+    <Content Include="Views\Cart\OrderConfirmation.cshtml" />
+    <Content Include="Views\Manage\AccountSettings.cshtml" />
+    <Content Include="Views\Manage\_LeftList.cshtml" />
+    <Content Include="Views\Manage\OrdersList.cshtml" />
+    <Content Include="Views\Manage\OrderDetails.cshtml" />
+    <Content Include="Views\Common\Error.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_LeftListAdmin.cshtml" />
+    <Content Include="Views\Admin\OrdersList.cshtml" />
+    <Content Include="Views\Admin\OrderDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -345,6 +371,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009141339498_addedAspIdentity.resx">
       <DependentUpon>202009141339498_addedAspIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009161314339_updatedOrder.resx">
+      <DependentUpon>202009161314339_updatedOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009161325399_updateOrdersv2.resx">
+      <DependentUpon>202009161325399_updateOrdersv2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009191445086_Admin.resx">
+      <DependentUpon>202009191445086_Admin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

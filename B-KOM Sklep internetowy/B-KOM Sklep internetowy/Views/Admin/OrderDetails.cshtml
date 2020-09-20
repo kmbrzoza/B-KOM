@@ -1,0 +1,150 @@
+﻿@model B_KOM_Sklep_internetowy.Models.Order
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+@{
+    ViewBag.Title = "Admin - Szczegóły zamówienia";
+    Layout = "~/Views/Admin/_LeftListAdmin.cshtml";
+}
+
+
+<div class="col-12 col-md-9 m-0">
+
+    <a href="@Url.Action("OrdersList", "Admin")" class="rounded-button btn btn-light">@Html.Raw(HtmlImages.leftArrow) Wróć do wyszukiwarki zamówień</a>
+
+    @if (Model != null)
+    {
+        <div class="border-top mt-2 pt-2 text-center">
+
+            @using (Html.BeginForm("ChangeOrderStatus", "Admin"))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.HiddenFor(c => Model.OrderId)
+                @Html.EnumDropDownListFor(c => Model.OrderStatus, new { @class = "form-control" })
+                <input type="submit" class="btn btn-primary rounded-button" value="Zatwierdź" />
+            }
+            <h2 class="font-weight-normal">Status zamówienia: <span class="font-weight-bold">@Model.OrderStatus</span></h2>
+
+            <h4 class="font-weight-normal">Zamówienie nr <span class="font-weight-bold">@Model.OrderId</span></h4>
+            <p class="text-muted m-0 p-0">z dnia @Model.OrderDate.ToLongDateString()</p>
+        </div>
+
+        <div class="pt-4 text-center">
+            <h2>Zmień dane zamówienia</h2>
+            @using (Html.BeginForm("ChangeOrderDetails", "Admin"))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.HiddenFor(c => Model.OrderId)
+                <table class="d-flex justify-content-center pb-1">
+                    <tr>
+                        <td>Nazwa użytkownika:</td>
+                        <td>@Model.User.UserName</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(c => c.FirstName, "Imię: ")</td>
+                        <td>
+                            @Html.TextBoxFor(c => c.FirstName, new { @class = "form-control" })
+                            <div class="validation-message">@Html.ValidationMessageFor(c => c.FirstName)</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(c => c.LastName, "Nazwisko: ")</td>
+                        <td>
+                            @Html.TextBoxFor(c => c.LastName, new { @class = "form-control" })
+                            <div class="validation-message">@Html.ValidationMessageFor(c => c.LastName)</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(c => c.Address, "Adres: ")</td>
+                        <td>
+                            @Html.TextBoxFor(c => c.Address, new { @class = "form-control" })
+                            <div class="validation-message">@Html.ValidationMessageFor(c => c.Address)</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(c => c.PostCode, "Kod pocztowy: ")</td>
+                        <td>
+                            @Html.TextBoxFor(c => c.PostCode, new { @class = "form-control" })
+                            <div class="validation-message">@Html.ValidationMessageFor(c => c.PostCode)</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(c => c.City, "Miasto: ")</td>
+                        <td>
+                            @Html.TextBoxFor(c => c.City, new { @class = "form-control" })
+                            <div class="validation-message">@Html.ValidationMessageFor(c => c.City)</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(c => c.Email, "E-Mail: ")</td>
+                        <td>
+                            @Html.TextBoxFor(c => c.Email, new { @class = "form-control" })
+                            <div class="validation-message">@Html.ValidationMessageFor(c => c.Email)</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(c => c.Phone, "Telefon: ")</td>
+                        <td>
+                            @Html.TextBoxFor(c => c.Phone, new { @class = "form-control" })
+                            <div class="validation-message">@Html.ValidationMessageFor(c => c.Phone)</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(c => c.Comment, "Komentarz: ")</td>
+                        <td>
+                            @Html.TextBoxFor(c => c.Comment, new { @class = "form-control" })
+                            <div class="validation-message">@Html.ValidationMessageFor(c => c.Comment)</div>
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" class="btn btn-primary rounded-button" value="Zmień dane" />
+            }
+            
+        </div>
+
+        <div class="pt-4">
+            <h5 class="border-bottom pb-1 m-0 text-center">Zamówienie</h5>
+            <div class="row d-flex align-items-center m-0 p-0">
+                @foreach (var item in Model.OrderItems)
+                {
+                    <div class="col-12 row m-0 p-0 d-flex d-justify-content-center align-items-center border-bottom">
+                        <div class="col-2 m-0 p-0">
+                            <a href="@Url.Action("Details", "Product", new { id = item.ProductId })" class="m-0 p-0">
+                                <img class="orderListImg img-fluid" src="@Url.ProductImgPath(item.Product.ProductImages.Where(c => c.MainImg == true).SingleOrDefault().ImgPath)">
+                            </a>
+                        </div>
+                        <div class="col-10 row d-flex d-justify-content-center align-items-center m-0 p-0">
+                            <div class="col-12 col-md-7 col-lg-8 m-0 p-0">
+                                <a class="orderProductNameLink" href="@Url.Action("Details", "Product", new { id = item.ProductId })">
+                                    @item.Product.Name
+                                </a>
+                            </div>
+                            <div class="col-6 col-md-2 m-0 p-0">
+                                <p class="m-0 p-0">@item.Amount szt.</p>
+                            </div>
+                            <div class="col-6 col-md-3 col-lg-2 m-0 p-0 text-right">
+                                <p class="p-0 m-0">@item.Price zł</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="row m-0 pt-2 pb-4 border-bottom">
+            <div class="col-0 col-md-6 col-lg-7 m-0 p-0">
+            </div>
+            <div class="col-12 col-md-6 col-lg-5 m-0 p-0">
+                <p class="d-flex justify-content-between m-0 px-2">Wartość koszyka: <span>@Model.OrderValue zł</span></p>
+                <p class="d-flex justify-content-between m-0 px-2">Koszt dostawy: <span>0,00 zł</span></p>
+                <div class="border-top m-0 p-0 my-2"></div>
+                <p class="d-flex justify-content-between font-weight-bold m-0 px-2">Razem: <span>@Model.OrderValue zł</span></p>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <h2 class="text-center">Nie ma zamówienia o podanym numerze!</h2>
+    }
+</div>

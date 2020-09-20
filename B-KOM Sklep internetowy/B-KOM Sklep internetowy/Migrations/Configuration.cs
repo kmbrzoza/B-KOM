@@ -22,6 +22,7 @@
             //  to avoid creating duplicate seed data.
 
             DatabaseInitializer.SeedDatabase(context);
+            DatabaseInitializer.SeedUsers(context);
         }
     }
 }

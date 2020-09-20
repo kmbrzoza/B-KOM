@@ -1,0 +1,53 @@
+﻿@model List<B_KOM_Sklep_internetowy.Models.Order>
+@using B_KOM_Sklep_internetowy.Infrastructure
+@{
+    ViewBag.Title = "Admin - Zamówienia";
+    Layout = "~/Views/Admin/_LeftListAdmin.cshtml";
+}
+
+
+
+<div class="col-12 col-md-9 m-0">
+
+    <h2>Zamówienia</h2>
+    <form method="get" action="@Url.Action("OrdersList", "Admin")" class="form-inline flex-nowrap">
+        <input name="idZamowienia" id="AdminFormSearchInput" class="form-control" type="text" placeholder="Nr zamowienia">
+        <button class="rounded-button btn btn-primary" type="submit" title="Wyszukaj">
+            @Html.Raw(HtmlImages.searchIcon)
+        </button>
+    </form>
+
+    @if (Model.Any())
+    {
+        <div class="pt-2">
+            @foreach (var order in Model)
+            {
+                <a href="@Url.Action("OrderDetails", "Admin", new { id = order.OrderId })" class="orderListPositionLink col-12 m-0 p-0 my-1">
+                    <div class="orderListPositionDiv row m-0 p-0 border rounded">
+                        <div class="col-4 bg-light py-1">
+                            <h5>@order.OrderStatus</h5>
+                            <span class="d-flex d-inline">@order.OrderDate.ToShortDateString()</span>
+                            <span class="d-flex d-inline">nr @order.OrderId</span>
+                            <span class="d-flex d-inline font-weight-bold">@order.OrderValue zł</span>
+                            <span class="d-flex d-inline">@order.FirstName @order.LastName</span>
+
+                        </div>
+
+                        <div class="col-8 text-right">
+                            @foreach (var orderItem in order.OrderItems)
+                            {
+                                <img class="orderListImg" src="@Url.ProductImgPath(orderItem.Product.ProductImages.Where(c => c.MainImg == true).SingleOrDefault().ImgPath)" />
+                            }
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <h4>Wpisz numer zamówienia w pole wyszukiwania</h4>
+        </div>
+    }
+</div>

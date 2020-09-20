@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNet.Identity
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row m-0 p-0 pt-4 pb-2">
+    <div class="col-12 col-md-3 m-0 p-0 border-right">
+        <div>
+            <h4 class="pl-2">@User.Identity.GetUserName()</h4>
+
+            <a href="@Url.Action("OrdersList", "Admin")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.orderList)
+                Zamówienia
+            </a>
+            <a href="@Url.Action("OrdersList", "Manage")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.orderList)
+                Tu coś bedzie
+            </a>
+        </div>
+    </div>
+
+    @RenderBody()
+
+</div>

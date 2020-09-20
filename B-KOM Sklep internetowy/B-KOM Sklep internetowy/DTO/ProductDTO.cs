@@ -34,7 +34,7 @@ namespace B_KOM_Sklep_internetowy.DTO
                 return strPrice;
             }
             else
-                return "niejestpromo";
+                return "";
         }
         #endregion
 

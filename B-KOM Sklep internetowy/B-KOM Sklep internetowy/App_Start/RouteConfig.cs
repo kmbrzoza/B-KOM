@@ -14,6 +14,42 @@ namespace B_KOM_Sklep_internetowy
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "AdminOrderDetails",
+                url: "Admin/zamowienia/szczegoly/{id}",
+                defaults: new { controller = "Admin", action = "OrderDetails" }
+                );
+
+            routes.MapRoute(
+                name: "AdminOrderList",
+                url: "Admin/zamowienia",
+                defaults: new { controller = "Admin", action = "OrdersList" }
+                );
+
+            routes.MapRoute(
+                name: "Admin",
+                url: "Admin",
+                defaults: new { controller = "Admin", action = "Index" }
+                );
+
+            routes.MapRoute(
+                name: "ManageOrderDetails",
+                url: "konto/zamowienia/{id}",
+                defaults: new { controller = "Manage", action = "OrderDetails" }
+                );
+
+            routes.MapRoute(
+                name: "ManageOrdersList",
+                url: "konto/zamowienia",
+                defaults: new { controller = "Manage", action = "OrdersList" }
+                );
+
+            routes.MapRoute(
+                name: "ManageAccountSettings",
+                url: "konto/ustawienia",
+                defaults: new { controller = "Manage", action = "AccountSettings" }
+                );
+
+            routes.MapRoute(
                 name: "AddToCart",
                 url: "koszyk/dodaj/{id}",
                 defaults: new { controller = "Cart", action = "AddToCart" }
@@ -40,7 +76,7 @@ namespace B_KOM_Sklep_internetowy
             routes.MapRoute(
                 name: "Search",
                 url: "Szukaj",
-                defaults: new { controller = "Home", action = "Search"}
+                defaults: new { controller = "Home", action = "Search" }
             );
 
             routes.MapRoute(

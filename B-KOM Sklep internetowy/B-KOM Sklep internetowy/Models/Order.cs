@@ -10,6 +10,8 @@ namespace B_KOM_Sklep_internetowy.Models
     {
         public int OrderId { get; set; }
 
+        public string UserId { get; set; }
+
         [Required(ErrorMessage = "Wprowadź imię")]
         [StringLength(50)]
         public string FirstName { get; set; }
@@ -20,7 +22,7 @@ namespace B_KOM_Sklep_internetowy.Models
 
         [Required(ErrorMessage = "Wprowadź ulice")]
         [StringLength(100)]
-        public string Street { get; set; }
+        public string Address { get; set; }
 
         [Required(ErrorMessage = "Wprowadź Miasto")]
         [StringLength(100)]
@@ -31,6 +33,7 @@ namespace B_KOM_Sklep_internetowy.Models
         public string PostCode { get; set; }
 
         [Required(ErrorMessage = "Wprowadź numer telefonu")]
+        [StringLength(20)]
         public string Phone { get; set; }
 
         [Required(ErrorMessage = "Wprowadź e-mail")]
@@ -47,6 +50,7 @@ namespace B_KOM_Sklep_internetowy.Models
 
 
         public List<OrderItem> OrderItems { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 
 
@@ -55,6 +59,7 @@ namespace B_KOM_Sklep_internetowy.Models
         Oczekujące,
         Realizacja,
         Wysłane,
-        Zakończone
+        Zakończone,
+        Anulowane
     }
 }

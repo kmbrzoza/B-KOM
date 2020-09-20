@@ -32,5 +32,10 @@ namespace B_KOM_Sklep_internetowy.Controllers
             ViewData["mainCategories"] = mainCategoriesList;
             return PartialView("_Menu");
         }
+
+        public ActionResult Error()
+        {
+            return View();
+        }
     }
 }
