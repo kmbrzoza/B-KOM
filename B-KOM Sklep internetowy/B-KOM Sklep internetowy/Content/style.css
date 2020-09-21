@@ -497,6 +497,10 @@
 .shortDescription {
     white-space: pre-line;
 }
+.shortDescription::first-line
+{
+    font-size: 0px;
+}
 
 #addToCart {
 }
@@ -587,6 +591,7 @@
 .productDescriptionText {
     padding: 20px 50px 20px 0;
     font-size: 20px;
+    white-space: pre-line;
 }
 
 

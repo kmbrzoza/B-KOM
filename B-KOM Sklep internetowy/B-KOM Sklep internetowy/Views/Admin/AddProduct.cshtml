@@ -1,0 +1,124 @@
+﻿@model B_KOM_Sklep_internetowy.ViewModels.AdminAddProductViewModel
+@{
+    ViewBag.Title = "Admin - dodaj nowy produkt";
+    Layout = "~/Views/Admin/_LeftListAdmin.cshtml";
+}
+
+
+<div class="col-12 col-md-9 m-0">
+    <h2>Dodaj nowy produkt</h2>
+
+    @if (ViewBag.ErrorImg != null)
+    {
+        <div class="validation-message">
+            @ViewBag.ErrorImg
+        </div>
+    }
+
+    @using (Html.BeginForm("AddProduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <table>
+            <tr>
+                <td>@Html.LabelFor(c => c.Product.Name, "Nazwa produktu: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.Product.Name, new { @class = "form-control" })
+                    <div class="validation-message">@Html.ValidationMessageFor(c => c.Product.Name)</div>
+                </td>
+            </tr>
+            <tr>
+                <td>Kategoria</td>
+                <td>
+                    @*@Html.DropDownListFor(c => c.Product.CategoryId, new SelectList(Model.Categories, "CategoryId", "Name", Model.Categories.First().CategoryId))*@
+                    <select name="Product.CategoryId" class="form-control">
+                        @foreach (var mainCat in Model.MainCategories)
+                        {
+                            <option disabled="disabled" class="font-weight-bold">@mainCat.Name</option>
+                            foreach (var cat in mainCat.Categories)
+                            {
+                                <option value="@cat.CategoryId" name="Product.CategoryId">@cat.Name</option>
+                            }
+                        }
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Product.ShortDescription, "Krótki opis produktu: ")</td>
+                <td>
+                    @Html.TextAreaFor(c => c.Product.ShortDescription, new { cols = "40", rows = "4", @class = "form-control" })
+                    <div class="validation-message">@Html.ValidationMessageFor(c => c.Product.ShortDescription)</div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Product.Description, "Opis produktu: ")</td>
+                <td>
+                    @Html.TextAreaFor(c => c.Product.Description, new { cols = "40", rows = "4", @class = "form-control" })
+                    <div class="validation-message">@Html.ValidationMessageFor(c => c.Product.Description)</div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Product.Price, "Cena produktu: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.Product.Price, new { @class = "form-control" })
+                    <div class="validation-message">@Html.ValidationMessageFor(c => c.Product.Price)</div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Product.Promo, "Promocja: ")</td>
+                <td>
+                    @Html.CheckBoxFor(c => c.Product.Promo)
+                    <div class="validation-message">@Html.ValidationMessageFor(c => c.Product.Promo)</div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Product.PromoPrice, "Cena produktu w promocji: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.Product.PromoPrice, new { @class = "form-control" })
+                    <div class="validation-message">@Html.ValidationMessageFor(c => c.Product.PromoPrice)</div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Product.Recommended, "Rekomendowany: ")</td>
+                <td>
+                    @Html.CheckBoxFor(c => c.Product.Recommended)
+                    <div class="validation-message">@Html.ValidationMessageFor(c => c.Product.Recommended)</div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Product.Bestseller, "Bestseller: ")</td>
+                <td>
+                    @Html.CheckBoxFor(c => c.Product.Bestseller)
+                    <div class="validation-message">@Html.ValidationMessageFor(c => c.Product.Bestseller)</div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Product.Hidden, "Ukryty: ")</td>
+                <td>
+                    @Html.CheckBoxFor(c => c.Product.Hidden)
+                    <div class="validation-message">@Html.ValidationMessageFor(c => c.Product.Hidden)</div>
+                </td>
+            </tr>
+            <tr>
+                <td>Główne zdjęcie produktu: </td>
+                <td>
+                    <input type="file" name="productMainImg" />
+                </td>
+            </tr>
+            <tr>
+                <td>Pozostałe zdjęcia produktu: </td>
+                <td>
+                    <input multiple type="file" name="productImages" />
+                </td>
+            </tr>
+            <tr>
+                <td>Zdjęcie do opisu produktu: </td>
+                <td>
+                    <input type="file" name="productDescritpionImg" />
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="Dodaj" class="btn btn-primary rounded-button" />
+    }
+
+</div>

@@ -93,7 +93,7 @@
                     <tr>
                         <td>@Html.LabelFor(c => c.Comment, "Komentarz: ")</td>
                         <td>
-                            @Html.TextBoxFor(c => c.Comment, new { @class = "form-control" })
+                            @Html.TextAreaFor(c => c.Comment, new { @class = "form-control" })
                             <div class="validation-message">@Html.ValidationMessageFor(c => c.Comment)</div>
                         </td>
                     </tr>

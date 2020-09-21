@@ -1,0 +1,12 @@
+﻿@model B_KOM_Sklep_internetowy.Models.Product
+@{
+    ViewBag.Title = "Admin - Dodanie powiodło się";
+    Layout = "~/Views/Admin/_LeftListAdmin.cshtml";
+}
+
+
+<div class="col-12 col-md-9 m-0 py-4 text-center">
+    <h2 class="font-weight-normal">Dodanie produktu <span class="font-weight-bold">@Model.Name</span> powiodło się!</h2>
+    <p>Przejdź do edycji produktu, aby dodać specyfikacje (lub coś zmienić)</p>
+    <a href="@Url.Action("ProductDetails", "Admin", new { id = Model.ProductId })" class="btn btn-primary rounded-button mt-2 px-5">Przejdź do edycji produktu</a>
+</div>
