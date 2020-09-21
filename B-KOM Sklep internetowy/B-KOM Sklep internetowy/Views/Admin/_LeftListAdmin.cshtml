@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section Scripts
+{
+    <script src="~/scripts/tinymce/tinymce.js"></script>
+    <script src="~/scripts/tinymce/main.js"></script>
+}
 
 <div class="row m-0 p-0 pt-4 pb-2">
     <div class="col-12 col-md-3 m-0 p-0 border-right">
@@ -16,8 +21,12 @@
                 Zamówienia
             </a>
             <a href="@Url.Action("AddProduct", "Admin")" class="Admin-left-button">
-                @Html.Raw(HtmlImages.orderList)
+                @Html.Raw(HtmlImages.rightArrow)
                 Dodaj nowy produkt
+            </a>
+            <a href="@Url.Action("Search", "Admin")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.searchIcon)
+                Wyszukaj produkt
             </a>
         </div>
     </div>

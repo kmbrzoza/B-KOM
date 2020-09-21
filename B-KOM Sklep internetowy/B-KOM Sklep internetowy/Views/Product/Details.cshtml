@@ -96,7 +96,7 @@
         <div class="col-12 col-xl-6 p-1 m-0">
             <div class="border-top border-bottom">
                 <p class="shortDescription p-2 m-0">
-                    @Model.Product.ShortDescription
+                    @Html.Raw(Model.Product.ShortDescription)
                 </p>
             </div>
         </div>
@@ -266,12 +266,8 @@
 </div>
 
 <div class="productDescription text-center border-top mt-4 py-4">
-    @if (Model.GetDescriptionImg() != "")
-    {
-        <img src="@Url.ProductImgPath(Model.GetDescriptionImg())" class="imgDescription">
-    }
     <p class="productDescriptionText">
-        @Model.Product.Description
+        @Html.Raw(Model.Product.Description)
     </p>
 </div>
 

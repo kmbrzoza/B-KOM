@@ -495,11 +495,11 @@
 }
 
 .shortDescription {
-    white-space: pre-line;
+    /*white-space: pre-line;*/
 }
 .shortDescription::first-line
 {
-    font-size: 0px;
+    /*font-size: 0px;*/
 }
 
 #addToCart {
@@ -585,13 +585,13 @@
 .imgDescription {
     width: 80%;
     border-radius: 20px;
-    ;
+    
 }
 
 .productDescriptionText {
-    padding: 20px 50px 20px 0;
-    font-size: 20px;
-    white-space: pre-line;
+    /*padding: 20px 50px 20px 0;*/
+    /*font-size: 20px;*/
+    /*white-space: pre-line;*/
 }
 
 
@@ -766,4 +766,9 @@
 .validation-message {
     color: red;
     font-size: 14px;
+}
+
+.Admin-prod-img
+{
+    width: 200px;
 }

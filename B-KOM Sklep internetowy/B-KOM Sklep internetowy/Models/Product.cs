@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace B_KOM_Sklep_internetowy.Models
 {
@@ -17,7 +18,11 @@ namespace B_KOM_Sklep_internetowy.Models
         public decimal Price { get; set; }
         public string ImgPath { get; set; }
         public DateTime AddDate { get; set; }
+
+        [AllowHtml]
         public string ShortDescription { get; set; }
+
+        [AllowHtml]
         public string Description { get; set; }
         public bool Hidden { get; set; }
         public bool Recommended { get; set; }

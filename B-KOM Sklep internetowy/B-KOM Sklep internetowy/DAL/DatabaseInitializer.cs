@@ -124,7 +124,6 @@ namespace B_KOM_Sklep_internetowy.DAL
                 new ProductImage() { ProductImageId=13, ProductId=6, ImgPath="6/2.png"},
                 new ProductImage() { ProductImageId=14, ProductId=6, ImgPath="6/3.png"},
                 new ProductImage() { ProductImageId=15, ProductId=6, ImgPath="6/4.png"},
-                new ProductImage() { ProductImageId=16, ProductId=6, ImgPath="6/description.png", DescriptionImg=true},
             };
 
             productImg.ForEach(c => context.ProductImages.AddOrUpdate(c));

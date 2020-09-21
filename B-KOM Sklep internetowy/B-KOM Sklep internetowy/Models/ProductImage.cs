@@ -11,7 +11,6 @@ namespace B_KOM_Sklep_internetowy.Models
         public int ProductId { get; set; }
         public string ImgPath { get; set; }
         public bool MainImg { get; set; }
-        public bool DescriptionImg { get; set; }
 
         public virtual Product Product { get; set; }
     }

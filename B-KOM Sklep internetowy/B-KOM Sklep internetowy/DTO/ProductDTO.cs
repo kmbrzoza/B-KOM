@@ -48,18 +48,9 @@ namespace B_KOM_Sklep_internetowy.DTO
             return productMainImg.ImgPath;
         }
 
-        public string GetDescriptionImg()
-        {
-            ProductImage productDescImg = Product.ProductImages.Where(c => c.DescriptionImg == true).FirstOrDefault();
-            if (productDescImg == null)
-                return "";
-
-            return productDescImg.ImgPath;
-        }
-
         public List<ProductImage> GetProductImagesList()
         {
-            List<ProductImage> list = Product.ProductImages.Where(c => c.DescriptionImg != true).ToList();
+            List<ProductImage> list = Product.ProductImages.ToList();
             return list;
         }
         #endregion

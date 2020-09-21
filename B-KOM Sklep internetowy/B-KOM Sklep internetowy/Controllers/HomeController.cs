@@ -53,7 +53,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
         {
             ViewBag.searchQuery = wyszukaj;
 
-            var products = db.Products.Where(c => c.Name.ToLower().Contains(wyszukaj.ToLower()));
+            var products = db.Products.Where(c => c.Name.ToLower().Contains(wyszukaj.ToLower()) && c.Hidden != true);
             var productsDTO = new List<ProductDTO>();
 
             foreach (var prod in products)

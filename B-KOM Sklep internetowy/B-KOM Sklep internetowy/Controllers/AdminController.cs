@@ -1,4 +1,5 @@
 ﻿using B_KOM_Sklep_internetowy.DAL;
+using B_KOM_Sklep_internetowy.DTO;
 using B_KOM_Sklep_internetowy.Infrastructure;
 using B_KOM_Sklep_internetowy.Models;
 using B_KOM_Sklep_internetowy.ViewModels;
@@ -57,7 +58,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ChangeOrderDetails(Order order)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 TempData["ViewData"] = ViewData;
                 return RedirectToAction("OrderDetails", new { id = order.OrderId });
@@ -79,7 +80,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
             return RedirectToAction("OrderDetails", new { id = order.OrderId });
         }
 
-        
+
         public ActionResult AddProduct()
         {
             if (TempData["ViewData"] != null)
@@ -99,13 +100,13 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult AddProduct(AdminAddProductViewModel model, HttpPostedFileBase productMainImg, 
-            List<HttpPostedFileBase> productImages, HttpPostedFileBase productDescritpionImg)
+        public ActionResult AddProduct(AdminAddProductViewModel model, HttpPostedFileBase productMainImg,
+            List<HttpPostedFileBase> productImages)
         {
             //Checking if admin added file (productMainImg) its required
-            if(productMainImg != null && productMainImg.ContentLength > 0)
+            if (productMainImg != null && productMainImg.ContentLength > 0)
             {
-                if(ModelState.IsValid)
+                if (ModelState.IsValid)
                 {
                     model.Product.AddDate = DateTime.Now;
 
@@ -119,7 +120,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
                     db.ProductImages.Add(new ProductImage() { ImgPath = fileNameMainImg, MainImg = true, ProductId = model.Product.ProductId });
 
-                    foreach(var img in productImages)
+                    foreach (var img in productImages)
                     {
                         var fileExtImage = Path.GetExtension(img.FileName);
                         var fileNameImage = Guid.NewGuid() + fileExtImage;
@@ -128,13 +129,6 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
                         db.ProductImages.Add(new ProductImage() { ImgPath = fileNameImage, ProductId = model.Product.ProductId });
                     }
-
-                    var fileExtDescImg = Path.GetExtension(productDescritpionImg.FileName);
-                    var fileNameDescImg = Guid.NewGuid() + fileExtDescImg;
-                    var pathDescImg = Path.Combine(Server.MapPath(AppConfig.ProductImgFolder), fileNameDescImg);
-                    productDescritpionImg.SaveAs(pathDescImg);
-
-                    db.ProductImages.Add(new ProductImage() { ImgPath = fileNameDescImg, ProductId = model.Product.ProductId, DescriptionImg = true });
 
                     db.SaveChanges();
 
@@ -208,7 +202,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
                     db.SaveChanges();
                 }
-                
+
                 return RedirectToAction("ProductDetails", new { id = product.ProductId });
             }
             else
@@ -247,11 +241,111 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
                 db.SaveChanges();
 
-                TempData["Success"] = "Udalo sie zmienic zdjecie";
+                TempData["MainImg"] = "Udalo sie zmienic główne zdjecie";
                 return RedirectToAction("ProductDetails", new { id = productToChange.ProductId });
             }
-            TempData["Success"] = "Error";
+            TempData["MainImg"] = "Błąd w zmianie nowego zdjęcia";
             return RedirectToAction("ProductDetails", new { id = productToChange.ProductId });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddImagesProduct(Product product, List<HttpPostedFileBase> productImages)
+        {
+            foreach (var img in productImages)
+            {
+                if (img != null && img.ContentLength > 0)
+                    continue;
+                else
+                {
+                    TempData["Images"] = "Błąd w dodawaniu nowych zdjęć!";
+                    return RedirectToAction("ProductDetails", new { id = product.ProductId });
+                }
+            }
+
+            foreach (var img in productImages)
+            {
+                var fileExtImage = Path.GetExtension(img.FileName);
+                var fileNameImage = Guid.NewGuid() + fileExtImage;
+                var pathImage = Path.Combine(Server.MapPath(AppConfig.ProductImgFolder), fileNameImage);
+                img.SaveAs(pathImage);
+                db.ProductImages.Add(new ProductImage() { ImgPath = fileNameImage, ProductId = product.ProductId });
+            }
+            db.SaveChanges();
+            TempData["Images"] = "Udało się dodać nowe zdjęcia!";
+            return RedirectToAction("ProductDetails", new { id = product.ProductId });
+
+        }
+        
+        public ActionResult DeleteImgProduct(int productId, int imageId)
+        {
+            var img = db.ProductImages.Find(imageId);
+            if (img != null)
+            {
+                db.ProductImages.Remove(img);
+                db.SaveChanges();
+                TempData["Images"] = "Udało się usunąć zdjęcie!";
+                return RedirectToAction("ProductDetails", new { id = productId });
+            }
+            TempData["Images"] = "Błąd w usuwaniu zdjęcia!";
+            return RedirectToAction("ProductDetails", new { id = productId });
+        }
+
+        public ActionResult Search(string search)
+        {
+            var products = db.Products.Where(c => c.Name.ToLower().Contains(search.ToLower()) || c.ProductId.ToString().Contains(search));
+            var productsDTO = new List<ProductDTO>();
+
+            foreach (var prod in products)
+                productsDTO.Add(new ProductDTO() { Product = prod });
+
+            return View(productsDTO);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddSpecsProduct(ProductSpecification prodSpecs)
+        {
+            if(prodSpecs.Value != null && prodSpecs.Specification.Name != null && prodSpecs.Product.ProductId != 0)
+            {
+                var specification = new Specification()
+                {
+                    Name = prodSpecs.Specification.Name
+                };
+                db.Specifications.Add(specification);
+                db.SaveChanges();
+
+                var productSpecification = new ProductSpecification()
+                {
+                    ProductId = prodSpecs.Product.ProductId,
+                    SpecificationId = specification.SpecificationId,
+                    Value = prodSpecs.Value
+                };
+                db.ProductSpecifications.Add(productSpecification);
+                db.SaveChanges();
+
+                TempData["Specs"] = "Udało się dodać nową specyfikację!";
+                return RedirectToAction("ProductDetails", new { id = prodSpecs.Product.ProductId });
+            }
+            TempData["Specs"] = "Błąd dodawania specyfikacji!";
+            return RedirectToAction("ProductDetails", new { id = prodSpecs.Product.ProductId });
+        }
+
+        public ActionResult RemoveSpecsProduct(int prodId, int prodSpecsId)
+        {
+            if (prodSpecsId != 0)
+            {
+                var productSpecification = db.ProductSpecifications.Find(prodSpecsId);
+                var specification = db.Specifications.Find(productSpecification.SpecificationId);
+                db.ProductSpecifications.Remove(productSpecification);
+                db.Specifications.Remove(specification);
+                db.SaveChanges();
+
+                TempData["Specs"] = "Udało się usunąć specyfikację!";
+                return RedirectToAction("ProductDetails", new { id = prodId });
+            }
+            TempData["Specs"] = "Błąd usuwania specyfikacji!";
+            return RedirectToAction("ProductDetails", new { id = prodId });
         }
     }
 }
