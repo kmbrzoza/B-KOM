@@ -1,0 +1,50 @@
+﻿@model B_KOM_Sklep_internetowy.ViewModels.OrderConfirmationEmail
+@using B_KOM_Sklep_internetowy.Infrastructure
+Content-Type: text/html; charset=utf-8
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="@Url.Content("~/Content/style.css")">
+    <style>
+        td, img
+        {
+            max-width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <p style="color: black; font-family: Comic Sans MS; font-size: 42px; margin: 0px; padding: 0px;"><span style="color: dodgerblue">B</span> - KOM</p>
+    <h2>Dziękujemy za zakupy w naszym sklepie!</h2>
+
+    <p>Oto potwierdzenie twojego zamówienia, na następujące produkty:</p>
+    <table style="border-collapse: collapse;">
+        @foreach (var item in Model.OrderItems)
+        {
+            <tr>
+                <td style="border: 1px solid black;">@Html.EmbedImage(Url.ProductImgPath(item.Product.ProductImages.Where(c => c.MainImg == true).FirstOrDefault().ImgPath))</td>
+                <td style="border: 1px solid black;">@item.Product.Name</td>
+                <td style="border: 1px solid black;">@item.Price zł</td>
+                <td style="border: 1px solid black;">@item.Amount szt.</td>
+            </tr>
+        }
+    </table>
+
+    <p>Po przelaniu kwoty @Model.OrderValue zł na nasze konto, zamówienie zostanie wysłane.</p>
+    <p><span style="font-weight: 700">Tytuł:</span> @Model.OrderId</p>
+    <p><span style="font-weight: 700">Odbiorca:</span> B-KOM ul. testowa 1, 44-100 Gliwice</p>
+    <p><span style="font-weight: 700">Nr konta:</span> 1111 2222 3333 4444 5555 6666 7777 8888</p>
+    <p><span style="font-weight: 700">Kwota:</span> @Model.OrderValue zł</p>
+
+    <p>Dziękujemy i zapraszamy ponownie!</p>
+    <h4>B-KOM</h4>
+</body>
+
+</html>

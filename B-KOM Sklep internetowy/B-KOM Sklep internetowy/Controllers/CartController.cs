@@ -8,6 +8,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -109,8 +110,19 @@ namespace B_KOM_Sklep_internetowy.Controllers
                 var user = await UserManager.FindByIdAsync(userId);
                 TryUpdateModel(user.UserData);
                 await UserManager.UpdateAsync(user);
-
+                
                 cartManager.ClearCart();
+
+                //SENDING E-MAIL
+                var order = db.Orders.Where(c => c.OrderId == newOrder.OrderId).Include("OrderItems").Include("OrderItems.Product").Include("OrderItems.Product.ProductImages").SingleOrDefault();
+                OrderConfirmationEmail email = new OrderConfirmationEmail();
+                email.To = order.Email;
+                email.From = Consts.shopEmail;
+                email.OrderValue = order.OrderValue;
+                email.OrderId = order.OrderId;
+                email.OrderItems = order.OrderItems;
+                
+                email.Send();
 
                 return RedirectToAction("OrderConfirmation");
             }

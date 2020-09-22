@@ -21,12 +21,16 @@
                 Zamówienia
             </a>
             <a href="@Url.Action("AddProduct", "Admin")" class="Admin-left-button">
-                @Html.Raw(HtmlImages.rightArrow)
+                @Html.Raw(HtmlImages.rightArrow32px)
                 Dodaj nowy produkt
             </a>
             <a href="@Url.Action("Search", "Admin")" class="Admin-left-button">
-                @Html.Raw(HtmlImages.searchIcon)
+                @Html.Raw(HtmlImages.searchIcon32px)
                 Wyszukaj produkt
+            </a>
+            <a href="@Url.Action("", "elmah")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.shieldProtect)
+                Logi strony (Elmah)
             </a>
         </div>
     </div>

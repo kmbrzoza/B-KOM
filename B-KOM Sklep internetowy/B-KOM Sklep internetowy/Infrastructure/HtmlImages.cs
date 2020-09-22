@@ -31,6 +31,14 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
                                   "d=\"M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z\" /> \n" +
                         "</svg>";
 
+        public static string searchIcon32px = "<svg fill=\"currentColor\" width=\"32px\" height=\"32px\" viewBox=\"0 0 16 16\" class=\"bi bi-search\" \n" +
+                             "xmlns =\"http://www.w3.org/2000/svg \"> \n" +
+                            "<path fill-rule=\"evenodd\" \n" +
+                                  "d=\"M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z\" /> \n" +
+                            "<path fill-rule=\"evenodd\" \n" +
+                                  "d=\"M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z\" /> \n" +
+                        "</svg>";
+
         public static string accountIcon = "<svg fill=\"currentColor\" class=\"navbarMenuImg\" xmlns=\"http://www.w3.org/2000/svg\" \n" +
                                  "viewBox =\"0 0 24 24\"> \n" +
                                 "<path fill-rule=\"evenodd\" \n" +
@@ -309,6 +317,14 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
 	                                	"l99.707,99.671l-99.695,99.671c-4.752,4.74-4.752,12.439,0,17.191c4.752,4.74,12.463,4.74,17.215,0l108.297-108.261 \n" +
                                 		"C187.881,124.315,187.881,116.495,183.189,111.816z\" /> \n" +
                                 "</svg>";
+        public static string rightArrow32px = "<svg width=\"32px\" height=\"32px\" fill=\"currentColor\" version=\"1.1\" \n" +
+                         "xmlns=\"http://www.w3.org/2000/svg \" xmlns:xlink=\"http://www.w3.org/1999/xlink \" \n" +
+                         "x=\"0px\" y=\"0px\" viewBox=\"0 0 240.823 240.823\" \n" +
+                         "style=\"enable-background:new 0 0 240.823 240.823;\" xml:space=\"preserve\"> \n" +
+                    "<path id = \"Chevron_Right_1_\" d=\"M183.189,111.816L74.892,3.555c-4.752-4.74-12.451-4.74-17.215,0c-4.752,4.74-4.752,12.439,0,17.179 \n" +
+                                        "l99.707,99.671l-99.695,99.671c-4.752,4.74-4.752,12.439,0,17.191c4.752,4.74,12.463,4.74,17.215,0l108.297-108.261 \n" +
+                                        "C187.881,124.315,187.881,116.495,183.189,111.816z\" /> \n" +
+                                "</svg>";
 
         public static string leftArrow = "<svg width=\"16px\" height=\"16px\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg \" xmlns:xlink=\"http://www.w3.org/1999/xlink \" x=\"0px\" y=\"0px\" \n" +
      "viewBox=\"0 0 240.823 240.823\" style=\"enable-background:new 0 0 240.823 240.823;\" xml:space=\"preserve\"> \n" +
@@ -358,7 +374,7 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
                         "c71.322-13.415,97.073-68.832,104.686-91.368C471.627,385.772,496.689,349.664,496.689,307.637z\" /> \n" +
                     "</svg>";
 
-        public static string orderList = "<svg version=\"1.1\" class=\"navbarMenuImg\" xmlns=\"http://www.w3.org/2000/svg \" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" \n" +
+        public static string orderList = "<svg version=\"1.1\" class=\"navbarMenuImg\" fill=\"currentColor\" xmlns=\"http://www.w3.org/2000/svg \" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" \n" +
      "viewBox=\"0 0 494.64 494.64\" style=\"enable-background:new 0 0 494.64 494.64;\" xml:space=\"preserve\"> \n" +
         "<path style = \"fill:#030104;\" d=\"M491.986,79.216c-2.775-4.641-7.351-7.895-12.631-8.957L199.171,2.712 \n" +
             "c-9.234-1.79-18.344,3.311-21.54,12.134L70.833,286.161l35.654,12.993l101.21-257.977L451.144,103.3 \n" +
@@ -383,5 +399,6 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
 		"<path style = \"fill:#030104;\" d=\"M164.033,259.039c11.627,0,21.052,9.168,21.052,20.479c0,11.29-9.425,20.438-21.052,20.438 \n" +
 			"c-11.626,0-21.052-9.146-21.052-20.438C142.981,268.207,152.407,259.039,164.033,259.039z\"/> \n" +
             "</svg>";
+
     }
 }

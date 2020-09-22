@@ -1,0 +1,21 @@
+﻿@model B_KOM_Sklep_internetowy.ViewModels.OrderConfirmationEmail
+Content-Type: text/plain; charset=utf-8
+
+Dziękujemy za zakupy w naszym sklepie!
+
+Oto potwierdzenie twojego zamówienia, na następujące produkty:
+
+@foreach(var item in Model.OrderItems)
+{
+    @item.Product.Name 
+}
+
+
+Po przelaniu kwoty @Model.OrderValue na nasze konto, zamówienie zostanie wysłane.
+Tytuł: @Model.OrderId
+Odbiorca: B-KOM ul. testowa 1, 44-100 Gliwice
+Nr konta: 1111 2222 3333 4444 5555 6666 7777 8888
+Kwota: @Model.OrderValue
+
+Dziękujemy i zapraszamy ponownie!
+B-KOM
