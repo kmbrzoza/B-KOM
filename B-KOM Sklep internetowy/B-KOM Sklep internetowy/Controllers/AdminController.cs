@@ -83,11 +83,6 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
         public ActionResult AddProduct()
         {
-            if (TempData["ViewData"] != null)
-            {
-                ViewData = (ViewDataDictionary)TempData["ViewData"];
-            }
-
             AdminAddProductViewModel vm;
             vm = new AdminAddProductViewModel()
             {
@@ -129,7 +124,6 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
                         db.ProductImages.Add(new ProductImage() { ImgPath = fileNameImage, ProductId = model.Product.ProductId });
                     }
-
                     db.SaveChanges();
 
                     //When success
@@ -291,17 +285,6 @@ namespace B_KOM_Sklep_internetowy.Controllers
             return RedirectToAction("ProductDetails", new { id = productId });
         }
 
-        public ActionResult Search(string search)
-        {
-            var products = db.Products.Where(c => c.Name.ToLower().Contains(search.ToLower()) || c.ProductId.ToString().Contains(search));
-            var productsDTO = new List<ProductDTO>();
-
-            foreach (var prod in products)
-                productsDTO.Add(new ProductDTO() { Product = prod });
-
-            return View(productsDTO);
-        }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult AddSpecsProduct(ProductSpecification prodSpecs)
@@ -327,7 +310,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
                 TempData["Specs"] = "Udało się dodać nową specyfikację!";
                 return RedirectToAction("ProductDetails", new { id = prodSpecs.Product.ProductId });
             }
-            TempData["Specs"] = "Błąd dodawania specyfikacji!";
+            TempData["Specs"] = "Błąd dodawania specyfikacji! Nazwa i wartość są wymagane!";
             return RedirectToAction("ProductDetails", new { id = prodSpecs.Product.ProductId });
         }
 
@@ -346,6 +329,18 @@ namespace B_KOM_Sklep_internetowy.Controllers
             }
             TempData["Specs"] = "Błąd usuwania specyfikacji!";
             return RedirectToAction("ProductDetails", new { id = prodId });
+        }
+
+
+        public ActionResult Search(string search)
+        {
+            var products = db.Products.Where(c => c.Name.ToLower().Contains(search.ToLower()) || c.ProductId.ToString().Contains(search));
+            var productsDTO = new List<ProductDTO>();
+
+            foreach (var prod in products)
+                productsDTO.Add(new ProductDTO() { Product = prod });
+
+            return View(productsDTO);
         }
     }
 }

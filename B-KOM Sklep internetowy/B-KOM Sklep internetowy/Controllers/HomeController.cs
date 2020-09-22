@@ -2,6 +2,7 @@
 using B_KOM_Sklep_internetowy.DTO;
 using B_KOM_Sklep_internetowy.Models;
 using B_KOM_Sklep_internetowy.ViewModels;
+using NLog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,9 +20,12 @@ namespace B_KOM_Sklep_internetowy.Controllers
         }
 
         InternetShopContext db = new InternetShopContext();
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         // GET: Home
         public ActionResult Index()
         {
+            //logger.Info("test trace");
             var recommended = db.Products.Where(p => !p.Hidden && p.Recommended).OrderBy(p => Guid.NewGuid()).Take(8).ToList();
             var bestsellers = db.Products.Where(p => !p.Hidden && p.Bestseller).OrderBy(p => Guid.NewGuid()).Take(5).ToList();
 

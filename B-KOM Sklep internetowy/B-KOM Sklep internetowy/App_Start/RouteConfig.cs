@@ -14,6 +14,24 @@ namespace B_KOM_Sklep_internetowy
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "AdminSearch",
+                url: "Admin/szukaj",
+                defaults: new { controller = "Admin", action = "Search" }
+                );
+
+            routes.MapRoute(
+                name: "AdminProductDetails",
+                url: "Admin/produkt-szczegoly/{id}",
+                defaults: new { controller = "Admin", action = "ProductDetails" }
+                );
+
+            routes.MapRoute(
+                name: "AdminAddProduct",
+                url: "Admin/produkt-dodaj/",
+                defaults: new { controller = "Admin", action = "AddProduct" }
+                );
+
+            routes.MapRoute(
                 name: "AdminOrderDetails",
                 url: "Admin/zamowienia/szczegoly/{id}",
                 defaults: new { controller = "Admin", action = "OrderDetails" }

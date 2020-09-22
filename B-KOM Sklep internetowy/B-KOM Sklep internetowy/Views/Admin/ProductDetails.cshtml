@@ -163,7 +163,7 @@
                     <img src="@Url.ProductImgPath(img.ImgPath)" class="img-fluid Admin-prod-img p-0 m-0" />
                 </td>
                 <td>
-                    <a href="@Url.Action("DeleteImgProduct", "Admin", new { productId = Model.Product.ProductId, imageId = img.ProductImageId })" class="btn btn-primary rounded-button">Usuń</a>
+                    <a href="@Url.Action("DeleteImgProduct", "Admin", new { productId = Model.Product.ProductId, imageId = img.ProductImageId })" class="btn btn-danger rounded-button">Usuń</a>
                 </td>
             </tr>
         }
@@ -205,7 +205,7 @@
                         @specs.Value
                     </td>
                     <td>
-                        <a href="@Url.Action("RemoveSpecsProduct", "Admin", new {prodId = Model.Product.ProductId, prodSpecsId = specs.ProductSpecificationId })" class="btn btn-danger btn-sm m-0">Usuń</a>
+                        <a href="@Url.Action("RemoveSpecsProduct", "Admin", new {prodId = Model.Product.ProductId, prodSpecsId = specs.ProductSpecificationId })" class="btn btn-danger btn-sm rounded-button m-0">Usuń</a>
                     </td>
                 </tr>
             }

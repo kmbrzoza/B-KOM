@@ -111,3 +111,11 @@ K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internet
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.updateOrdersv2.resources
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.Admin.resources
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.editedProduct1.resources
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.editedSpecs.resources
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\bin\Elmah.dll
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\bin\Elmah.Mvc.dll
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.elmah.resources
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\bin\NLog.dll
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\bin\NLog.Elmah.dll
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\bin\NLog.xml
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\bin\NLog.Elmah.xml
