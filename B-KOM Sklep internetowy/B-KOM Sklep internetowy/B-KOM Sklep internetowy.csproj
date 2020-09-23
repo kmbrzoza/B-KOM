@@ -56,6 +56,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Hangfire.Core, Version=1.7.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.7.13\lib\net46\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.7.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.7.13\lib\net45\Hangfire.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -83,6 +89,18 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.2\lib\net45\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.2\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.7.4\lib\net45\NLog.dll</HintPath>
@@ -120,7 +138,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebActivatorEx.2.0.1\lib\net40\WebActivatorEx.dll</HintPath>
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -338,6 +356,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -358,9 +377,13 @@
     <Compile Include="Infrastructure\CartManager.cs" />
     <Compile Include="Infrastructure\Consts.cs" />
     <Compile Include="Infrastructure\DefaultCacheProvider.cs" />
+    <Compile Include="Infrastructure\HangfirePostalMailService.cs" />
+    <Compile Include="Infrastructure\Helpers.cs" />
     <Compile Include="Infrastructure\HtmlImages.cs" />
     <Compile Include="Infrastructure\ICacheProvider.cs" />
+    <Compile Include="Infrastructure\IMailService.cs" />
     <Compile Include="Infrastructure\ISessionManager.cs" />
+    <Compile Include="Infrastructure\PostalMailService.cs" />
     <Compile Include="Infrastructure\SessionManager.cs" />
     <Compile Include="Infrastructure\UrlHelpers.cs" />
     <Compile Include="Migrations\202009070855440_InitialCreate.cs" />

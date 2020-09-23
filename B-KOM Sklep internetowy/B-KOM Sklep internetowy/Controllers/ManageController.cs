@@ -1,7 +1,9 @@
 ﻿using B_KOM_Sklep_internetowy.App_Start;
 using B_KOM_Sklep_internetowy.DAL;
+using B_KOM_Sklep_internetowy.Infrastructure;
 using B_KOM_Sklep_internetowy.Models;
 using B_KOM_Sklep_internetowy.ViewModels;
+using Hangfire;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
@@ -19,6 +21,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
     public class ManageController : Controller
     {
         InternetShopContext db = new InternetShopContext();
+
         public enum ManageMessageId
         {
             ChangePasswordSuccess,
@@ -146,6 +149,8 @@ namespace B_KOM_Sklep_internetowy.Controllers
             var userId = User.Identity.GetUserId();
             userOrders = db.Orders.Where(c => c.UserId == userId).Include("OrderItems").OrderByDescending(c => c.OrderDate).ToList();
 
+            var order = db.Orders.Where(c => c.OrderId == 51).Include("OrderItems").Include("OrderItems.Product").Include("OrderItems.Product.ProductImages").SingleOrDefault();
+
             return View(userOrders);
         }
 
@@ -163,5 +168,6 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
             return View(userOrderById);
         }
+
     }
 }

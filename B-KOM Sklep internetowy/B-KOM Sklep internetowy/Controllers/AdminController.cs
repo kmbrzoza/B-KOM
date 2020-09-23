@@ -9,6 +9,7 @@ using System.Data.Entity;
 using System.Data.Entity.Core.Common.CommandTrees;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -342,5 +343,29 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
             return View(productsDTO);
         }
+
+
+
+        // E-MAILS / MAILING
+        [AllowAnonymous]
+        public ActionResult OrderConfirmationEmail(int orderId)
+        {
+            var order = db.Orders.Where(c => c.OrderId == orderId).Include("OrderItems").Include("OrderItems.Product").Include("OrderItems.Product.ProductImages").SingleOrDefault();
+
+            if (order == null)
+                return new HttpStatusCodeResult(HttpStatusCode.NotFound);
+
+            OrderConfirmationEmail email = new OrderConfirmationEmail();
+            email.To = order.Email;
+            email.From = Consts.shopEmail;
+            email.OrderValue = order.OrderValue;
+            email.OrderId = order.OrderId;
+            email.OrderItems = order.OrderItems;
+
+            email.Send();
+
+            return new HttpStatusCodeResult(HttpStatusCode.OK);
+        }
+
     }
 }

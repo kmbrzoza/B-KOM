@@ -28,9 +28,13 @@
                 @Html.Raw(HtmlImages.searchIcon32px)
                 Wyszukaj produkt
             </a>
-            <a href="@Url.Action("", "elmah")" class="Admin-left-button">
+            <a href="@Url.Content("~/elmah")" class="Admin-left-button">
                 @Html.Raw(HtmlImages.shieldProtect)
                 Logi strony (Elmah)
+            </a>
+            <a href="@Url.Content("~/hangfire")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.shieldProtect)
+                Wykonane zadania (Hangfire)
             </a>
         </div>
     </div>

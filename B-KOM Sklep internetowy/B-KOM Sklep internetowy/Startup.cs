@@ -1,4 +1,5 @@
-﻿using Microsoft.Owin;
+﻿using Hangfire;
+using Microsoft.Owin;
 using Owin;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,11 @@ namespace B_KOM_Sklep_internetowy
         public void Configuration(IAppBuilder app)
         {
             ConfigureAuth(app);
+
+            GlobalConfiguration.Configuration.UseSqlServerStorage("InternetShopContext");
+
+            app.UseHangfireDashboard();
+            app.UseHangfireServer();
         }
     }
 }
