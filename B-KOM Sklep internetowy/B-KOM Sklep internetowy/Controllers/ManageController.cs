@@ -1,5 +1,6 @@
 ﻿using B_KOM_Sklep_internetowy.App_Start;
 using B_KOM_Sklep_internetowy.DAL;
+using B_KOM_Sklep_internetowy.DTO;
 using B_KOM_Sklep_internetowy.Infrastructure;
 using B_KOM_Sklep_internetowy.Models;
 using B_KOM_Sklep_internetowy.ViewModels;
@@ -169,5 +170,52 @@ namespace B_KOM_Sklep_internetowy.Controllers
             return View(userOrderById);
         }
 
+
+        public ActionResult SetFavourite(int productId)
+        {
+            if(Request.IsAuthenticated)
+            {
+                var userId = User.Identity.GetUserId();
+
+                //If product IS favourite - then remove from favourites
+                //if product IS NOT favourite - then add to favourites
+                var favourite = db.Favourites.Where(c => c.ProductId == productId && c.UserId == userId).FirstOrDefault();
+                if(favourite != null)
+                {
+                    db.Favourites.Remove(favourite);
+                    db.SaveChanges();
+                    return RedirectToAction("Details", "Product", new { id = productId });
+                }
+                {
+                    db.Favourites.Add(new Favourite() { UserId = userId, ProductId = productId });
+                    db.SaveChanges();
+                    return RedirectToAction("Details", "Product", new { id = productId });
+                }
+            }
+            else
+            {
+                return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Favourite", "Manage", new { id = productId }) });
+            }
+        }
+
+        public ActionResult Favourities()
+        {
+            if(Request.IsAuthenticated)
+            {
+                var userId = User.Identity.GetUserId();
+                var favourities = db.Favourites.Where(c => c.UserId == userId).ToList();
+
+                List<Product> favProdList = new List<Product>();
+                foreach(var fav in favourities)
+                    favProdList.Add(db.Products.Where(c => c.ProductId == fav.ProductId).FirstOrDefault());
+
+                List<ProductDTO> favProdDTOList = new List<ProductDTO>();
+                foreach (var prod in favProdList)
+                    favProdDTOList.Add(new ProductDTO() { Product = prod });
+
+                return View(favProdDTOList);
+            }
+            return RedirectToAction("Login", "Account", new { returnUrl = Url.Action("Favourities", "Manage") });
+        }
     }
 }

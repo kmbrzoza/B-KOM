@@ -58,48 +58,30 @@ namespace B_KOM_Sklep_internetowy.DAL
             var products = new List<Product>
             {
                 new Product() { ProductId=1, CategoryId=1, Name = "HP Pavilion Gaming i5-9300H/16GB/256 GTX1650 Green", Price=3499,
-                                ImgPath="1/1.png", 
                                 AddDate=DateTime.Now, Hidden=false, Recommended=true, Bestseller=true, Promo=true, PromoPrice=3249 },
                 new Product() { ProductId=2, CategoryId=9, Name = "SPC Gear GK-530 Kailh Brown", Price=219,
-                                ImgPath="2/1.png", 
                                 AddDate=DateTime.Now, Hidden=false, Recommended=true, Bestseller=true, Promo=false, PromoPrice=0 },
                 new Product() { ProductId=3, CategoryId=10, Name = "Edifier W820BT", Price=259,
-                                ImgPath="3/1.png",
                                 AddDate=DateTime.Now, Hidden=false, Recommended=true, Bestseller=true, Promo=true, PromoPrice=229 },
                 new Product() { ProductId=4, CategoryId=7, Name = "Monitor Acer SA240YABI", Price=449,
-                                ImgPath="4/1.png",
                                 AddDate=DateTime.Now, Hidden=false, Recommended=true, Bestseller=true, Promo=false, PromoPrice=0 },
                 new Product() { ProductId=5, CategoryId=8, Name = "Mysz Logitech G102", Price=119,
-                                ImgPath="5/1.png",
                                 AddDate=DateTime.Now, Hidden=false, Recommended=true, Bestseller=true, Promo=false, PromoPrice=0 },
                 new Product() { ProductId=6, CategoryId=11, Name = "Xiaomi Mi 10 8/128", Price=3499,
-                                ImgPath="6/1.png",
                                 AddDate=DateTime.Now, Hidden=false, Recommended=true, Bestseller=true, Promo=true, PromoPrice=2999,
-                                ShortDescription="Najnowszy flagowy model Xiaomi Mi 10 ze świetnymi"+
-                                "parametrami w niesamowitej cenie!"+
-                                ""+
-                                "Ekran: 6,67\""+
-                                "Procesor: Qualcomm Snapdragon 865"+
-                                "Pamięć: 128 GB",
-                                Description="Światła, kamera, akcja. Oto Xiaomi Mi 10 szary, smartfon wypełniony po brzegi najnowocześniejszymi technologiami. Ultrawydajny procesor oraz 8GB pamięci RAM sprawiają, że wszystkie procesy realizowane są w mgnieniu oka. Z Mi 10 możesz wejść do nowej ery, za sprawą obsługiwanej łączności 5G oraz niebywale szybkiemu standardowi WiFi 6. Rób niesamowite zdjęcia za sprawą czterech obiektywów, z czego obiektyw główny oferuje aż 108 Mpix. Nagrywaj filmy w rozdzielczości 8K, a efekty swoich prac podziwiaj na ekranie AMOLED z częstotliwością odświeżania 90Hz. Sprawdź, jak Xiaomi Mi 10 szary wygląda w rzeczywistości. Chwyć zdjęcie poniżej i przeciągnij je w lewo lub prawo aby obrócić produkt lub skorzystaj z przycisków nawigacyjnych. Będąc pionierem aparatów w smartfonach, Mi 10 przenosi fotografię na zupełnie nowy poziom. Wspierany przez technologię Qualcomm Spectra™ 480 ISP, sztuczną inteligencję AI oraz bezstratnej kompresji HEIF jest w stanie w pełni wykorzystać potencjał obiektywu 108 Mpix. Bardziej wydajny i responsywny system aparatu pozwala szybciej robić zjawiskowe zdjęcia w niepowtarzanej rozdzielczości i przechowywać je przy użyciu o 50% mniej miejsca. Dodatkowo korzystaj z obiektywu ultraszerokokątnego, obiektywu makro, czy aparatu służącego do nadania głębi fotografii. Zarejestruj piękne wspomnienia nagrywające w rozdzielczości 8K."
-                                },
+                                ShortDescription="",
+                                Description="" },
                 new Product() { ProductId=7, CategoryId=3, Name = "AMD Ryzen 5 3600", Price=849,
-                                ImgPath="7/1.png",
                                 AddDate=DateTime.Now, Hidden=false, Recommended=true, Bestseller=true, Promo=false, PromoPrice=0 },
                 new Product() { ProductId=8, CategoryId=4, Name = "MSI Geforce RTX 2080 SUPER GAMING X TRIO 8GB GDDR6", Price=3899.9m,
-                                ImgPath="8/1.png",
                                 AddDate=DateTime.Now, Hidden=false, Recommended=true, Bestseller=true, Promo=false, PromoPrice=0 },
                 new Product() { ProductId=9, CategoryId=11, Name = "Apple IPhone 11 Pro MAX", Price=5299,
-                                ImgPath="9/1.png",
                                 AddDate=DateTime.Now, Hidden=false, Recommended=false, Bestseller=false, Promo=false, PromoPrice=0 },
                 new Product() { ProductId=10, CategoryId=11, Name = "Samsung Note 20 Ultra", Price=5999,
-                                ImgPath="10/1.png",
                                 AddDate=DateTime.Now, Hidden=false, Recommended=false, Bestseller=false, Promo=false, PromoPrice=0 },
                 new Product() { ProductId=11, CategoryId=11, Name = "Xiaomi Redmi Note 9 Pro", Price=1229,
-                                ImgPath="11/1.png",
                                 AddDate=DateTime.Now, Hidden=false, Recommended=false, Bestseller=false, Promo=false, PromoPrice=0 },
                 new Product() { ProductId=12, CategoryId=11, Name = "Xiaomi Mi Note 10 Lite 6/128", Price=1699,
-                                ImgPath="12/1.png",
                                 AddDate=DateTime.Now, Hidden=false, Recommended=false, Bestseller=false, Promo=false, PromoPrice=0 },
 
             };

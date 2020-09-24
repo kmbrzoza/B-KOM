@@ -16,7 +16,6 @@ namespace B_KOM_Sklep_internetowy.Models
         [StringLength(100)]
         public string Name { get; set; }
         public decimal Price { get; set; }
-        public string ImgPath { get; set; }
         public DateTime AddDate { get; set; }
 
         [AllowHtml]

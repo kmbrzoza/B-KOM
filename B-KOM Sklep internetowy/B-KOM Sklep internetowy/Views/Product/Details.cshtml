@@ -19,6 +19,16 @@
     </ol>
 </div>
 
+@if (TempData["AddOpinion"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        Udało ci się dodać opinię! Dziękujemy!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
 <div class="row m-0 p-0 pt-2">
     <!-- CAROUSEL WITH IMG OF PRODUCT (left side) -->
     <div class="col-12 col-md-6 col-xl-5 m-0 p-0">
@@ -72,6 +82,7 @@
 
     <!-- INFO ABOUT PRODUCT (right side) -->
     <div class="col-12 col-md-6 col-xl-7 row m-0 p-0">
+        
         <!-- Name Product -->
         <div class="col-12 m-0 p-0">
             <h2 class="productName p-0 pl-1 m-0">@Model.Product.Name</h2>
@@ -89,7 +100,23 @@
                 }
                 (@Model.GetNumberOpinionInt() opinii)
             </p>
-            <p class="codeBKOM p-1 m-0">kod B-KOM: @Model.Product.ProductId</p>
+            <p class="codeBKOM p-1 m-0 float-left">kod B-KOM: @Model.Product.ProductId</p>
+
+            <!-- ADD TO FAVOURITE BUTTON -->
+            <div class="m-0 mr-1 p-0 float-right">
+                @if (Model.FavouriteForUser)
+                {
+                    <a href="@Url.Action("SetFavourite", "Manage", new { productId = Model.Product.ProductId })" class="btn btn-light btn-sm">
+                        @Html.Raw(HtmlImages.favouriteIconFull)
+                    </a>
+                }
+                else
+                {
+                    <a href="@Url.Action("SetFavourite", "Manage", new { productId = Model.Product.ProductId })" class="btn btn-light btn-sm">
+                        @Html.Raw(HtmlImages.favouriteIcon)
+                    </a>
+                }
+            </div>
         </div>
 
         <!-- Short description -->
@@ -346,11 +373,13 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <input class="form-control" type="text" title="Imię" placeholder="Podaj imię">
-                            <textarea class="form-control my-2" placeholder="Wpisz komentarz"></textarea>
-                            @Html.Raw(HtmlImages.starOpinionYellow)
-                            <select name="Gwiazdki">
+                        @using (Html.BeginForm("AddOpinion", "Product", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken();
+                            <input type="hidden" name="ProductId" value="@Model.Product.ProductId" />
+                            <input name="UserName" class="form-control" type="text" title="Imię" placeholder="Podaj imię">
+                            <textarea name="OpinionText" class="form-control my-2" placeholder="Wpisz komentarz"></textarea>
+                            <select name="StarsValue">
                                 <option value="6">6</option>
                                 <option value="5">5</option>
                                 <option value="4">4</option>
@@ -358,8 +387,8 @@
                                 <option value="2">2</option>
                                 <option value="1">1</option>
                             </select>
-                            <button type="submit" class="btn btn-primary ml-1">Prześlij opinię</button>
-                        </form>
+                            <input type="submit" class="btn btn-primary rounded-button ml-1" value="Prześlij opinię">
+                        }
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary"

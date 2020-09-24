@@ -458,9 +458,26 @@
     <Compile Include="Migrations\202009220845237_elmah.designer.cs">
       <DependentUpon>202009220845237_elmah.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009240832526_editedProductvv2.cs" />
+    <Compile Include="Migrations\202009240832526_editedProductvv2.designer.cs">
+      <DependentUpon>202009240832526_editedProductvv2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009240857241_somechanges.cs" />
+    <Compile Include="Migrations\202009240857241_somechanges.designer.cs">
+      <DependentUpon>202009240857241_somechanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009240921556_favourites.cs" />
+    <Compile Include="Migrations\202009240921556_favourites.designer.cs">
+      <DependentUpon>202009240921556_favourites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009240951409_editedFavouritev1.cs" />
+    <Compile Include="Migrations\202009240951409_editedFavouritev1.designer.cs">
+      <DependentUpon>202009240951409_editedFavouritev1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Favourite.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\MainCategory.cs" />
     <Compile Include="Models\Opinion.cs" />
@@ -531,6 +548,7 @@
     <Content Include="Views\Emails\OrderConfirmation.cshtml" />
     <Content Include="Views\Emails\OrderConfirmation.Text.cshtml" />
     <Content Include="Views\Emails\OrderConfirmation.Html.cshtml" />
+    <Content Include="Views\Manage\Favourities.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -595,6 +613,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009220845237_elmah.resx">
       <DependentUpon>202009220845237_elmah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009240832526_editedProductvv2.resx">
+      <DependentUpon>202009240832526_editedProductvv2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009240857241_somechanges.resx">
+      <DependentUpon>202009240857241_somechanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009240921556_favourites.resx">
+      <DependentUpon>202009240921556_favourites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009240951409_editedFavouritev1.resx">
+      <DependentUpon>202009240951409_editedFavouritev1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

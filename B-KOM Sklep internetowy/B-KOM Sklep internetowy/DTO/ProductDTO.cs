@@ -111,5 +111,7 @@ namespace B_KOM_Sklep_internetowy.DTO
             return strPer;
         }
         #endregion
+
+        public bool FavouriteForUser { get; set; }
     }
 }

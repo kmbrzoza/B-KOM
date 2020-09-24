@@ -33,5 +33,6 @@ namespace B_KOM_Sklep_internetowy.DAL
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Opinion> Opinions { get; set; }
+        public DbSet<Favourite> Favourites { get; set; }
     }
 }

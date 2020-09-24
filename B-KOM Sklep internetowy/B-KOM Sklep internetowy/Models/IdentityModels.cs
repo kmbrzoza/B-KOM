@@ -14,6 +14,8 @@ namespace B_KOM_Sklep_internetowy.Models
         public virtual ICollection<Order> Orders { get; set; }
         public UserData UserData { get; set; }
 
+        public virtual List<Favourite> Favourites { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
