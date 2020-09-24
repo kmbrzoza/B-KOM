@@ -19,6 +19,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
     public class AdminController : Controller
     {
         InternetShopContext db = new InternetShopContext();
+        ICacheProvider cache = new DefaultCacheProvider();
 
         // GET: Admin
         public ActionResult Index()
@@ -332,6 +333,128 @@ namespace B_KOM_Sklep_internetowy.Controllers
             return RedirectToAction("ProductDetails", new { id = prodId });
         }
 
+        public ActionResult Categories()
+        {
+            if (TempData["ViewData"] != null)
+            {
+                ViewData = (ViewDataDictionary)TempData["ViewData"];
+            }
+
+            var vm = new AdminCategoriesViewModel()
+            {
+                MainCategories = db.MainCategories.ToList(),
+                Categories = db.Categories.ToList(),
+                MainCategory = new MainCategory(),
+                Category = new Category()
+            };
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddMainCategory(MainCategory mainCategory, HttpPostedFileBase mainCategoryImg)
+        {
+            //if there is an image
+            if (mainCategoryImg != null && mainCategoryImg.ContentLength > 0)
+            {
+                //and model is valid
+                if (ModelState.IsValid)
+                {
+                    var fileExtMainCatImg = Path.GetExtension(mainCategoryImg.FileName);
+                    var fileNameMainCatImg = Guid.NewGuid() + fileExtMainCatImg;
+                    var pathMainImg = Path.Combine(Server.MapPath(AppConfig.MainCategoryIconsFolder), fileNameMainCatImg);
+                    mainCategoryImg.SaveAs(pathMainImg);
+
+                    mainCategory.ImgPath = fileNameMainCatImg;
+
+                    db.MainCategories.Add(mainCategory);
+                    db.SaveChanges();
+
+                    cache.Invalidate(Consts.mainCategoriesLayoutCacheKey); // reset cache
+
+                    TempData["MCSuccess"] = "Dodano nową główną kategorię!";
+                    return RedirectToAction("Categories");
+                }
+                else
+                {
+                    TempData["ViewData"] = ViewData;
+                    return RedirectToAction("Categories");
+                }
+            }
+            else
+            {
+                TempData["MCImage"] = "Musisz dodać zdjęcie głownej kategorii!";
+                return RedirectToAction("Categories");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RemoveMainCategory(int mainCategoryId)
+        {
+            if(ModelState.IsValid)
+            {
+                var mc = db.MainCategories.Find(mainCategoryId);
+
+                string fullPath = Path.Combine(Server.MapPath(AppConfig.MainCategoryIconsFolder), mc.ImgPath);
+                if (System.IO.File.Exists(fullPath))
+                    System.IO.File.Delete(fullPath);
+
+                db.MainCategories.Remove(mc);
+                db.SaveChanges();
+
+                cache.Invalidate(Consts.mainCategoriesLayoutCacheKey); //reset cache
+
+                TempData["RemoveMCSuccess"] = "Udało się usunąć główną kategorię!";
+                return RedirectToAction("Categories");
+            }
+            else
+            {
+                return RedirectToAction("Categories");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddCategory(Category category)
+        {
+            if(ModelState.IsValid)
+            {
+                db.Categories.Add(category);
+                db.SaveChanges();
+
+                cache.Invalidate(Consts.mainCategoriesLayoutCacheKey); //reset cache
+
+                TempData["AddCSuccess"] = "Udało się dodać kategorię!";
+                return RedirectToAction("Categories");
+            }
+            else
+            {
+                TempData["ViewData"] = ViewData;
+                return RedirectToAction("Categories");
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RemoveCategory(int categoryId)
+        {
+            if(categoryId > 0)
+            {
+                var cat = db.Categories.Find(categoryId);
+                db.Categories.Remove(cat);
+                db.SaveChanges();
+
+                cache.Invalidate(Consts.mainCategoriesLayoutCacheKey); //reset cache
+
+                TempData["RemoveCSuccess"] = "Udało się usunąć kategorię!";
+                return RedirectToAction("Categories");
+            }
+            else
+            {
+                return RedirectToAction("Categories");
+            }
+        }
 
         public ActionResult Search(string search)
         {

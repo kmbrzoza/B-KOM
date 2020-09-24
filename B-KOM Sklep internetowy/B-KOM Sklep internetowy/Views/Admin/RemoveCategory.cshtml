@@ -1,0 +1,33 @@
+﻿@model List<B_KOM_Sklep_internetowy.Models.MainCategory>
+
+<h4 class="border-bottom pb-1">Usuń główną kategorię</h4>
+
+@if (TempData["RemoveCSuccess"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["RemoveCSuccess"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+
+@using (Html.BeginForm("RemoveCategory", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <select name="categoryId" class="form-control">
+        @foreach (var mainCat in Model)
+        {
+            <option disabled="disabled" class="font-weight-bold">@mainCat.Name</option>
+            foreach (var cat in mainCat.Categories)
+            {
+                <option value="@cat.CategoryId" name="Product.CategoryId">@cat.Name</option>
+            }
+        }
+    </select>
+
+    <input type="submit" class="btn btn-danger rounded-button mt-1" value="Usuń" />
+
+}

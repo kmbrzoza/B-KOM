@@ -28,6 +28,10 @@
                 @Html.Raw(HtmlImages.searchIcon32px)
                 Wyszukaj produkt
             </a>
+            <a href="@Url.Action("Categories", "Admin")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.rightArrow32px)
+                Kategorie
+            </a>
             <a href="@Url.Content("~/elmah")" class="Admin-left-button">
                 @Html.Raw(HtmlImages.shieldProtect)
                 Logi strony (Elmah)

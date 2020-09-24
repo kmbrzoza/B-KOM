@@ -474,6 +474,10 @@
     <Compile Include="Migrations\202009240951409_editedFavouritev1.designer.cs">
       <DependentUpon>202009240951409_editedFavouritev1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009241146367_editedCats.cs" />
+    <Compile Include="Migrations\202009241146367_editedCats.designer.cs">
+      <DependentUpon>202009241146367_editedCats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
@@ -491,6 +495,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AdminAddProductViewModel.cs" />
+    <Compile Include="ViewModels\AdminCategoriesViewModel.cs" />
     <Compile Include="ViewModels\AdminProductDetailsViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
@@ -549,6 +554,11 @@
     <Content Include="Views\Emails\OrderConfirmation.Text.cshtml" />
     <Content Include="Views\Emails\OrderConfirmation.Html.cshtml" />
     <Content Include="Views\Manage\Favourities.cshtml" />
+    <Content Include="Views\Admin\Categories.cshtml" />
+    <Content Include="Views\Admin\AddMainCategory.cshtml" />
+    <Content Include="Views\Admin\RemoveMainCategory.cshtml" />
+    <Content Include="Views\Admin\AddCategory.cshtml" />
+    <Content Include="Views\Admin\RemoveCategory.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -625,6 +635,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009240951409_editedFavouritev1.resx">
       <DependentUpon>202009240951409_editedFavouritev1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009241146367_editedCats.resx">
+      <DependentUpon>202009241146367_editedCats.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

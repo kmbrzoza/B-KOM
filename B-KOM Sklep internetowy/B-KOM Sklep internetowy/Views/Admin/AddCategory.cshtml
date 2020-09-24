@@ -1,0 +1,54 @@
+﻿@model B_KOM_Sklep_internetowy.ViewModels.AdminCategoriesViewModel
+
+<h4 class="border-bottom pb-1">Dodaj kategorię</h4>
+
+@if (TempData["AddCSuccess"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["AddCSuccess"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@using (Html.BeginForm("AddCategory", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <table>
+        <tr>
+            <td>Główna kategoria:</td>
+            <td>
+                <select name="category.MainCategoryId" class="form-control">
+                    @foreach (var mainCat in Model.MainCategories)
+                    {
+                        <option value="@mainCat.MainCategoryId">@mainCat.Name</option>
+                    }
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(c => c.Category.Name, "Nazwa kategorii: ")
+            </td>
+            <td>
+                @Html.TextBoxFor(c => c.Category.Name, new { @class = "form-control" })
+                <div class="validation-message">
+                    @Html.ValidationMessageFor(c => c.Category.Name)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(c => c.Category.LinkName, "Nazwa w linku (bez spacji): ")</td>
+            <td>
+                @Html.TextBoxFor(c => c.Category.LinkName, new { @class = "form-control" })
+                <div class="validation-message">
+                    @Html.ValidationMessageFor(c => c.Category.LinkName)
+                </div>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" class="btn btn-primary rounded-button" value="Dodaj" />
+
+}

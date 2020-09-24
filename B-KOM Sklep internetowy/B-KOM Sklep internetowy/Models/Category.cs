@@ -14,6 +14,7 @@ namespace B_KOM_Sklep_internetowy.Models
         [Required(ErrorMessage = "Wprowadź nazwę Kategorii")]
         [StringLength(100)]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Wprowadź nazwę do linku (BEZ SPACJI, KROPEK)")]
         public string LinkName { get; set; }
 
         public virtual MainCategory MainCategory { get; set; }

@@ -1,0 +1,28 @@
+﻿@model B_KOM_Sklep_internetowy.ViewModels.AdminCategoriesViewModel
+@{
+    ViewBag.Title = "Kategorie";
+    Layout = "~/Views/Admin/_LeftListAdmin.cshtml";
+}
+
+
+
+<div class="col-12 col-md-9 m-0">
+    <h2 class="border-bottom pb-1">Kategorie</h2>
+
+    <div class="m-0 p-0 py-2">
+        @Html.Partial("AddMainCategory", Model.MainCategory)
+    </div>
+
+    <div class="m-0 p-0 py-2">
+        @Html.Partial("AddCategory", Model)
+    </div>
+
+    <div class="m-0 p-0 py-2">
+        @Html.Partial("RemoveMainCategory", Model.MainCategories)
+    </div>
+
+    <div class="m-0 p-0 py-2">
+        @Html.Partial("RemoveCategory", Model.MainCategories)
+    </div>
+
+</div>
