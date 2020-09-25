@@ -28,6 +28,14 @@
                 @Html.Raw(HtmlImages.searchIcon32px)
                 Wyszukaj produkt
             </a>
+            <a href="@Url.Action("AddPromotion", "Admin")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.cartIcon)
+                Dodaj promocję
+            </a>
+            <a href="@Url.Action("SearchPromotion", "Admin")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.searchIcon32px)
+                Wyszukaj promocję
+            </a>
             <a href="@Url.Action("Categories", "Admin")" class="Admin-left-button">
                 @Html.Raw(HtmlImages.rightArrow32px)
                 Kategorie

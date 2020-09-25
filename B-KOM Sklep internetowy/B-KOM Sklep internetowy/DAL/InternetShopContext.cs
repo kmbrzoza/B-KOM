@@ -34,5 +34,7 @@ namespace B_KOM_Sklep_internetowy.DAL
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Opinion> Opinions { get; set; }
         public DbSet<Favourite> Favourites { get; set; }
+        public DbSet<Promotion> Promotions { get; set; }
+        public DbSet<PromotionProduct> PromotionProducts { get; set; }
     }
 }

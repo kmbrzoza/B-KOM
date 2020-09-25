@@ -774,9 +774,29 @@
 }
 
 
+.Admin-promotion-div {
+    background-size: contain;
+    background-position: center;
+    height: 140px;
+
+}
+
 /* ** Favourite ** */
 
 .favouriteIconFull
 {
     color: #ff006d;
 }
+
+
+
+
+.link-none {
+    color: black;
+    text-decoration: none;
+}
+    .link-none:hover {
+        color: black;
+        text-decoration: none;
+    }
+

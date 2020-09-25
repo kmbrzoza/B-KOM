@@ -27,5 +27,15 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
                 return _productImgFolder;
             }
         }
+
+        private static string _promotionImgFolder = ConfigurationManager.AppSettings["PromotionImgFolder"];
+
+        public static string PromotionImgFolder
+        {
+            get
+            {
+                return _promotionImgFolder;
+            }
+        }
     }
 }

@@ -17,6 +17,24 @@ namespace B_KOM_Sklep_internetowy
                 name: "Favourities",
                 url: "Ulubione",
                 defaults: new { controller = "Manage", action = "Favourities" }
+                ); 
+
+                routes.MapRoute(
+                name: "AdminPromotionDetails",
+                url: "Admin/promocje-szczegoly/{id}",
+                defaults: new { controller = "Admin", action = "PromotionDetails" }
+                );
+
+            routes.MapRoute(
+                name: "AdminSearchPromotion",
+                url: "Admin/promocje-szukaj",
+                defaults: new { controller = "Admin", action = "SearchPromotion" }
+                );
+
+            routes.MapRoute(
+                name: "AdminAddPromotion",
+                url: "Admin/promocje-dodaj",
+                defaults: new { controller = "Admin", action = "AddPromotion" }
                 );
 
             routes.MapRoute(

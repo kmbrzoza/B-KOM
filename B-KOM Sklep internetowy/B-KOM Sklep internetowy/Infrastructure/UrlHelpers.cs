@@ -26,5 +26,15 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
 
             return pathRelative;
         }
+
+        public static string PromotionImgPath(this UrlHelper helper, string promotionPath)
+        {
+            var promotionImgFolder = AppConfig.PromotionImgFolder;
+            var path = Path.Combine(promotionImgFolder, promotionPath);
+            var pathRelative = helper.Content(path);
+
+            return pathRelative;
+        }
+
     }
 }

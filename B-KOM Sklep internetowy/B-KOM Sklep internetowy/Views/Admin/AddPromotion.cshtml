@@ -1,0 +1,75 @@
+﻿@model B_KOM_Sklep_internetowy.Models.Promotion
+@{
+    ViewBag.Title = "AddPromotion";
+    Layout = "~/Views/Admin/_LeftListAdmin.cshtml";
+}
+
+<div class="col-12 col-md-9 m-0">
+    <h2>Dodaj nową promocję</h2>
+
+
+    @if (TempData["PromoSuccess"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["PromoSuccess"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    @if (TempData["PromImage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["PromImage"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+
+    @using (Html.BeginForm("AddPromotion", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <table>
+            <tr>
+                <td>@Html.LabelFor(c => c.Name, "Nazwa promocji: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.Name, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.Name)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>Zdjęcie promocji: </td>
+                <td>
+                    <input type="file" name="promotionImg" />
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Code, "Kod promocji: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.Code, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.Code)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Hidden, "Ukryta promocja: ")</td>
+                <td>
+                    @Html.CheckBoxFor(c => c.Hidden)
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.Hidden)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" class="btn btn-primary rounded-button" value="Dodaj promocję" />
+    }
+
+
+</div>

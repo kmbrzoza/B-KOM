@@ -27,6 +27,8 @@ namespace B_KOM_Sklep_internetowy.Controllers
             return View();
         }
 
+        //ORDERS
+        #region ORDERS
         public ActionResult OrdersList(int? idZamowienia)
         {
             var orders = db.Orders.Where(c => c.OrderId.ToString().Contains(idZamowienia.ToString())).Include("OrderItems").OrderByDescending(c => c.OrderId).ToList();
@@ -81,8 +83,10 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
             return RedirectToAction("OrderDetails", new { id = order.OrderId });
         }
+        #endregion
 
-
+        //PRODUCTS
+        #region PRODUCTS
         public ActionResult AddProduct()
         {
             AdminAddProductViewModel vm;
@@ -272,7 +276,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
             return RedirectToAction("ProductDetails", new { id = product.ProductId });
 
         }
-        
+
         public ActionResult DeleteImgProduct(int productId, int imageId)
         {
             var img = db.ProductImages.Find(imageId);
@@ -291,7 +295,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddSpecsProduct(ProductSpecification prodSpecs)
         {
-            if(prodSpecs.Value != null && prodSpecs.Specification.Name != null && prodSpecs.Product.ProductId != 0)
+            if (prodSpecs.Value != null && prodSpecs.Specification.Name != null && prodSpecs.Product.ProductId != 0)
             {
                 var specification = new Specification()
                 {
@@ -332,7 +336,10 @@ namespace B_KOM_Sklep_internetowy.Controllers
             TempData["Specs"] = "Błąd usuwania specyfikacji!";
             return RedirectToAction("ProductDetails", new { id = prodId });
         }
+        #endregion
 
+        //CATEGORIES
+        #region CATEGORIES
         public ActionResult Categories()
         {
             if (TempData["ViewData"] != null)
@@ -392,7 +399,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult RemoveMainCategory(int mainCategoryId)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var mc = db.MainCategories.Find(mainCategoryId);
 
@@ -418,7 +425,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult AddCategory(Category category)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 db.Categories.Add(category);
                 db.SaveChanges();
@@ -439,7 +446,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult RemoveCategory(int categoryId)
         {
-            if(categoryId > 0)
+            if (categoryId > 0)
             {
                 var cat = db.Categories.Find(categoryId);
                 db.Categories.Remove(cat);
@@ -455,6 +462,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
                 return RedirectToAction("Categories");
             }
         }
+        #endregion
 
         public ActionResult Search(string search)
         {
@@ -467,6 +475,203 @@ namespace B_KOM_Sklep_internetowy.Controllers
             return View(productsDTO);
         }
 
+
+        //PROMOTIONS
+        #region PROMOTIONS
+        public ActionResult AddPromotion()
+        {
+            var prom = new Promotion();
+            return View(prom);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPromotion(Promotion promo, HttpPostedFileBase promotionImg)
+        {
+            //if there is an image
+            if (promotionImg != null && promotionImg.ContentLength > 0)
+            {
+                //and model is valid
+                if (ModelState.IsValid)
+                {
+                    var fileExtPromoImg = Path.GetExtension(promotionImg.FileName);
+                    var fileNamePromoImg = Guid.NewGuid() + fileExtPromoImg;
+                    var pathPromoImg = Path.Combine(Server.MapPath(AppConfig.PromotionImgFolder), fileNamePromoImg);
+                    promotionImg.SaveAs(pathPromoImg);
+
+                    promo.ImgPath = fileNamePromoImg;
+
+                    db.Promotions.Add(promo);
+                    db.SaveChanges();
+
+                    TempData["PromoSuccess"] = "Dodano nową promocję!";
+                    return RedirectToAction("AddPromotion");
+                }
+                else
+                {
+                    return View(promo);
+                }
+            }
+            else
+            {
+                TempData["PromImage"] = "Musisz dodać zdjęcie promocji!";
+                return View(promo);
+            }
+
+        }
+
+        public ActionResult RemovePromotion(int promotionId)
+        {
+            var promo = db.Promotions.Find(promotionId);
+            if (promo != null)
+            {
+                db.Promotions.Remove(promo);
+                db.SaveChanges();
+                return RedirectToAction("SearchPromotion");
+            }
+            else
+                return RedirectToAction("PromotionDetails", new { id = promotionId });
+        }
+
+        public ActionResult SearchPromotion(string search)
+        {
+            var promotions = db.Promotions.Where(c => c.Name.ToLower().Contains(search) || c.PromotionId.ToString().Contains(search)).ToList();
+            if (promotions.Any())
+            {
+                return View(promotions);
+            }
+            else
+            {
+                var prom = db.Promotions.Where(c => c.Hidden != true).ToList();
+                return View(prom);
+            }
+        }
+
+        public ActionResult PromotionDetails(int id)
+        {
+            if (TempData["ViewData"] != null)
+            {
+                ViewData = (ViewDataDictionary)TempData["ViewData"];
+            }
+
+            var promotion = db.Promotions.Find(id);
+
+            //HERE I'm getting a list of PromotionProducts
+            var promotionProdsList = promotion.PromotionProducts.ToList();
+            //Next, I setting PromotionProducts.Product and PromotionProduct details to ProductPromotionDTO
+            //ProductPromotionDTO helps in view (for example in showing opinions, prices, etc.)
+            List<ProductPromotionDTO> promoProdsDTOList = new List<ProductPromotionDTO>();
+            foreach (var promProd in promotionProdsList)
+                promoProdsDTOList.Add(new ProductPromotionDTO() 
+                {   Product = promProd.Product, Amount = promProd.Amount, 
+                    PromotionPrice = promProd.PromotionPrice, PromotionProductId = promProd.PromotionProductId,
+                    PromotionId = promotion.PromotionId});
+
+            var vm = new AdminPromotionDetailsViewModel()
+            {
+                Promotion = promotion,
+                PromotionProduct = new PromotionProduct(),
+                ActualProductsList = promoProdsDTOList
+            };
+
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditPromotion(Promotion promotion, HttpPostedFileBase promotionImg)
+        {
+            if (ModelState.IsValid)
+            {
+                var promoToChange = db.Promotions.Find(promotion.PromotionId);
+                promoToChange.Name = promotion.Name;
+                promoToChange.Code = promotion.Code;
+                promoToChange.Hidden = promotion.Hidden;
+
+                //If admin want to change image
+                if(promotionImg != null && promotionImg.ContentLength > 0)
+                {
+                    //removing image
+                    string fullPath = Path.Combine(Server.MapPath(AppConfig.PromotionImgFolder), promoToChange.ImgPath);
+                    if (System.IO.File.Exists(fullPath))
+                        System.IO.File.Delete(fullPath);
+                    //adding new image
+                    var fileExtPromoImg = Path.GetExtension(promotionImg.FileName);
+                    var fileNamePromoImg = Guid.NewGuid() + fileExtPromoImg;
+                    var pathPromoImg = Path.Combine(Server.MapPath(AppConfig.PromotionImgFolder), fileNamePromoImg);
+                    promotionImg.SaveAs(pathPromoImg);
+
+                    promoToChange.ImgPath = fileNamePromoImg;
+                }
+
+                db.SaveChanges();
+                TempData["EditPromo"] = "Udało się edytować promocję!";
+                return RedirectToAction("PromotionDetails", new { id = promoToChange.PromotionId });
+            }
+            else
+            {
+                TempData["ViewData"] = ViewData;
+                return RedirectToAction("PromotionDetails", new { id = promotion.PromotionId });
+            }
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddPromotionProduct(PromotionProduct promotionProduct)
+        {
+            if (ModelState.IsValid)
+            {
+                if(promotionProduct.Amount <= 0)
+                {
+                    TempData["PromoProdAmount"] = "Ilość produktów musi być większa od 0!";
+                    return RedirectToAction("PromotionDetails", new { id = promotionProduct.PromotionId });
+                }
+                if (promotionProduct.PromotionPrice <= 0)
+                {
+                    TempData["PromoProdPrice"] = "Cena produktów musi być większa od 0!";
+                    return RedirectToAction("PromotionDetails", new { id = promotionProduct.PromotionId });
+                }
+                //////////////
+
+               var prod = db.Products.Find(promotionProduct.ProductId);
+                if (prod != null)
+                {
+                    if (db.PromotionProducts.Where(c => c.ProductId == promotionProduct.ProductId && c.PromotionId == promotionProduct.PromotionId).Any())
+                    {
+                        TempData["PromoProdIsAlready"] = "Produkt o takim ID już jest w promocji!";
+                        return RedirectToAction("PromotionDetails", new { id = promotionProduct.PromotionId });
+                    }
+
+                    db.PromotionProducts.Add(promotionProduct);
+                    db.SaveChanges();
+
+                    TempData["PromoProdSuccess"] = "Udało się dodać produkt do promocji!";
+                    return RedirectToAction("PromotionDetails", new { id = promotionProduct.PromotionId });
+                }
+                else
+                {
+                    TempData["PromoProdNotExist"] = "Produkt o takim ID nie istnieje";
+                    return RedirectToAction("PromotionDetails", new { id = promotionProduct.PromotionId });
+                }
+            }
+            else
+            {
+                TempData["ViewData"] = ViewData;
+                return RedirectToAction("PromotionDetails", new { id = promotionProduct.PromotionId });
+            }
+        }
+
+        public ActionResult RemovePromotionProduct(int promotionId, int promotionProductId)
+        {
+            var promoProd = db.PromotionProducts.Find(promotionProductId);
+            if (promoProd != null)
+            {
+                db.PromotionProducts.Remove(promoProd);
+                db.SaveChanges();
+            }
+            return RedirectToAction("PromotionDetails", new { id = promotionId });
+        }
+        #endregion
 
 
         // E-MAILS / MAILING
