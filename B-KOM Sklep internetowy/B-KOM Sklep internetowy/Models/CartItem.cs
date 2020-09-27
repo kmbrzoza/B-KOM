@@ -9,5 +9,7 @@ namespace B_KOM_Sklep_internetowy.Models
     {
         public Product Product { get; set; }
         public int Amount { get; set; }
+        public bool PromoCode { get; set; }
+        public decimal PromoCodePrice { get; set; }
     }
 }

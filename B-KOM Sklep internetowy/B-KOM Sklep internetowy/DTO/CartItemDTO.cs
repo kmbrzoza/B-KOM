@@ -10,7 +10,6 @@ namespace B_KOM_Sklep_internetowy.DTO
     {
         public CartItem CartItem{ get; set; }
 
-
         public string GetCartItemProductPrice()
         {
             string price = CartItem.Product.Price.ToString("0.00") + " zł";
@@ -20,6 +19,12 @@ namespace B_KOM_Sklep_internetowy.DTO
         public string GetCartItemProductPromoPrice()
         {
             string price = CartItem.Product.PromoPrice.ToString("0.00") + " zł";
+            return price;
+        }
+
+        public string GetCartItemProductPromoCodePrice()
+        {
+            string price = CartItem.PromoCodePrice.ToString("0.00") + " zł";
             return price;
         }
 

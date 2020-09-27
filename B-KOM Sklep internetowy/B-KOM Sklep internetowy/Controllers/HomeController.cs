@@ -38,10 +38,13 @@ namespace B_KOM_Sklep_internetowy.Controllers
             foreach (var bests in bestsellers)
                 bestsellersExtModel.Add(new ProductDTO() { Product = bests });
 
+            var promotions = db.Promotions.Where(c => c.Hidden != true).ToList();
+
             var homeVM = new HomeViewModel()
             {
                 Recommended = recommendedExtModel,
-                Bestsellers = bestsellersExtModel
+                Bestsellers = bestsellersExtModel,
+                Promotions = promotions                
             };
             return View(homeVM);
         }
@@ -64,6 +67,41 @@ namespace B_KOM_Sklep_internetowy.Controllers
                 productsDTO.Add(new ProductDTO() { Product = prod });
 
             return View(productsDTO);
+        }
+
+
+        public ActionResult PromotionsList()
+        {
+            var promotions = db.Promotions.Where(c => c.Hidden != true).ToList();
+            return View(promotions);
+        }
+
+        public ActionResult Promotions(int? id)
+        {
+            var promo = db.Promotions.Find(id);
+            if(promo == null)
+            {
+                return RedirectToAction("Error", "Common");
+            }
+
+            var productsPromotionDTOList = new List<ProductPromotionDTO>();
+            foreach (var promoProd in promo.PromotionProducts)
+                productsPromotionDTOList.Add(new ProductPromotionDTO()
+                {
+                    Product = promoProd.Product,
+                    Amount = promoProd.Amount,
+                    PromotionPrice = promoProd.PromotionPrice,
+                    PromotionProductId = promoProd.PromotionProductId,
+                    PromotionId = promo.PromotionId
+                });
+
+            var vm = new PromotionsViewModel()
+            {
+                Promotion = promo,
+                ProductsPromotionDTO = productsPromotionDTOList
+            };
+
+            return View(vm);
         }
     }
 }

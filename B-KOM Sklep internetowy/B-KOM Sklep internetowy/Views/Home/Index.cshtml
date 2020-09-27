@@ -8,38 +8,47 @@
 <!-- CAROUSEL -->
 <div id="carouselMain" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
-        <li data-target="#carouselMain" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselMain" data-slide-to="1"></li>
-        <li data-target="#carouselMain" data-slide-to="2"></li>
+        @for (int i = 0; i < Model.Promotions.Count(); i++)
+        {
+            if (i == 0)
+            {
+                <li data-target="#carouselMain" data-slide-to="@i" class="active"></li>
+            }
+            else
+            {
+                <li data-target="#carouselMain" data-slide-to="@i"></li>
+
+            }
+        }
+        
     </ol>
     <div id="carouselMainInner" class="carousel-inner">
-        <div class="carousel-item active">
-            <a href="www.google.pl" target="_blank">
-                <img src="images/promo1.png" class="mainImgCarousel rounded">
-                <div class="carousel-caption d-none d-md-block">
-                    <h4>Promocja na urządzenia peryferyjne!</h4>
-                    <p>Potrzebujesz nową myszkę, klawiaturę, a może słuchawki? Promocja nawet do -50%!</p>
+        @for (int i = 0; i < Model.Promotions.Count(); i++)
+        {
+            if (i == 0)
+            {
+                <div class="carousel-item active">
+                    <a href="@Url.Action("Promotions", "Home", new { id = Model.Promotions.ElementAt(i).PromotionId})">
+                        <img src="@Url.PromotionImgPath(Model.Promotions.ElementAt(i).ImgPath)" class="mainImgCarousel rounded">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h4>@Model.Promotions.ElementAt(i).Name</h4>
+                        </div>
+                    </a>
                 </div>
-            </a>
-        </div>
-        <div class="carousel-item">
-            <a href="www.google.pl" target="_blank">
-                <img src="images/promo2.png" class="mainImgCarousel rounded">
-                <div class="carousel-caption d-none d-md-block">
-                    <h4>Przedsprzedaż Xiaomi Mi 20!</h4>
-                    <p>Zapraszamy na przedsprzedaż nowego Xiaomi Mi 20!</p>
+            }
+            else
+            {
+                <div class="carousel-item">
+                    <a href="@Url.Action("Promotions", "Home", new { id = Model.Promotions.ElementAt(i).PromotionId})">
+                        <img src="@Url.PromotionImgPath(Model.Promotions.ElementAt(i).ImgPath)" class="mainImgCarousel rounded">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h4>@Model.Promotions.ElementAt(i).Name</h4>
+                        </div>
+                    </a>
                 </div>
-            </a>
-        </div>
-        <div class="carousel-item">
-            <a href="www.google.pl" target="_blank">
-                <img src="images/promo3.png" class="mainImgCarousel rounded">
-                <div class="carousel-caption d-none d-md-block">
-                    <h4>Darmowa dostawa!</h4>
-                    <p>Z kodem rabatowym otrzymasz darmową dostawę!</p>
-                </div>
-            </a>
-        </div>
+            }
+        }
+
     </div>
     <a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

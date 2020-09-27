@@ -514,6 +514,7 @@
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="ViewModels\OrderConfirmationEmail.cs" />
+    <Compile Include="ViewModels\PromotionsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -577,6 +578,8 @@
     <Content Include="Views\Admin\AddPromotionProduct.cshtml" />
     <Content Include="Views\Admin\PromotionProductsList.cshtml" />
     <Content Include="Views\Admin\SearchPromotion.cshtml" />
+    <Content Include="Views\Home\Promotions.cshtml" />
+    <Content Include="Views\Home\PromotionsList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

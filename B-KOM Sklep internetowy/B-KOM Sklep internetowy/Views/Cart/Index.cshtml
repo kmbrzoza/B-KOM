@@ -14,6 +14,25 @@
 
 @if (Model.CartItemsDTO.Count > 0)
 {
+    if (TempData["PromoCodeSuccess"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["PromoCodeSuccess"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    if (TempData["PromoCodeError"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["PromoCodeError"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
 
     <div class="row m-0 p-0">
         <!-- Left side -->
@@ -40,7 +59,20 @@
                                 </a>
                             </div>
                             <div class="cartListProductPrice col-2 m-0 p-0 text-center">
-                                @if (!cartItem.CartItem.Product.Promo)
+                                @if (cartItem.CartItem.PromoCode)
+                                {
+                                    if (cartItem.CartItem.Product.Promo)
+                                    {
+                                        <p class="cartProductCrossedPrice">@cartItem.GetCartItemProductPromoPrice()</p>
+                                        <p class="cartProductActualPrice">@cartItem.GetCartItemProductPromoCodePrice()</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="cartProductCrossedPrice">@cartItem.GetCartItemProductPrice()</p>
+                                        <p class="cartProductActualPrice">@cartItem.GetCartItemProductPromoCodePrice()</p>
+                                    }
+                                }
+                                else if (!cartItem.CartItem.Product.Promo)
                                 {
                                     <p class="cartProductActualPrice">@cartItem.GetCartItemProductPrice()</p>
                                 }
@@ -72,14 +104,31 @@
                     promocyjny?
                 </button>
                 <div id="cartPromoCode" class="collapse">
-                    <div id="cartPromoCodeCard" class="d-flex align-items-center justify-content-center">
-                        <input id="cartPromoCodeInput" class="form-control" type="text"
-                               placeholder="Wpisz kod promocyjny" title="Kod promocyjny">
-                        <button id="cartPromoCodeButton" class="btn btn-outline-success" type="submit"
-                                title="Aktywuj">
-                            Aktywuj
-                        </button>
-                    </div>
+
+                    @using (Html.BeginForm("PromoCode", "Cart", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        if (Model.PromoCode != null)
+                        {
+                            <div id="cartPromoCodeCard" class="d-flex align-items-center justify-content-center">
+                                <input value="@Model.PromoCode" disabled="disabled" name="code" id="cartPromoCodeInput" class="form-control" type="text"
+                                       placeholder="Wpisz kod promocyjny" title="Kod promocyjny">
+                                <input disabled="disabled" id="cartPromoCodeButton" class="btn btn-outline-success" type="submit"
+                                       title="Aktywuj" value="Aktywuj" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div id="cartPromoCodeCard" class="d-flex align-items-center justify-content-center">
+                                <input name="code" id="cartPromoCodeInput" class="form-control" type="text"
+                                       placeholder="Wpisz kod promocyjny" title="Kod promocyjny">
+                                <input id="cartPromoCodeButton" class="btn btn-outline-success" type="submit"
+                                       title="Aktywuj" value="Aktywuj" />
+                            </div>
+                        }
+                    }
+
                 </div>
 
                 <div id="cartPriceOrder">
@@ -90,7 +139,7 @@
                         <span class="float-left">Łączna kwota:</span> <span class="float-right">@Model.GetTotalPrice()</span>
                     </div>
                     <a href="@Url.Action("Order", "Cart")" id="cartPriceOrderGoToOrder" class="btn btn-success"
-                            title="Przejdź do dostawy">
+                       title="Przejdź do dostawy">
                         Przejdź do dostawy
                         @Html.Raw(HtmlImages.rightArrow)
                     </a>

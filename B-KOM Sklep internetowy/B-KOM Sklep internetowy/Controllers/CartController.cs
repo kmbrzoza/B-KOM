@@ -39,11 +39,13 @@ namespace B_KOM_Sklep_internetowy.Controllers
             var cart = cartManager.GetCart();
             var cartItemsDTOList = new List<CartItemDTO>();
 
-            foreach (var cartItem in cart)
+            foreach (var cartItem in cart) 
                 cartItemsDTOList.Add(new CartItemDTO() { CartItem = cartItem });
+
 
             CartViewModel CartVM = new CartViewModel()
             {
+                PromoCode = cartManager.GetPromoCode(),
                 CartItemsDTO = cartItemsDTOList
             };
             return View(CartVM);
@@ -130,6 +132,22 @@ namespace B_KOM_Sklep_internetowy.Controllers
         public ActionResult OrderConfirmation()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult PromoCode(string code)
+        {
+            if(cartManager.PromoCode(code))
+            {
+                TempData["PromoCodeSuccess"] = "Podany kod promocyjny został aktywowany!";
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                TempData["PromoCodeError"] = "Podany kod promocyjny jest niepoprawny!";
+                return RedirectToAction("Index");
+            }
         }
 
 

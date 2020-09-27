@@ -11,12 +11,29 @@ namespace B_KOM_Sklep_internetowy.ViewModels
     {
         public List<CartItemDTO> CartItemsDTO { get; set; }
 
+        public string PromoCode { get; set; }
+
         private decimal GetTotalPriceDcm()
         {
             decimal sum = 0;
             foreach (var cartItem in CartItemsDTO)
             {
-                if (cartItem.CartItem.Product.Promo)
+                if(cartItem.CartItem.PromoCode)
+                {
+                    sum = sum + (cartItem.CartItem.PromoCodePrice);
+                    if(cartItem.CartItem.Amount > 1)
+                    {
+                        if (cartItem.CartItem.Product.Promo)
+                        {
+                            sum = sum + (cartItem.CartItem.Product.PromoPrice * (cartItem.CartItem.Amount - 1));
+                        }
+                        else
+                        {
+                            sum = sum + (cartItem.CartItem.Product.Price * (cartItem.CartItem.Amount - 1 ));
+                        }
+                    }
+                }
+                else if (cartItem.CartItem.Product.Promo)
                 {
                     sum = sum + (cartItem.CartItem.Product.PromoPrice * cartItem.CartItem.Amount);
                 }
