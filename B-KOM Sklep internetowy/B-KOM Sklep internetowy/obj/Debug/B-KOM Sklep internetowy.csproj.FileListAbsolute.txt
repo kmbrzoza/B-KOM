@@ -69,7 +69,6 @@ K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internet
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\bin\System.Web.Helpers.xml
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\bin\System.Web.Mvc.xml
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B-KOM Sklep internetowy.csprojAssemblyReference.cache
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B-KOM Sklep internetowy.csproj.CoreCompileInputs.cache
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B-KOM Sklep internetowy.csproj.CopyComplete
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B-KOM Sklep internetowy.dll
@@ -153,3 +152,8 @@ K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internet
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.editedCats.resources
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.promotion.resources
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.editedPromotionv1.resources
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B-KOM Sklep internetowy.csprojAssemblyReference.cache
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.changes.resources
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.idk.resources
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.opn.resources
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.opnv2.resources

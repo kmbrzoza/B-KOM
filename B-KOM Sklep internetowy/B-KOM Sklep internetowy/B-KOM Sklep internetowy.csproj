@@ -487,6 +487,22 @@
     <Compile Include="Migrations\202009250858338_editedPromotionv1.designer.cs">
       <DependentUpon>202009250858338_editedPromotionv1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009281028159_changes.cs" />
+    <Compile Include="Migrations\202009281028159_changes.designer.cs">
+      <DependentUpon>202009281028159_changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009281053168_idk.cs" />
+    <Compile Include="Migrations\202009281053168_idk.designer.cs">
+      <DependentUpon>202009281053168_idk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009281059446_opn.cs" />
+    <Compile Include="Migrations\202009281059446_opn.designer.cs">
+      <DependentUpon>202009281059446_opn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009281100380_opnv2.cs" />
+    <Compile Include="Migrations\202009281100380_opnv2.designer.cs">
+      <DependentUpon>202009281100380_opnv2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
@@ -665,6 +681,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009250858338_editedPromotionv1.resx">
       <DependentUpon>202009250858338_editedPromotionv1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009281028159_changes.resx">
+      <DependentUpon>202009281028159_changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009281053168_idk.resx">
+      <DependentUpon>202009281053168_idk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009281059446_opn.resx">
+      <DependentUpon>202009281059446_opn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009281100380_opnv2.resx">
+      <DependentUpon>202009281100380_opnv2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

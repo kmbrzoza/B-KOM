@@ -7,7 +7,7 @@
     {
         public override void Up()
         {
-            SqlFile("../Migrations/ELMAH-1.2-db-SQLServer.sql");
+            SqlFile("../B-KOM Sklep internetowy/Migrations/ELMAH-1.2-db-SQLServer.sql");
         }
         
         public override void Down()
