@@ -37,10 +37,18 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
                 if(cartItem.PromoCode)
                 {
                     var code = GetPromoCode();
-                    var promo = db.Promotions.Where(c => c.Code == code).SingleOrDefault();
-                    var promoProd = promo.PromotionProducts.Where(c => c.ProductId == cartItem.Product.ProductId).SingleOrDefault();
 
-                    if(promoProd.Amount < 1)
+                    //HOT DEAL
+                    var hotdeal = db.PromotionHotDeals.Where(c => c.Active == true && c.Code.ToLower() == code.ToLower()).SingleOrDefault();
+
+                    //PROMOTIONS
+                    var promo = db.Promotions.Where(c => c.Code.ToLower() == code.ToLower() && c.Hidden != true).SingleOrDefault();
+                    PromotionProduct promoProd=null;
+
+                    if (promo != null)
+                        promoProd = promo.PromotionProducts.Where(c => c.ProductId == cartItem.Product.ProductId).SingleOrDefault();
+
+                    if((promoProd == null || promoProd.Amount < 1) && (hotdeal == null || hotdeal.AmountLeft < 1))
                     {
                         cartItem.PromoCode = false;
                         session.Set<string>(Consts.cartSessionPromoCode, null);
@@ -135,10 +143,16 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
                 if (cartItem.PromoCode)
                 {
                     var code = GetPromoCode();
-                    var promo = db.Promotions.Where(c => c.Code == code).SingleOrDefault();
-                    var promoProd = promo.PromotionProducts.Where(c => c.ProductId == cartItem.Product.ProductId).SingleOrDefault();
+                    //HOT DEAL
+                    var hotdeal = db.PromotionHotDeals.Where(c => c.Active == true && c.Code.ToLower() == code.ToLower()).SingleOrDefault();
+                    
+                    //PROMOTIONS
+                    var promo = db.Promotions.Where(c => c.Code.ToLower() == code.ToLower() && c.Hidden != true).SingleOrDefault();
+                    PromotionProduct promoProd = null;
+                    if(promo != null)
+                        promoProd = promo.PromotionProducts.Where(c => c.ProductId == cartItem.Product.ProductId).SingleOrDefault();
 
-                    if(promoProd != null && promoProd.Amount>0)
+                    if((promoProd != null && promoProd.Amount>0) || (hotdeal != null && hotdeal.AmountLeft > 0))
                     {
                         decimal price = cartItem.PromoCodePrice;
                         if (cartItem.Amount > 1)
@@ -157,8 +171,12 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
                         };
                         cartValue += price;
                         newOrder.OrderItems.Add(orderItem);
+                        
+                        if(promoProd != null)
+                            promoProd.Amount--;
+                        if (hotdeal != null)
+                            hotdeal.AmountLeft--;
 
-                        promoProd.Amount--;
                         db.SaveChanges();
                         session.Set<string>(Consts.cartSessionPromoCode, null);
 
@@ -211,7 +229,28 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
 
         public bool PromoCode(string code)
         {
-            var promo = db.Promotions.Where(c => c.Code.ToLower() == code.ToLower()).FirstOrDefault();
+            //HOT DEAL
+            var hotdeal = db.PromotionHotDeals.Where(c => c.Active == true).SingleOrDefault();
+            if(hotdeal != null && hotdeal.Code.ToLower() == code.ToLower())
+            {
+                var cart = GetCart();
+
+                foreach(var cartItem in cart)
+                {
+                    if(cartItem.Product.ProductId == hotdeal.ProductId && hotdeal.AmountLeft > 0)
+                    {
+                        cartItem.PromoCode = true;
+                        cartItem.PromoCodePrice = hotdeal.PromotionPrice;
+                        session.Set<string>(Consts.cartSessionPromoCode, code.ToLower());
+                        session.Set<List<CartItem>>(Consts.cartSessionKey, cart);
+
+                        return true;
+                    }
+                }
+            }
+
+            //PROMOTIONS
+            var promo = db.Promotions.Where(c => c.Code.ToLower() == code.ToLower() && c.Hidden != true).FirstOrDefault();
             if (promo != null)
             {
                 var cart = GetCart();
@@ -242,5 +281,6 @@ namespace B_KOM_Sklep_internetowy.Infrastructure
             else
                 return null;
         }
+
     }
 }

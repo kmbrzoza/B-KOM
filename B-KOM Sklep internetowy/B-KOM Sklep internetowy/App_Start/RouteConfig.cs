@@ -14,12 +14,18 @@ namespace B_KOM_Sklep_internetowy
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                name: "Favourities",
-                url: "Ulubione",
-                defaults: new { controller = "Manage", action = "Favourities" }
-                ); 
+                name: "AdminHotDealDetails",
+                url: "Admin/goraca-okazja-szczegoly/{id}",
+                defaults: new { controller = "Admin", action = "HotDealDetails" }
+                );
 
-                routes.MapRoute(
+            routes.MapRoute(
+                name: "AdminHotDeal",
+                url: "Admin/goraca-okazja/",
+                defaults: new { controller = "Admin", action = "HotDeal" }
+                );
+
+            routes.MapRoute(
                 name: "AdminPromotionDetails",
                 url: "Admin/promocje-szczegoly/{id}",
                 defaults: new { controller = "Admin", action = "PromotionDetails" }
@@ -74,6 +80,12 @@ namespace B_KOM_Sklep_internetowy
                 );
 
             routes.MapRoute(
+                name: "Favourities",
+                url: "Ulubione",
+                defaults: new { controller = "Manage", action = "Favourities" }
+                );
+
+            routes.MapRoute(
                 name: "ManageOrderDetails",
                 url: "konto/zamowienia/{id}",
                 defaults: new { controller = "Manage", action = "OrderDetails" }
@@ -114,6 +126,18 @@ namespace B_KOM_Sklep_internetowy
                 url: "produkt/kategorie/{categoryLinkName}",
                 defaults: new { controller = "Product", action = "CategoryProducts" }
                 );
+
+            routes.MapRoute(
+                name: "Promotions",
+                url: "promocje/{id}",
+                defaults: new { controller = "Home", action = "Promotions" }
+            );
+
+            routes.MapRoute(
+                name: "PromotionsList",
+                url: "promocje/",
+                defaults: new { controller = "Home", action = "PromotionsList" }
+            );
 
             routes.MapRoute(
                 name: "Search",

@@ -12,5 +12,6 @@ namespace B_KOM_Sklep_internetowy.ViewModels
         public IEnumerable<ProductDTO> Recommended { get; set; }
         public IEnumerable<ProductDTO> Bestsellers { get; set; }
         public List<Promotion> Promotions { get; set; }
+        public PromotionHotDeal HotDeal { get; set; }
     }
 }

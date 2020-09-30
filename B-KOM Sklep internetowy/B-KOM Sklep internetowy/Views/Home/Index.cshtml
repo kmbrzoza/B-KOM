@@ -20,7 +20,7 @@
 
             }
         }
-        
+
     </ol>
     <div id="carouselMainInner" class="carousel-inner">
         @for (int i = 0; i < Model.Promotions.Count(); i++)
@@ -64,27 +64,60 @@
 <!-- MENU UNDER CAROUSEL -->
 <div class="row m-0">
     <!-- HOT DEAL -->
-    <div id="hotDeal" class="col-xl-4 col-12 row rounded">
-        <div id="hotDealBorder" class="col-12 row align-items-center">
-            <div id="hotDealLinkImgTitle" class="col-xl-12 col-md-6 text-center">
-                <h2>Gorąca okazja</h2>
-                <a href="#" id="hotDealLink">
-                    <img src="images/hotDeal.png" id="hotDealImg" class="w-100">
-                    <p class="text-center m-1">Logitech G603 LIGHTSPEED</p>
-                </a>
-            </div>
-            <div id="hotDealInfo" class="col-xl-12 col-md-6">
-                <p id="hotDealPrice" class="my-0">289,00 zł</p>
-                <p id="hotDealPromoPrice" class="">149,00 zł</p>
-                <p id="hotDealCode" class="m-0">Kod promocyjny: MYCHA-149</p>
-                <p id="hotDealLeft" class="m-0">Pozostało: 5</p>
-                <div class="progress my-2">
-                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                         aria-valuemin="0" aria-valuemax="100"></div>
+    @if (Model.HotDeal != null)
+    {
+        <div id="hotDeal" class="col-xl-4 col-12 row rounded">
+            <div id="hotDealBorder" class="col-12 row align-items-center">
+                <div id="hotDealLinkImgTitle" class="col-xl-12 col-md-6 text-center">
+                    <h2>Gorąca okazja</h2>
+                    <a href="@Url.Action("Details", "Product", new { id = Model.HotDeal.ProductId })" id="hotDealLink">
+                        <img src="@Url.ProductImgPath(Model.HotDeal.Product.ProductImages.Where(c => c.MainImg == true).SingleOrDefault().ImgPath)" id="hotDealImg" class="w-100">
+                        <p class="text-center m-1">@Model.HotDeal.Product.Name</p>
+                    </a>
+                </div>
+                <div id="hotDealInfo" class="col-xl-12 col-md-6">
+                    @if (Model.HotDeal.Product.Promo)
+                    {
+                        <p id="hotDealPrice" class="my-0">@Model.HotDeal.Product.PromoPrice zł</p>
+                    }
+                    else
+                    {
+                        <p id="hotDealPrice" class="my-0">@Model.HotDeal.Product.Price zł</p>
+                    }
+                    <p id="hotDealPromoPrice" class="">@Model.HotDeal.PromotionPrice zł</p>
+                    <p id="hotDealCode" class="m-0">Kod promocyjny: @Model.HotDeal.Code</p>
+                    <p id="hotDealLeft" class="m-0">Pozostało: @Model.HotDeal.AmountLeft</p>
+                    <div class="progress my-2">
+                        <div class="progress-bar" role="progressbar" style="width: @((int)(decimal.Divide(Model.HotDeal.AmountLeft, Model.HotDeal.Amount) * 100) + "%");"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
+    else
+    {
+        <div id="hotDeal" class="col-xl-4 col-12 row rounded">
+            <div id="hotDealBorder" class="col-12 row align-items-center">
+                <div id="hotDealLinkImgTitle" class="col-xl-12 col-md-6 text-center">
+                    <h2>Gorąca okazja</h2>
+                    <a id="hotDealLink">
+                        <img src="@Url.Content("~/Content/images/hotdealnone.png")" id="hotDealImg" class="w-100">
+                        <p class="text-center m-1">Aktualnie brak gorącej okazji :(</p>
+                    </a>
+                </div>
+                <div id="hotDealInfo" class="col-xl-12 col-md-6">
+                    <p id="hotDealPromoPrice" class="">Zapraszamy w przyszłości!</p>
+                    <p id="hotDealCode" class="m-0">Kod promocyjny: </p>
+                    <p id="hotDealLeft" class="m-0">Pozostało: 0</p>
+                    <div class="progress my-2">
+                        <div class="progress-bar" role="progressbar" style="width: 0%;"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 
     <!-- RECOMMENDED PRODUCTS -->
     <div id="recommendedProducts" class="col-xl-8 col-12 m-0 border-top">

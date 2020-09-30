@@ -40,11 +40,14 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
             var promotions = db.Promotions.Where(c => c.Hidden != true).ToList();
 
+            var hotdeal = db.PromotionHotDeals.Where(c => c.Active).SingleOrDefault();
+
             var homeVM = new HomeViewModel()
             {
                 Recommended = recommendedExtModel,
                 Bestsellers = bestsellersExtModel,
-                Promotions = promotions                
+                Promotions = promotions,
+                HotDeal = hotdeal
             };
             return View(homeVM);
         }
@@ -76,7 +79,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
             return View(promotions);
         }
 
-        public ActionResult Promotions(int? id)
+        public ActionResult Promotions(int id)
         {
             var promo = db.Promotions.Find(id);
             if(promo == null)

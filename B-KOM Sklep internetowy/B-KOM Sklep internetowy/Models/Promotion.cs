@@ -20,4 +20,10 @@ namespace B_KOM_Sklep_internetowy.Models
 
         public virtual List<PromotionProduct> PromotionProducts { get; set; }
     }
+
+    public enum PromotionType
+    {
+        Promotion,
+        HotDeal
+    }
 }

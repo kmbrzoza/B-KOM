@@ -503,6 +503,14 @@
     <Compile Include="Migrations\202009281100380_opnv2.designer.cs">
       <DependentUpon>202009281100380_opnv2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009290832117_PromotionHotDeals.cs" />
+    <Compile Include="Migrations\202009290832117_PromotionHotDeals.designer.cs">
+      <DependentUpon>202009290832117_PromotionHotDeals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009301109525_editedHotDeal.cs" />
+    <Compile Include="Migrations\202009301109525_editedHotDeal.designer.cs">
+      <DependentUpon>202009301109525_editedHotDeal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
@@ -516,6 +524,7 @@
     <Compile Include="Models\ProductImage.cs" />
     <Compile Include="Models\ProductSpecification.cs" />
     <Compile Include="Models\Promotion.cs" />
+    <Compile Include="Models\PromotionHotDeal.cs" />
     <Compile Include="Models\PromotionProduct.cs" />
     <Compile Include="Models\Specification.cs" />
     <Compile Include="Models\UserData.cs" />
@@ -523,6 +532,7 @@
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AdminAddProductViewModel.cs" />
     <Compile Include="ViewModels\AdminCategoriesViewModel.cs" />
+    <Compile Include="ViewModels\AdminHotDealViewModel.cs" />
     <Compile Include="ViewModels\AdminProductDetailsViewModel.cs" />
     <Compile Include="ViewModels\AdminPromotionDetailsViewModel.cs" />
     <Compile Include="ViewModels\CartViewModel.cs" />
@@ -596,6 +606,8 @@
     <Content Include="Views\Admin\SearchPromotion.cshtml" />
     <Content Include="Views\Home\Promotions.cshtml" />
     <Content Include="Views\Home\PromotionsList.cshtml" />
+    <Content Include="Views\Admin\HotDeal.cshtml" />
+    <Content Include="Views\Admin\HotDealDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -693,6 +705,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009281100380_opnv2.resx">
       <DependentUpon>202009281100380_opnv2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009290832117_PromotionHotDeals.resx">
+      <DependentUpon>202009290832117_PromotionHotDeals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009301109525_editedHotDeal.resx">
+      <DependentUpon>202009301109525_editedHotDeal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

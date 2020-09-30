@@ -157,3 +157,5 @@ K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internet
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.idk.resources
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.opn.resources
 K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.opnv2.resources
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.PromotionHotDeals.resources
+K:\Projekty\B-KOM Sklep internetowy\B-KOM Sklep internetowy\B-KOM Sklep internetowy\obj\Debug\B_KOM_Sklep_internetowy.Migrations.editedHotDeal.resources

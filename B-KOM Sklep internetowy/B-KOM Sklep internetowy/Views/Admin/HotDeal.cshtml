@@ -1,0 +1,127 @@
+﻿@model B_KOM_Sklep_internetowy.ViewModels.AdminHotDealViewModel
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+@{
+    ViewBag.Title = "Admin - Gorąca okazja";
+    Layout = "~/Views/Admin/_LeftListAdmin.cshtml";
+}
+
+<div class="col-12 col-md-9 m-0">
+
+    <h4 class="border-bottom pb-1">Utwórz nową gorącą okazję</h4>
+
+    @if (TempData["HotDealSuccess"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["HotDealSuccess"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    @using (Html.BeginForm("AddHotDeal", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        <table>
+            <tr>
+                <td>@Html.LabelFor(c => c.newHotDeal.ProductId, "ID Produktu: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.newHotDeal.ProductId, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.newHotDeal.ProductId)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.newHotDeal.PromotionPrice, "Cena w promocji: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.newHotDeal.PromotionPrice, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.newHotDeal.PromotionPrice)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.newHotDeal.Amount, "Ilość: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.newHotDeal.Amount, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.newHotDeal.Amount)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.newHotDeal.Code, "Kod promocyjny: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.newHotDeal.Code, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.newHotDeal.Code)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.newHotDeal.Code, "Aktywny: ")</td>
+                <td>
+                    @Html.CheckBoxFor(c => c.newHotDeal.Active)
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.newHotDeal.Active)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" class="btn btn-primary rounded-button" value="Dodaj" />
+    }
+
+    <h4 class="border-bottom pb-1">Wyszukaj gorącą okazję</h4>
+
+    <form method="get" action="@Url.Action("HotDeal", "Admin")" class="form-inline flex-nowrap">
+        <input name="search" id="AdminFormSearchInput" class="form-control" type="text" placeholder="Wpisz nazwę lub numer promocji">
+        <button class="rounded-button btn btn-primary" type="submit" title="Wyszukaj">
+            @Html.Raw(HtmlImages.searchIcon)
+        </button>
+    </form>
+
+    @if (Model.listHotDeals.Any())
+    {
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3">
+            @foreach (var hotdeal in Model.listHotDeals)
+            {
+                <div id="hotDeal" class="col row rounded m-2">
+                    <div id="hotDealBorder" class="col-12 row align-items-center m-0 p-0">
+                        <div id="hotDealLinkImgTitle" class="col-12 text-center m-0 p-0">
+                            @if(hotdeal.Active)
+                            {
+                                <p class="validation-message m-0 p-0">Aktywna</p>
+                            }
+                            <p class="m-0 p-0 small">ID: @hotdeal.PromotionHotDealId</p>
+                            <h2>Gorąca okazja</h2>
+                            <a href="@Url.Action("HotDealDetails", "Admin", new { id = hotdeal.PromotionHotDealId })" id="hotDealLink">
+                                <img src="@Url.ProductImgPath(hotdeal.Product.ProductImages.Where(c=> c.MainImg == true).SingleOrDefault().ImgPath)" id="hotDealImg" class="w-100">
+                                <p class="text-center m-1">@hotdeal.Product.Name</p>
+                            </a>
+                        </div>
+                        <div id="hotDealInfo" class="col-12">
+                            @if (hotdeal.Product.Promo)
+                            {
+                                <p id="hotDealPrice" class="my-0">@hotdeal.Product.PromoPrice zł</p>
+                            }
+                            else
+                            {
+                                <p id="hotDealPrice" class="my-0">@hotdeal.Product.Price zł</p>
+                            }
+                            <p id="hotDealPromoPrice" class="">@hotdeal.PromotionPrice zł</p>
+                            <p id="hotDealCode" class="m-0">Kod promocyjny: @hotdeal.Code</p>
+                            <p id="hotDealLeft" class="m-0">Pozostało: @hotdeal.AmountLeft</p>
+                            <div class="progress my-2">
+                                <div class="progress-bar" role="progressbar" style="width: @((int)(decimal.Divide(hotdeal.AmountLeft, hotdeal.Amount)*100) + "%");"
+                                     aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+</div>

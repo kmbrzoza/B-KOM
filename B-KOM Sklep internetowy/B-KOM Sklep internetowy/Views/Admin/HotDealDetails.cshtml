@@ -1,0 +1,96 @@
+﻿@model B_KOM_Sklep_internetowy.Models.PromotionHotDeal
+@{
+    ViewBag.Title = "Admin - Gorąca okazja - szczegóły";
+    Layout = "~/Views/Admin/_LeftListAdmin.cshtml";
+}
+
+<div class="col-12 col-md-9 m-0">
+
+    <h2 class="border-bottom pb-1">Edytuj gorącą okazję</h2>
+
+    @if (TempData["HotDealEdit"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["HotDealEdit"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    @if (TempData["HotDealEditAmount"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["HotDealEditAmount"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    @using (Html.BeginForm("EditHotDeal", "Admin", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(c => c.PromotionHotDealId)
+
+        <table>
+            <tr>
+                <td>@Html.LabelFor(c => c.ProductId, "ID Produktu: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.ProductId, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.ProductId)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.PromotionPrice, "Cena w promocji: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.PromotionPrice, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.PromotionPrice)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Amount, "Ilość: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.Amount, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.Amount)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.AmountLeft, "Pozostała Ilość: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.AmountLeft, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.AmountLeft)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Code, "Kod promocyjny: ")</td>
+                <td>
+                    @Html.TextBoxFor(c => c.Code, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.Code)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Code, "Aktywny: ")</td>
+                <td>
+                    @Html.CheckBoxFor(c => c.Active)
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.Active)
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" class="btn btn-primary rounded-button" value="Edytuj" />
+    }
+
+</div>

@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Core.Common.CommandTrees;
+using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -562,10 +563,14 @@ namespace B_KOM_Sklep_internetowy.Controllers
             //ProductPromotionDTO helps in view (for example in showing opinions, prices, etc.)
             List<ProductPromotionDTO> promoProdsDTOList = new List<ProductPromotionDTO>();
             foreach (var promProd in promotionProdsList)
-                promoProdsDTOList.Add(new ProductPromotionDTO() 
-                {   Product = promProd.Product, Amount = promProd.Amount, 
-                    PromotionPrice = promProd.PromotionPrice, PromotionProductId = promProd.PromotionProductId,
-                    PromotionId = promotion.PromotionId});
+                promoProdsDTOList.Add(new ProductPromotionDTO()
+                {
+                    Product = promProd.Product,
+                    Amount = promProd.Amount,
+                    PromotionPrice = promProd.PromotionPrice,
+                    PromotionProductId = promProd.PromotionProductId,
+                    PromotionId = promotion.PromotionId
+                });
 
             var vm = new AdminPromotionDetailsViewModel()
             {
@@ -589,7 +594,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
                 promoToChange.Hidden = promotion.Hidden;
 
                 //If admin want to change image
-                if(promotionImg != null && promotionImg.ContentLength > 0)
+                if (promotionImg != null && promotionImg.ContentLength > 0)
                 {
                     //removing image
                     string fullPath = Path.Combine(Server.MapPath(AppConfig.PromotionImgFolder), promoToChange.ImgPath);
@@ -621,7 +626,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
         {
             if (ModelState.IsValid)
             {
-                if(promotionProduct.Amount <= 0)
+                if (promotionProduct.Amount <= 0)
                 {
                     TempData["PromoProdAmount"] = "Ilość produktów musi być większa od 0!";
                     return RedirectToAction("PromotionDetails", new { id = promotionProduct.PromotionId });
@@ -633,7 +638,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
                 }
                 //////////////
 
-               var prod = db.Products.Find(promotionProduct.ProductId);
+                var prod = db.Products.Find(promotionProduct.ProductId);
                 if (prod != null)
                 {
                     if (db.PromotionProducts.Where(c => c.ProductId == promotionProduct.ProductId && c.PromotionId == promotionProduct.PromotionId).Any())
@@ -671,6 +676,108 @@ namespace B_KOM_Sklep_internetowy.Controllers
             }
             return RedirectToAction("PromotionDetails", new { id = promotionId });
         }
+
+
+        public ActionResult HotDeal(string search)
+        {
+            if (TempData["ViewData"] != null)
+            {
+                ViewData = (ViewDataDictionary)TempData["ViewData"];
+            }
+
+            var newHotDeal = new PromotionHotDeal();
+
+            List<PromotionHotDeal> listHotDeals;
+
+            if (search == null || search == "")
+            {
+                listHotDeals = db.PromotionHotDeals.Where(c => c.Active == true).ToList();
+            }
+            else
+            {
+                listHotDeals = db.PromotionHotDeals.Where(c => c.Product.Name.ToLower().Contains(search.ToLower()) || c.PromotionHotDealId.ToString().Contains(search)).ToList();
+            }
+
+            var vm = new AdminHotDealViewModel()
+            {
+                listHotDeals = listHotDeals,
+                newHotDeal = newHotDeal
+            };
+            return View(vm);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddHotDeal(PromotionHotDeal newHotDeal)
+        {
+            if (ModelState.IsValid)
+            {
+                newHotDeal.AmountLeft = newHotDeal.Amount;
+                if (newHotDeal.Active)
+                {
+                    var hdActive = db.PromotionHotDeals.Where(c => c.Active == true).SingleOrDefault();
+                    if (hdActive != null)
+                        hdActive.Active = false;
+
+                    db.PromotionHotDeals.Add(newHotDeal);
+                    db.SaveChanges();
+                    TempData["HotDealSuccess"] = "Udało się dodać nową gorącą okazję!";
+                    return RedirectToAction("HotDeal");
+                }
+                else
+                {
+                    db.PromotionHotDeals.Add(newHotDeal);
+                    db.SaveChanges();
+                    TempData["HotDealSuccess"] = "Udało się dodać nową gorącą okazję!";
+                    return RedirectToAction("HotDeal");
+                }
+            }
+            else
+            {
+                TempData["ViewData"] = ViewData;
+                return RedirectToAction("HotDeal");
+            }
+        }
+
+        public ActionResult HotDealDetails(int id)
+        {
+            var hd = db.PromotionHotDeals.Where(c => c.PromotionHotDealId == id).SingleOrDefault();
+            if (hd != null)
+                return View(hd);
+            else
+                return RedirectToAction("HotDeal");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult HotDealDetails(PromotionHotDeal hotdeal)
+        {
+            if(ModelState.IsValid)
+            {
+                if(hotdeal.AmountLeft > hotdeal.Amount)
+                {
+                    TempData["HotDealEditAmount"] = "Pozostała ilość musi być mniejsza od ilości!";
+                    return View(hotdeal);
+                }
+                if(hotdeal.Active)
+                {
+                    var hdActive = db.PromotionHotDeals.Where(c => c.Active == true).SingleOrDefault();
+                    if (hdActive != null)
+                        hdActive.Active = false;
+                }
+                db.PromotionHotDeals.AddOrUpdate(hotdeal);
+                db.SaveChanges();
+
+                TempData["HotDealEdit"] = "Udało się edytować gorącą okazję!";
+                return View();
+            }
+            else
+            {
+                return View(hotdeal);
+            }
+        }
+
+
         #endregion
 
 
