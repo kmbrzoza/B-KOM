@@ -19486,3 +19486,82 @@
 2020-09-30 15:50:01.9539|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
 2020-09-30 15:50:06.9605|TRACE|Hangfire.Server.ServerJobCancellationWatcher|Checking for aborted jobs...
 2020-09-30 15:50:06.9605|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
+2020-09-30 16:52:41.1330|INFO|Hangfire.SqlServer.SqlServerObjectsInstaller|Start installing Hangfire SQL objects...
+2020-09-30 16:52:42.1302|INFO|Hangfire.SqlServer.SqlServerObjectsInstaller|Hangfire SQL objects installed.
+2020-09-30 16:52:42.1601|INFO|Hangfire.BackgroundJobServer|Starting Hangfire Server using job storage: 'SQL Server: (LocalDb)\MSSQLLocalDB@B-KOM Internet Shop'
+2020-09-30 16:52:42.1621|INFO|Hangfire.BackgroundJobServer|Using the following options for SQL Server job storage: Queue poll interval: 00:00:15.
+2020-09-30 16:52:42.1621|INFO|Hangfire.BackgroundJobServer|Using the following options for Hangfire Server:
+    Worker count: 20
+    Listening queues: 'default'
+    Shutdown timeout: 00:00:15
+    Schedule polling interval: 00:00:15
+2020-09-30 16:52:42.1850|DEBUG|Hangfire.Server.AspNetShutdownDetector|HostingEnvironment.StopListening shutdown trigger initialized successfully.
+2020-09-30 16:52:42.1850|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop BackgroundServerProcess:1a478b2b has started in 6,4832 ms
+2020-09-30 16:52:42.1850|DEBUG|Hangfire.Server.AspNetShutdownDetector|HostingEnvironment.ShutdownReason shutdown trigger initialized successfully.
+2020-09-30 16:52:42.1970|TRACE|Hangfire.Server.BackgroundServerProcess|Server desktop-hjglsp9:14016:f6d368b9 is announcing itself...
+2020-09-30 16:52:42.3504|INFO|Hangfire.Server.BackgroundServerProcess|Server desktop-hjglsp9:14016:f6d368b9 successfully announced in 151,897 ms
+2020-09-30 16:52:42.3504|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop ServerHeartbeatProcess:0c94763c has started in 5,4028 ms
+2020-09-30 16:52:42.3504|INFO|Hangfire.Server.BackgroundServerProcess|Server desktop-hjglsp9:14016:f6d368b9 is starting the registered dispatchers: ServerWatchdog, ServerJobCancellationWatcher, ExpirationManager, CountersAggregator, Worker, DelayedJobScheduler, RecurringJobScheduler...
+2020-09-30 16:52:42.3504|TRACE|Hangfire.Server.ServerHeartbeatProcess|Server desktop-hjglsp9:14016:f6d368b9 waiting for 00:00:30 delay before sending a heartbeat
+2020-09-30 16:52:42.3674|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop ServerWatchdog:5de8771e has started in 5,1215 ms
+2020-09-30 16:52:42.3674|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop ServerJobCancellationWatcher:f5cb2635 has started in 3,1356 ms
+2020-09-30 16:52:42.3674|TRACE|Hangfire.Server.ServerJobCancellationWatcher|Checking for aborted jobs...
+2020-09-30 16:52:42.3674|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop ExpirationManager:500956af has started in 2,5471 ms
+2020-09-30 16:52:42.3674|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
+2020-09-30 16:52:42.3674|DEBUG|Hangfire.SqlServer.ExpirationManager|Removing outdated records from the 'AggregatedCounter' table...
+2020-09-30 16:52:42.3674|INFO|Hangfire.Server.ServerWatchdog|3 servers were removed due to timeout
+2020-09-30 16:52:42.3674|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop CountersAggregator:ff5810e7 has started in 2,8206 ms
+2020-09-30 16:52:42.4013|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:3fb0a0d2 has started in 24,4762 ms
+2020-09-30 16:52:42.4312|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:7c078f70 has started in 54,5586 ms
+2020-09-30 16:52:42.4013|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:3437cae6 has started in 24,4908 ms
+2020-09-30 16:52:42.4312|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:a74e7769 has started in 58,2374 ms
+2020-09-30 16:52:42.4013|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:fda29757 has started in 24,4322 ms
+2020-09-30 16:52:42.4442|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:d287ffb7 has started in 67,1298 ms
+2020-09-30 16:52:42.4013|DEBUG|Hangfire.SqlServer.CountersAggregator|Aggregating records in 'Counter' table...
+2020-09-30 16:52:42.4442|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:3fc09797 has started in 76,6682 ms
+2020-09-30 16:52:42.4442|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:6e3ff823 has started in 79,8787 ms
+2020-09-30 16:52:42.4591|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:dcfd3fb2 has started in 82,4489 ms
+2020-09-30 16:52:42.4591|TRACE|Hangfire.SqlServer.ExpirationManager|Outdated records removed from the 'AggregatedCounter' table.
+2020-09-30 16:52:42.4591|DEBUG|Hangfire.SqlServer.ExpirationManager|Removing outdated records from the 'Job' table...
+2020-09-30 16:52:42.4591|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:6777cd21 has started in 85,9007 ms
+2020-09-30 16:52:42.4791|TRACE|Hangfire.SqlServer.CountersAggregator|Records from the 'Counter' table aggregated.
+2020-09-30 16:52:42.4791|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:30c7b8d4 has started in 105,4326 ms
+2020-09-30 16:52:42.4791|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:a9461e41 has started in 109,0388 ms
+2020-09-30 16:52:42.4791|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:c0f78186 has started in 110,0194 ms
+2020-09-30 16:52:42.5070|TRACE|Hangfire.SqlServer.ExpirationManager|Outdated records removed from the 'Job' table.
+2020-09-30 16:52:42.5070|DEBUG|Hangfire.SqlServer.ExpirationManager|Removing outdated records from the 'List' table...
+2020-09-30 16:52:42.5070|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:fa245e4d has started in 131,2104 ms
+2020-09-30 16:52:42.5519|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:5f3e6ab0 has started in 175,3339 ms
+2020-09-30 16:52:42.5778|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:ce11cb5e has started in 201,3469 ms
+2020-09-30 16:52:42.6007|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:13eeb135 has started in 223,7238 ms
+2020-09-30 16:52:42.6227|TRACE|Hangfire.SqlServer.ExpirationManager|Outdated records removed from the 'List' table.
+2020-09-30 16:52:42.6227|DEBUG|Hangfire.SqlServer.ExpirationManager|Removing outdated records from the 'Set' table...
+2020-09-30 16:52:42.6327|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:45fb3a20 has started in 255,7311 ms
+2020-09-30 16:52:42.6327|TRACE|Hangfire.SqlServer.ExpirationManager|Outdated records removed from the 'Set' table.
+2020-09-30 16:52:42.6327|DEBUG|Hangfire.SqlServer.ExpirationManager|Removing outdated records from the 'Hash' table...
+2020-09-30 16:52:42.6327|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:31dd76c4 has started in 259,0469 ms
+2020-09-30 16:52:42.6327|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop Worker:15fbf2e5 has started in 261,7739 ms
+2020-09-30 16:52:42.6327|INFO|Hangfire.Server.BackgroundServerProcess|Server desktop-hjglsp9:14016:f6d368b9 all the dispatchers started
+2020-09-30 16:52:42.6327|TRACE|Hangfire.SqlServer.ExpirationManager|Outdated records removed from the 'Hash' table.
+2020-09-30 16:52:42.6660|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop RecurringJobScheduler:d7108829 has started in 27,8897 ms
+2020-09-30 16:52:42.6660|DEBUG|Hangfire.Processing.BackgroundExecution|Execution loop DelayedJobScheduler:ece6bee1 has started in 30,3623 ms
+2020-09-30 16:52:47.3816|TRACE|Hangfire.Server.ServerJobCancellationWatcher|Checking for aborted jobs...
+2020-09-30 16:52:47.3816|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
+2020-09-30 16:52:52.3990|TRACE|Hangfire.Server.ServerJobCancellationWatcher|Checking for aborted jobs...
+2020-09-30 16:52:52.3990|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
+2020-09-30 16:52:57.4113|TRACE|Hangfire.Server.ServerJobCancellationWatcher|Checking for aborted jobs...
+2020-09-30 16:52:57.4113|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
+2020-09-30 16:53:02.4204|TRACE|Hangfire.Server.ServerJobCancellationWatcher|Checking for aborted jobs...
+2020-09-30 16:53:02.4204|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
+2020-09-30 16:53:07.4247|TRACE|Hangfire.Server.ServerJobCancellationWatcher|Checking for aborted jobs...
+2020-09-30 16:53:07.4247|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
+2020-09-30 16:53:12.3834|DEBUG|Hangfire.Server.ServerHeartbeatProcess|Server desktop-hjglsp9:14016:f6d368b9 heartbeat successfully sent
+2020-09-30 16:53:12.3834|TRACE|Hangfire.Server.ServerHeartbeatProcess|Server desktop-hjglsp9:14016:f6d368b9 waiting for 00:00:30 delay before sending a heartbeat
+2020-09-30 16:53:12.4365|TRACE|Hangfire.Server.ServerJobCancellationWatcher|Checking for aborted jobs...
+2020-09-30 16:53:12.4365|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
+2020-09-30 16:53:17.4385|TRACE|Hangfire.Server.ServerJobCancellationWatcher|Checking for aborted jobs...
+2020-09-30 16:53:17.4385|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
+2020-09-30 16:53:22.4440|TRACE|Hangfire.Server.ServerJobCancellationWatcher|Checking for aborted jobs...
+2020-09-30 16:53:22.4440|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
+2020-09-30 16:53:27.4597|TRACE|Hangfire.Server.ServerJobCancellationWatcher|Checking for aborted jobs...
+2020-09-30 16:53:27.4597|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
