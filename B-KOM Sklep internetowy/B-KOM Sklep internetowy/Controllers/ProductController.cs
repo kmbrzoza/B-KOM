@@ -21,13 +21,27 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
 
         // GET: produkt/kategorie/{categoryLinkName}
-        public ActionResult CategoryProducts(string categoryLinkName)
+        public ActionResult CategoryProducts(string categoryLinkName, SortProductList? sortBy)
         {
             var category = db.Categories.Include("Products").Where(c => c.LinkName.ToLower() == categoryLinkName).Single();
             ViewBag.categoryName = category.Name;
             ViewBag.mainCategoryName = category.MainCategory.Name;
 
-            var products = category.Products.ToList();
+            var products = new List<Product>();
+
+            if (sortBy == null || sortBy == SortProductList.Default)
+                products = category.Products.ToList();
+            else if (sortBy == SortProductList.ByPriceUp)
+                products = category.Products.OrderBy(c => c.Price).ToList();
+            else if (sortBy == SortProductList.ByPriceDown)
+                products = category.Products.OrderByDescending(c => c.Price).ToList();
+            else if (sortBy == SortProductList.ByNameUp)
+                products = category.Products.OrderBy(c => c.Name).ToList();
+            else if (sortBy == SortProductList.ByNameDown)
+                products = category.Products.OrderByDescending(c => c.Name).ToList();
+            else if(sortBy == SortProductList.Bests)
+                products = category.Products.OrderByDescending(c => (c.Opinions.Sum(d => d.StarsValue) / (c.Opinions.Count() + 1))).ToList(); //cannot divide by 0
+
 
             var productsDTO = new List<ProductDTO>();
 
@@ -38,6 +52,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
             
             return View(productsDTO);
         }
+
 
         // GET: produkt/{id}
         public ActionResult Details(int id)

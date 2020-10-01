@@ -20,4 +20,14 @@ namespace B_KOM_Sklep_internetowy.Models
         public virtual MainCategory MainCategory { get; set; }
         public virtual List<Product> Products { get; set; }
     }
+
+    public enum SortProductList
+    {
+        Default,
+        ByNameUp,
+        ByNameDown,
+        ByPriceUp,
+        ByPriceDown,
+        Bests
+    }
 }

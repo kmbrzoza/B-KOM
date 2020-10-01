@@ -23,15 +23,15 @@
     <div class="m-0 p-0">
         @foreach (var opinion in Model)
         {
-            <div class="row border-top m-0 py-4">
-                <div class="col-2">
-                    <p class="m-0 p-0">ID Produktu: @opinion.ProductId</p>
+            <div class="row border-top m-0 py-2">
+                <div class="col-2 m-0 p-0 d-flex align-items-center justify-content-center">
+                    <p class="m-0 p-0 text-break">ID Produktu: @opinion.ProductId</p>
                 </div>
-                <div class="col-2 d-flex align-items-center justify-content-center">
+                <div class="col-2 d-flex align-items-center justify-content-center m-0 p-0">
                     @Html.Raw(HtmlImages.opinionAvatar)
                     <p class="pl-2 m-0">@opinion.UserName</p>
                 </div>
-                <div class="col-6">
+                <div class="col-6 m-0 p-0">
                     <div class="p-0 m-0 d-flex">
                         @for (int i = 0; i < 6; i++)
                         {
@@ -50,8 +50,8 @@
                         @opinion.OpinionText
                     </p>
                 </div>
-                <div class="col-2">
-                    <a href="@Url.Action("AddOpinion", "Admin", new { id = opinion.Opinionid })" class="btn btn-primary rounded-button">Akceptuj</a>
+                <div class="col-2 m-0 p-0 text-center">
+                    <a href="@Url.Action("AddOpinion", "Admin", new { id = opinion.Opinionid })" class="btn btn-primary rounded-button mb-1">Akceptuj</a>
                     <a href="@Url.Action("RemoveOpinion", "Admin", new { id = opinion.Opinionid })" class="btn btn-danger rounded-button">Usuń</a>
                 </div>
             </div>
