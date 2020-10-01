@@ -90,6 +90,10 @@ namespace B_KOM_Sklep_internetowy.Controllers
                 case SignInStatus.RequiresVerification:
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
+                    {
+                        TempData["LoginFailed"] = "Niepoprawne dane logowania!";
+                        return View();
+                    }
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);

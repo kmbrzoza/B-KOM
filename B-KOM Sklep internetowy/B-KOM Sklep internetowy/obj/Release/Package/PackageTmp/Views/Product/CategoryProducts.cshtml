@@ -16,25 +16,24 @@
     <h3 class="font-weight-normal">@ViewBag.categoryName</h3>
 
     <div class="row m-0 p-0">
-        <div class="col-12 col-md-3 m-0 p-0 border rounded">
-            <div class="navbar navbar-expand-md p-0">
-                <button id="buttonFiltr" class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#filtr" aria-controls="filtr" aria-expanded="false"
-                        aria-label="Toggle navigation" title="Filtruj">
-                    <span>Filtruj</span>
-                </button>
-            </div>
-
-            <div class="navbar navbar-expand-md p-0">
-                <div id="filtr" class="collapse navbar-collapse px-2">
-                    <div class="">
-                        Tutaj będą w przyszłości filtry
-                    </div>
-                </div>
+        <div class="col-12 col-md-2 m-0 p-0 border rounded">
+            <div class="m-0 p-2">
+                <p class="m-0 p-2">Sortowanie:</p>
+                <form method="get" class="text-center px-2">
+                    <select class="form-control" name="sortBy">
+                        <option value="@B_KOM_Sklep_internetowy.Models.SortProductList.Default">Domyślnie</option>
+                        <option value="@B_KOM_Sklep_internetowy.Models.SortProductList.ByPriceUp">Cena rosnąco</option>
+                        <option value="@B_KOM_Sklep_internetowy.Models.SortProductList.ByPriceDown">Cena malejąco</option>
+                        <option value="@B_KOM_Sklep_internetowy.Models.SortProductList.Bests">Najlepsze</option>
+                        <option value="@B_KOM_Sklep_internetowy.Models.SortProductList.ByNameUp">Po nazwie A-Z</option>
+                        <option value="@B_KOM_Sklep_internetowy.Models.SortProductList.ByNameDown">Po nazwie Z-A</option>
+                    </select>
+                    <input type="submit" class="btn btn-primary rounded-button mt-1" value="Filtruj" />
+                </form>
             </div>
         </div>
 
-        <div class="col-12 col-md-9 m-0">
+        <div class="col-12 col-md-10 m-0">
             <div class="row row-cols-2 row-cols-md-3 mx-2 py-4 border-top border-bottom">
                 @Html.Partial("_CategoryProductsList")
 
