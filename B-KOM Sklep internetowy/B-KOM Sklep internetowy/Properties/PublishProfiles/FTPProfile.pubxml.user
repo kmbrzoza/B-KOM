@@ -1,0 +1,986 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAwYvTdD7DZUupf4uvoiHloQAAAAACAAAAAAAQZgAAAAEAACAAAAC8os+vyb2tkVgypnsoU5QcYP0qlBkfMRiUL4h3ph9AEAAAAAAOgAAAAAIAACAAAABCV8Kljkf1ADhO5jxeaLS4wOc7RTQvk2dlxGS53efbCTAAAAClAQgF7R0sn1eLANNvhzbMZ4XKIsMbsOHQSraPDqnBQTUMSLxQMgpjltFoUSeov0lAAAAAMCy4ENllMH7pb+8bgAEeQSaJBZJyN9Nx+qCzL/Aruzq8JcSrdWyDaqTBRvyC2C1Y0VWdilwI30mC7k1hmeczuw==</EncryptedPassword>
+    <_PublishTargetUrl>ftp://bkom.somee.com/www.bkom.somee.com</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/B-KOM Sklep internetowy.dll">
+      <publishTime>09/30/2020 21:25:35</publishTime>
+    </File>
+    <File Include="bin/B-KOM Sklep internetowy.pdb">
+      <publishTime>09/30/2020 21:25:35</publishTime>
+    </File>
+    <File Include="bin/ca/Hangfire.Core.resources.dll">
+      <publishTime>09/15/2020 13:25:16</publishTime>
+    </File>
+    <File Include="bin/Elmah.dll">
+      <publishTime>04/12/2012 19:19:36</publishTime>
+    </File>
+    <File Include="bin/Elmah.Mvc.dll">
+      <publishTime>05/01/2015 00:46:24</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>04/16/2020 20:38:42</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>04/16/2020 20:38:56</publishTime>
+    </File>
+    <File Include="bin/es/Hangfire.Core.resources.dll">
+      <publishTime>09/15/2020 13:25:16</publishTime>
+    </File>
+    <File Include="bin/fa/Hangfire.Core.resources.dll">
+      <publishTime>09/15/2020 13:25:16</publishTime>
+    </File>
+    <File Include="bin/fr/Hangfire.Core.resources.dll">
+      <publishTime>09/15/2020 13:25:16</publishTime>
+    </File>
+    <File Include="bin/Hangfire.Core.dll">
+      <publishTime>09/15/2020 13:25:50</publishTime>
+    </File>
+    <File Include="bin/Hangfire.SqlServer.dll">
+      <publishTime>09/15/2020 13:25:52</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>11/25/2019 10:57:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>11/25/2019 10:57:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>11/25/2019 10:57:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>09/05/2018 16:10:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>09/08/2020 20:51:20</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>09/08/2020 20:51:10</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>02/13/2015 13:16:38</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>02/13/2015 13:16:36</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
+      <publishTime>02/13/2015 13:16:40</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 11:48:56</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>08/03/2014 20:33:56</publishTime>
+    </File>
+    <File Include="bin/Ninject.dll">
+      <publishTime>11/13/2017 03:01:30</publishTime>
+    </File>
+    <File Include="bin/Ninject.Web.Common.dll">
+      <publishTime>02/08/2020 08:20:52</publishTime>
+    </File>
+    <File Include="bin/Ninject.Web.Common.WebHost.dll">
+      <publishTime>02/08/2020 08:20:54</publishTime>
+    </File>
+    <File Include="bin/Ninject.Web.Mvc.dll">
+      <publishTime>10/23/2017 08:19:20</publishTime>
+    </File>
+    <File Include="bin/nl/Hangfire.Core.resources.dll">
+      <publishTime>09/15/2020 13:25:16</publishTime>
+    </File>
+    <File Include="bin/NLog.dll">
+      <publishTime>08/22/2020 10:31:44</publishTime>
+    </File>
+    <File Include="bin/NLog.Elmah.dll">
+      <publishTime>01/04/2016 22:53:34</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/13/2012 12:19:34</publishTime>
+    </File>
+    <File Include="bin/Postal.dll">
+      <publishTime>09/05/2014 09:15:08</publishTime>
+    </File>
+    <File Include="bin/pt-BR/Hangfire.Core.resources.dll">
+      <publishTime>09/15/2020 13:25:16</publishTime>
+    </File>
+    <File Include="bin/pt-PT/Hangfire.Core.resources.dll">
+      <publishTime>09/15/2020 13:25:16</publishTime>
+    </File>
+    <File Include="bin/pt/Hangfire.Core.resources.dll">
+      <publishTime>09/15/2020 13:25:16</publishTime>
+    </File>
+    <File Include="bin/RazorEngine.dll">
+      <publishTime>01/17/2014 09:17:04</publishTime>
+    </File>
+    <File Include="bin/RazorEngine.pdb">
+      <publishTime>01/17/2014 09:17:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>08/08/2018 12:18:12</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>08/08/2018 12:09:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>08/08/2018 12:18:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>08/08/2018 12:09:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>08/08/2018 12:09:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>12/05/2017 08:36:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>12/05/2017 08:36:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>08/08/2018 12:09:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>08/08/2018 12:09:42</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Win32.Primitives.dll">
+      <publishTime>11/05/2016 17:55:32</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>11/05/2016 17:55:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>05/16/2018 03:29:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>11/05/2016 17:55:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>11/05/2016 17:55:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>11/05/2016 17:55:56</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>11/05/2016 17:55:52</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Globalization.Calendars.dll">
+      <publishTime>11/05/2016 17:56:02</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>11/05/2016 17:56:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.ZipFile.dll">
+      <publishTime>11/05/2016 17:56:04</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>11/05/2016 17:56:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>11/05/2016 17:56:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Net.Http.dll">
+      <publishTime>11/05/2016 17:56:30</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Net.Sockets.dll">
+      <publishTime>11/05/2016 17:56:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>05/16/2018 03:29:44</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Runtime.InteropServices.RuntimeInformation.dll">
+      <publishTime>11/05/2016 17:57:00</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>11/05/2016 17:57:14</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>11/05/2016 17:57:08</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>11/05/2016 17:57:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>11/05/2016 17:57:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>11/05/2016 17:57:20</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Threading.Tasks.Extensions.dll">
+      <publishTime>11/05/2016 17:57:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>11/05/2016 17:57:30</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>11/05/2016 17:57:36</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>11/05/2016 17:57:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>11/05/2016 17:57:40</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>11/05/2016 17:57:34</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>08/08/2018 12:18:18</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>08/08/2018 12:09:46</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>08/08/2018 05:38:48</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>08/08/2018 12:18:16</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>11/28/2018 12:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>11/28/2018 11:59:46</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>11/28/2018 12:00:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>11/28/2018 12:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>11/28/2018 12:04:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>11/28/2018 12:04:24</publishTime>
+    </File>
+    <File Include="bin/WebActivatorEx.dll">
+      <publishTime>10/05/2016 13:11:52</publishTime>
+    </File>
+    <File Include="bin/zh-TW/Hangfire.Core.resources.dll">
+      <publishTime>09/15/2020 13:25:16</publishTime>
+    </File>
+    <File Include="bin/zh/Hangfire.Core.resources.dll">
+      <publishTime>09/15/2020 13:25:16</publishTime>
+    </File>
+    <File Include="Content/images/calendar.png">
+      <publishTime>08/30/2020 14:51:12</publishTime>
+    </File>
+    <File Include="Content/images/clock.png">
+      <publishTime>08/30/2020 13:25:14</publishTime>
+    </File>
+    <File Include="Content/images/delivery.png">
+      <publishTime>08/30/2020 14:35:06</publishTime>
+    </File>
+    <File Include="Content/images/hotDeal.png">
+      <publishTime>08/27/2020 13:14:06</publishTime>
+    </File>
+    <File Include="Content/images/logo.png">
+      <publishTime>08/25/2020 15:10:02</publishTime>
+    </File>
+    <File Include="Content/images/MainCategories/accessories.png">
+      <publishTime>08/26/2020 14:48:00</publishTime>
+    </File>
+    <File Include="Content/images/MainCategories/cpu.png">
+      <publishTime>08/26/2020 14:44:42</publishTime>
+    </File>
+    <File Include="Content/images/MainCategories/laptop.png">
+      <publishTime>08/26/2020 14:43:38</publishTime>
+    </File>
+    <File Include="Content/images/MainCategories/peripherals.png">
+      <publishTime>08/26/2020 14:46:54</publishTime>
+    </File>
+    <File Include="Content/images/MainCategories/smarthome.png">
+      <publishTime>08/26/2020 14:50:04</publishTime>
+    </File>
+    <File Include="Content/images/MainCategories/smartphone.png">
+      <publishTime>08/26/2020 14:42:00</publishTime>
+    </File>
+    <File Include="Content/images/Products/1/1.png">
+      <publishTime>08/27/2020 15:15:42</publishTime>
+    </File>
+    <File Include="Content/images/Products/10/1.png">
+      <publishTime>08/31/2020 15:49:12</publishTime>
+    </File>
+    <File Include="Content/images/Products/11/1.png">
+      <publishTime>08/31/2020 15:44:46</publishTime>
+    </File>
+    <File Include="Content/images/Products/12/1.png">
+      <publishTime>08/31/2020 15:50:34</publishTime>
+    </File>
+    <File Include="Content/images/Products/2/1.png">
+      <publishTime>08/27/2020 17:13:52</publishTime>
+    </File>
+    <File Include="Content/images/Products/3/1.png">
+      <publishTime>08/27/2020 17:14:46</publishTime>
+    </File>
+    <File Include="Content/images/Products/4/1.png">
+      <publishTime>08/27/2020 17:14:16</publishTime>
+    </File>
+    <File Include="Content/images/Products/5/1.png">
+      <publishTime>08/27/2020 17:15:24</publishTime>
+    </File>
+    <File Include="Content/images/Products/6/1.png">
+      <publishTime>08/27/2020 17:15:56</publishTime>
+    </File>
+    <File Include="Content/images/Products/6/2.png">
+      <publishTime>08/30/2020 10:56:54</publishTime>
+    </File>
+    <File Include="Content/images/Products/6/3.png">
+      <publishTime>08/30/2020 10:57:06</publishTime>
+    </File>
+    <File Include="Content/images/Products/6/4.png">
+      <publishTime>08/30/2020 10:57:16</publishTime>
+    </File>
+    <File Include="Content/images/Products/7/1.png">
+      <publishTime>08/27/2020 17:16:54</publishTime>
+    </File>
+    <File Include="Content/images/Products/8/1.png">
+      <publishTime>08/27/2020 17:17:16</publishTime>
+    </File>
+    <File Include="Content/images/Products/9/1.png">
+      <publishTime>08/31/2020 15:47:00</publishTime>
+    </File>
+    <File Include="Content/images/promo1.png">
+      <publishTime>08/26/2020 16:45:20</publishTime>
+    </File>
+    <File Include="Content/images/promo2.png">
+      <publishTime>08/26/2020 16:45:10</publishTime>
+    </File>
+    <File Include="Content/images/promo3.png">
+      <publishTime>08/26/2020 16:46:14</publishTime>
+    </File>
+    <File Include="Content/images/shop.png">
+      <publishTime>08/30/2020 14:49:42</publishTime>
+    </File>
+    <File Include="Content/style.css">
+      <publishTime>09/27/2020 16:40:46</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>09/06/2020 15:07:48</publishTime>
+    </File>
+    <File Include="Migrations/ELMAH-1.2-db-SQLServer.sql">
+      <publishTime>09/22/2020 10:39:48</publishTime>
+    </File>
+    <File Include="NLog.config">
+      <publishTime>09/30/2020 16:54:27</publishTime>
+    </File>
+    <File Include="Prototype/index.html">
+      <publishTime>08/31/2020 15:38:46</publishTime>
+    </File>
+    <File Include="Prototype/kategoria.html">
+      <publishTime>09/01/2020 13:15:06</publishTime>
+    </File>
+    <File Include="Prototype/koszyk.html">
+      <publishTime>08/30/2020 09:26:20</publishTime>
+    </File>
+    <File Include="Prototype/produkt.html">
+      <publishTime>08/31/2020 14:44:08</publishTime>
+    </File>
+    <File Include="Prototype/pustyKoszyk.html">
+      <publishTime>08/30/2020 09:25:36</publishTime>
+    </File>
+    <File Include="scripts/tinymce/icons/default/icons.js">
+      <publishTime>09/21/2020 10:57:36</publishTime>
+    </File>
+    <File Include="scripts/tinymce/icons/default/icons.min.js">
+      <publishTime>09/21/2020 10:57:36</publishTime>
+    </File>
+    <File Include="scripts/tinymce/jquery.tinymce.min.js">
+      <publishTime>09/21/2020 10:57:36</publishTime>
+    </File>
+    <File Include="scripts/tinymce/langs/readme.md">
+      <publishTime>09/21/2020 10:57:36</publishTime>
+    </File>
+    <File Include="scripts/tinymce/license.txt">
+      <publishTime>09/21/2020 10:57:36</publishTime>
+    </File>
+    <File Include="scripts/tinymce/main.js">
+      <publishTime>09/21/2020 12:27:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/advlist/plugin.js">
+      <publishTime>09/21/2020 10:57:36</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/advlist/plugin.min.js">
+      <publishTime>09/21/2020 10:57:36</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/anchor/plugin.js">
+      <publishTime>09/21/2020 10:57:36</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/anchor/plugin.min.js">
+      <publishTime>09/21/2020 10:57:36</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/autolink/plugin.js">
+      <publishTime>09/21/2020 10:57:36</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/autolink/plugin.min.js">
+      <publishTime>09/21/2020 10:57:34</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/autoresize/plugin.js">
+      <publishTime>09/21/2020 10:57:34</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/autoresize/plugin.min.js">
+      <publishTime>09/21/2020 10:57:34</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/autosave/plugin.js">
+      <publishTime>09/21/2020 10:57:34</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/autosave/plugin.min.js">
+      <publishTime>09/21/2020 10:57:34</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/bbcode/plugin.js">
+      <publishTime>09/21/2020 10:57:34</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/bbcode/plugin.min.js">
+      <publishTime>09/21/2020 10:57:34</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/charmap/plugin.js">
+      <publishTime>09/21/2020 10:57:34</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/charmap/plugin.min.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/code/plugin.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/code/plugin.min.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/codesample/plugin.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/codesample/plugin.min.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/colorpicker/plugin.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/colorpicker/plugin.min.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/contextmenu/plugin.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/contextmenu/plugin.min.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/directionality/plugin.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/directionality/plugin.min.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/emoticons/js/emojis.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/emoticons/js/emojis.min.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/emoticons/plugin.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/emoticons/plugin.min.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/fullpage/plugin.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/fullpage/plugin.min.js">
+      <publishTime>09/21/2020 10:57:32</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/fullscreen/plugin.js">
+      <publishTime>09/21/2020 10:57:30</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/fullscreen/plugin.min.js">
+      <publishTime>09/21/2020 10:57:30</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/help/plugin.js">
+      <publishTime>09/21/2020 10:57:30</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/help/plugin.min.js">
+      <publishTime>09/21/2020 10:57:30</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/hr/plugin.js">
+      <publishTime>09/21/2020 10:57:30</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/hr/plugin.min.js">
+      <publishTime>09/21/2020 10:57:30</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/image/plugin.js">
+      <publishTime>09/21/2020 10:57:30</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/image/plugin.min.js">
+      <publishTime>09/21/2020 10:57:30</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/imagetools/plugin.js">
+      <publishTime>09/21/2020 10:57:30</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/imagetools/plugin.min.js">
+      <publishTime>09/21/2020 10:57:30</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/importcss/plugin.js">
+      <publishTime>09/21/2020 10:57:30</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/importcss/plugin.min.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/insertdatetime/plugin.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/insertdatetime/plugin.min.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/legacyoutput/plugin.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/legacyoutput/plugin.min.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/link/plugin.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/link/plugin.min.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/lists/plugin.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/lists/plugin.min.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/media/plugin.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/media/plugin.min.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/nonbreaking/plugin.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/nonbreaking/plugin.min.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/noneditable/plugin.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/noneditable/plugin.min.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/pagebreak/plugin.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/pagebreak/plugin.min.js">
+      <publishTime>09/21/2020 10:57:28</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/paste/plugin.js">
+      <publishTime>09/21/2020 10:57:26</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/paste/plugin.min.js">
+      <publishTime>09/21/2020 10:57:26</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/preview/plugin.js">
+      <publishTime>09/21/2020 10:57:26</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/preview/plugin.min.js">
+      <publishTime>09/21/2020 10:57:26</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/print/plugin.js">
+      <publishTime>09/21/2020 10:57:26</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/print/plugin.min.js">
+      <publishTime>09/21/2020 10:57:26</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/quickbars/plugin.js">
+      <publishTime>09/21/2020 10:57:26</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/quickbars/plugin.min.js">
+      <publishTime>09/21/2020 10:57:26</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/save/plugin.js">
+      <publishTime>09/21/2020 10:57:26</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/save/plugin.min.js">
+      <publishTime>09/21/2020 10:57:26</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/searchreplace/plugin.js">
+      <publishTime>09/21/2020 10:57:26</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/searchreplace/plugin.min.js">
+      <publishTime>09/21/2020 10:57:26</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/spellchecker/plugin.js">
+      <publishTime>09/21/2020 10:57:24</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/spellchecker/plugin.min.js">
+      <publishTime>09/21/2020 10:57:24</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/tabfocus/plugin.js">
+      <publishTime>09/21/2020 10:57:24</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/tabfocus/plugin.min.js">
+      <publishTime>09/21/2020 10:57:24</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/table/plugin.js">
+      <publishTime>09/21/2020 10:57:24</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/table/plugin.min.js">
+      <publishTime>09/21/2020 10:57:24</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/template/plugin.js">
+      <publishTime>09/21/2020 10:57:24</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/template/plugin.min.js">
+      <publishTime>09/21/2020 10:57:24</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/textcolor/plugin.js">
+      <publishTime>09/21/2020 10:57:24</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/textcolor/plugin.min.js">
+      <publishTime>09/21/2020 10:57:24</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/textpattern/plugin.js">
+      <publishTime>09/21/2020 10:57:24</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/textpattern/plugin.min.js">
+      <publishTime>09/21/2020 10:57:22</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/toc/plugin.js">
+      <publishTime>09/21/2020 10:57:22</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/toc/plugin.min.js">
+      <publishTime>09/21/2020 10:57:22</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/visualblocks/plugin.js">
+      <publishTime>09/21/2020 10:57:22</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/visualblocks/plugin.min.js">
+      <publishTime>09/21/2020 10:57:22</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/visualchars/plugin.js">
+      <publishTime>09/21/2020 10:57:22</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/visualchars/plugin.min.js">
+      <publishTime>09/21/2020 10:57:22</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/wordcount/plugin.js">
+      <publishTime>09/21/2020 10:57:22</publishTime>
+    </File>
+    <File Include="scripts/tinymce/plugins/wordcount/plugin.min.js">
+      <publishTime>09/21/2020 10:57:22</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/content/dark/content.css">
+      <publishTime>09/21/2020 10:57:22</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/content/dark/content.min.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/content/default/content.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/content/default/content.min.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/content/document/content.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/content/document/content.min.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/content/writer/content.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/content/writer/content.min.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide-dark/content.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide-dark/content.inline.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide-dark/content.inline.min.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide-dark/content.min.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide-dark/content.mobile.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide-dark/content.mobile.min.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide-dark/fonts/tinymce-mobile.woff">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide-dark/skin.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide-dark/skin.min.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide-dark/skin.mobile.css">
+      <publishTime>09/21/2020 10:57:20</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide-dark/skin.mobile.min.css">
+      <publishTime>09/21/2020 10:57:18</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide/content.css">
+      <publishTime>09/21/2020 10:57:18</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide/content.inline.css">
+      <publishTime>09/21/2020 10:57:18</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide/content.inline.min.css">
+      <publishTime>09/21/2020 10:57:18</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide/content.min.css">
+      <publishTime>09/21/2020 10:57:18</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide/content.mobile.css">
+      <publishTime>09/21/2020 10:57:18</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide/content.mobile.min.css">
+      <publishTime>09/21/2020 10:57:18</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide/fonts/tinymce-mobile.woff">
+      <publishTime>09/21/2020 10:57:18</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide/skin.css">
+      <publishTime>09/21/2020 10:57:18</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide/skin.min.css">
+      <publishTime>09/21/2020 10:57:18</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide/skin.mobile.css">
+      <publishTime>09/21/2020 10:57:18</publishTime>
+    </File>
+    <File Include="scripts/tinymce/skins/ui/oxide/skin.mobile.min.css">
+      <publishTime>09/21/2020 10:57:16</publishTime>
+    </File>
+    <File Include="scripts/tinymce/themes/mobile/theme.js">
+      <publishTime>09/21/2020 10:57:16</publishTime>
+    </File>
+    <File Include="scripts/tinymce/themes/mobile/theme.min.js">
+      <publishTime>09/21/2020 10:57:16</publishTime>
+    </File>
+    <File Include="scripts/tinymce/themes/silver/theme.js">
+      <publishTime>09/21/2020 10:57:16</publishTime>
+    </File>
+    <File Include="scripts/tinymce/themes/silver/theme.min.js">
+      <publishTime>09/21/2020 10:57:16</publishTime>
+    </File>
+    <File Include="scripts/tinymce/tinymce.js">
+      <publishTime>09/21/2020 10:57:16</publishTime>
+    </File>
+    <File Include="scripts/tinymce/tinymce.min.js">
+      <publishTime>09/21/2020 10:57:16</publishTime>
+    </File>
+    <File Include="Views/Account/Login.cshtml">
+      <publishTime>09/14/2020 17:26:50</publishTime>
+    </File>
+    <File Include="Views/Account/Register.cshtml">
+      <publishTime>09/17/2020 11:46:02</publishTime>
+    </File>
+    <File Include="Views/Admin/AddCategory.cshtml">
+      <publishTime>09/24/2020 17:21:46</publishTime>
+    </File>
+    <File Include="Views/Admin/AddMainCategory.cshtml">
+      <publishTime>09/24/2020 16:51:18</publishTime>
+    </File>
+    <File Include="Views/Admin/AddProduct.cshtml">
+      <publishTime>09/21/2020 12:16:20</publishTime>
+    </File>
+    <File Include="Views/Admin/AddProductSuccess.cshtml">
+      <publishTime>09/20/2020 17:01:34</publishTime>
+    </File>
+    <File Include="Views/Admin/AddPromotion.cshtml">
+      <publishTime>09/25/2020 11:31:44</publishTime>
+    </File>
+    <File Include="Views/Admin/AddPromotionProduct.cshtml">
+      <publishTime>09/25/2020 16:23:08</publishTime>
+    </File>
+    <File Include="Views/Admin/Categories.cshtml">
+      <publishTime>09/24/2020 17:21:50</publishTime>
+    </File>
+    <File Include="Views/Admin/EditPromotion.cshtml">
+      <publishTime>09/25/2020 16:01:10</publishTime>
+    </File>
+    <File Include="Views/Admin/HotDeal.cshtml">
+      <publishTime>09/30/2020 15:40:00</publishTime>
+    </File>
+    <File Include="Views/Admin/HotDealDetails.cshtml">
+      <publishTime>09/30/2020 15:39:10</publishTime>
+    </File>
+    <File Include="Views/Admin/Index.cshtml">
+      <publishTime>09/20/2020 11:26:50</publishTime>
+    </File>
+    <File Include="Views/Admin/OrderDetails.cshtml">
+      <publishTime>09/20/2020 11:36:24</publishTime>
+    </File>
+    <File Include="Views/Admin/OrdersList.cshtml">
+      <publishTime>09/19/2020 19:23:32</publishTime>
+    </File>
+    <File Include="Views/Admin/ProductDetails.cshtml">
+      <publishTime>09/24/2020 11:14:32</publishTime>
+    </File>
+    <File Include="Views/Admin/PromotionDetails.cshtml">
+      <publishTime>09/25/2020 16:44:52</publishTime>
+    </File>
+    <File Include="Views/Admin/PromotionProductsList.cshtml">
+      <publishTime>09/25/2020 16:39:02</publishTime>
+    </File>
+    <File Include="Views/Admin/RemoveCategory.cshtml">
+      <publishTime>09/24/2020 17:11:38</publishTime>
+    </File>
+    <File Include="Views/Admin/RemoveMainCategory.cshtml">
+      <publishTime>09/24/2020 16:05:38</publishTime>
+    </File>
+    <File Include="Views/Admin/Search.cshtml">
+      <publishTime>09/21/2020 15:03:24</publishTime>
+    </File>
+    <File Include="Views/Admin/SearchPromotion.cshtml">
+      <publishTime>09/25/2020 15:55:00</publishTime>
+    </File>
+    <File Include="Views/Admin/_LeftListAdmin.cshtml">
+      <publishTime>09/30/2020 15:44:45</publishTime>
+    </File>
+    <File Include="Views/Cart/Index.cshtml">
+      <publishTime>09/27/2020 16:42:42</publishTime>
+    </File>
+    <File Include="Views/Cart/Order.cshtml">
+      <publishTime>09/16/2020 15:43:16</publishTime>
+    </File>
+    <File Include="Views/Cart/OrderConfirmation.cshtml">
+      <publishTime>09/16/2020 15:46:02</publishTime>
+    </File>
+    <File Include="Views/Common/Error.cshtml">
+      <publishTime>09/19/2020 16:07:24</publishTime>
+    </File>
+    <File Include="Views/Common/_Menu.cshtml">
+      <publishTime>09/12/2020 17:59:44</publishTime>
+    </File>
+    <File Include="Views/Emails/OrderConfirmation.cshtml">
+      <publishTime>09/22/2020 16:32:30</publishTime>
+    </File>
+    <File Include="Views/Emails/OrderConfirmation.Html.cshtml">
+      <publishTime>09/23/2020 14:50:18</publishTime>
+    </File>
+    <File Include="Views/Emails/OrderConfirmation.Text.cshtml">
+      <publishTime>09/22/2020 15:54:38</publishTime>
+    </File>
+    <File Include="Views/Emails/Web.config">
+      <publishTime>09/22/2020 15:36:20</publishTime>
+    </File>
+    <File Include="Views/Emails/_ViewStart.cshtml">
+      <publishTime>09/22/2020 15:36:20</publishTime>
+    </File>
+    <File Include="Views/Home/Dostawa.cshtml">
+      <publishTime>09/07/2020 13:15:14</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>09/30/2020 14:04:15</publishTime>
+    </File>
+    <File Include="Views/Home/Montaz.cshtml">
+      <publishTime>09/07/2020 13:17:18</publishTime>
+    </File>
+    <File Include="Views/Home/O_nas.cshtml">
+      <publishTime>09/07/2020 13:17:44</publishTime>
+    </File>
+    <File Include="Views/Home/Polityka_prywatnosci.cshtml">
+      <publishTime>09/07/2020 13:18:34</publishTime>
+    </File>
+    <File Include="Views/Home/Promotions.cshtml">
+      <publishTime>09/26/2020 13:30:08</publishTime>
+    </File>
+    <File Include="Views/Home/PromotionsList.cshtml">
+      <publishTime>09/26/2020 13:30:12</publishTime>
+    </File>
+    <File Include="Views/Home/Raty.cshtml">
+      <publishTime>09/07/2020 13:16:58</publishTime>
+    </File>
+    <File Include="Views/Home/Regulamin.cshtml">
+      <publishTime>09/07/2020 13:18:06</publishTime>
+    </File>
+    <File Include="Views/Home/Search.cshtml">
+      <publishTime>09/12/2020 18:03:44</publishTime>
+    </File>
+    <File Include="Views/Home/Zwrot_i_reklamacje.cshtml">
+      <publishTime>09/07/2020 13:16:34</publishTime>
+    </File>
+    <File Include="Views/Home/_SearchList.cshtml">
+      <publishTime>09/13/2020 16:10:02</publishTime>
+    </File>
+    <File Include="Views/Manage/AccountSettings.cshtml">
+      <publishTime>09/20/2020 09:56:34</publishTime>
+    </File>
+    <File Include="Views/Manage/Favourities.cshtml">
+      <publishTime>09/24/2020 12:41:20</publishTime>
+    </File>
+    <File Include="Views/Manage/OrderDetails.cshtml">
+      <publishTime>09/20/2020 10:08:18</publishTime>
+    </File>
+    <File Include="Views/Manage/OrdersList.cshtml">
+      <publishTime>09/19/2020 18:13:36</publishTime>
+    </File>
+    <File Include="Views/Manage/_LeftList.cshtml">
+      <publishTime>09/19/2020 13:19:22</publishTime>
+    </File>
+    <File Include="Views/Product/CategoryProducts.cshtml">
+      <publishTime>09/12/2020 18:08:46</publishTime>
+    </File>
+    <File Include="Views/Product/Details.cshtml">
+      <publishTime>09/24/2020 12:24:06</publishTime>
+    </File>
+    <File Include="Views/Product/_CategoryProductsList.cshtml">
+      <publishTime>09/12/2020 18:59:14</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>09/26/2020 13:26:14</publishTime>
+    </File>
+    <File Include="Views/Shared/_LoginPartial.cshtml">
+      <publishTime>09/19/2020 16:55:58</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>09/06/2020 15:07:48</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>09/07/2020 12:51:12</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>09/30/2020 20:31:04</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

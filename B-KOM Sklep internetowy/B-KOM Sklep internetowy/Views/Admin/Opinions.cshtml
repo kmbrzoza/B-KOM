@@ -1,0 +1,61 @@
+﻿@model List<B_KOM_Sklep_internetowy.Models.Opinion>
+@using B_KOM_Sklep_internetowy.Infrastructure
+@{
+    ViewBag.Title = "Admin - Opinie";
+    Layout = "~/Views/Admin/_LeftListAdmin.cshtml";
+}
+
+
+<div class="col-12 col-md-9 m-0">
+
+    <h2>Opinie do sprawdzenia</h2>
+
+    @if (TempData["OpinionSuccess"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["OpinionSuccess"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <div class="m-0 p-0">
+        @foreach (var opinion in Model)
+        {
+            <div class="row border-top m-0 py-4">
+                <div class="col-2">
+                    <p class="m-0 p-0">ID Produktu: @opinion.ProductId</p>
+                </div>
+                <div class="col-2 d-flex align-items-center justify-content-center">
+                    @Html.Raw(HtmlImages.opinionAvatar)
+                    <p class="pl-2 m-0">@opinion.UserName</p>
+                </div>
+                <div class="col-6">
+                    <div class="p-0 m-0 d-flex">
+                        @for (int i = 0; i < 6; i++)
+                        {
+                            if (i < opinion.StarsValue)
+                            {
+                                @Html.Raw(HtmlImages.starOpinionYellow)
+                            }
+                            else
+                            {
+                                @Html.Raw(HtmlImages.starOpinionGrey)
+                            }
+                        }
+                        <span class="p-0 pl-1 m-0">@opinion.DateTime.ToShortDateString()</span>
+                    </div>
+                    <p class="text-break">
+                        @opinion.OpinionText
+                    </p>
+                </div>
+                <div class="col-2">
+                    <a href="@Url.Action("AddOpinion", "Admin", new { id = opinion.Opinionid })" class="btn btn-primary rounded-button">Akceptuj</a>
+                    <a href="@Url.Action("RemoveOpinion", "Admin", new { id = opinion.Opinionid })" class="btn btn-danger rounded-button">Usuń</a>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

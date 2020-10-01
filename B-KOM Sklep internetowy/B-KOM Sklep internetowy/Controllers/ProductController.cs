@@ -61,7 +61,7 @@ namespace B_KOM_Sklep_internetowy.Controllers
             {
                 opinion.DateTime = DateTime.Now;
 
-                opinion.Accepted = true; //change in the future
+                
                 db.Opinions.Add(opinion);
                 db.SaveChanges();
                 TempData["AddOpinion"] = true;

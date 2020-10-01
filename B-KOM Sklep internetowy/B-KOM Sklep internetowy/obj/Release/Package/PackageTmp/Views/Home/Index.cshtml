@@ -1,0 +1,200 @@
+﻿@model B_KOM_Sklep_internetowy.ViewModels.HomeViewModel
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+@{
+    ViewBag.Title = "B-KOM Sklep internetowy";
+}
+
+<!-- CAROUSEL -->
+<div id="carouselMain" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        @for (int i = 0; i < Model.Promotions.Count(); i++)
+        {
+            if (i == 0)
+            {
+                <li data-target="#carouselMain" data-slide-to="@i" class="active"></li>
+            }
+            else
+            {
+                <li data-target="#carouselMain" data-slide-to="@i"></li>
+
+            }
+        }
+
+    </ol>
+    <div id="carouselMainInner" class="carousel-inner">
+        @for (int i = 0; i < Model.Promotions.Count(); i++)
+        {
+            if (i == 0)
+            {
+                <div class="carousel-item active">
+                    <a href="@Url.Action("Promotions", "Home", new { id = Model.Promotions.ElementAt(i).PromotionId})">
+                        <img src="@Url.PromotionImgPath(Model.Promotions.ElementAt(i).ImgPath)" class="mainImgCarousel rounded">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h4>@Model.Promotions.ElementAt(i).Name</h4>
+                        </div>
+                    </a>
+                </div>
+            }
+            else
+            {
+                <div class="carousel-item">
+                    <a href="@Url.Action("Promotions", "Home", new { id = Model.Promotions.ElementAt(i).PromotionId})">
+                        <img src="@Url.PromotionImgPath(Model.Promotions.ElementAt(i).ImgPath)" class="mainImgCarousel rounded">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h4>@Model.Promotions.ElementAt(i).Name</h4>
+                        </div>
+                    </a>
+                </div>
+            }
+        }
+
+    </div>
+    <a class="carousel-control-prev" href="#carouselMain" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselMain" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<!-- MENU UNDER CAROUSEL -->
+<div class="row m-0">
+    <!-- HOT DEAL -->
+    @if (Model.HotDeal != null)
+    {
+        <div id="hotDeal" class="col-xl-4 col-12 row rounded">
+            <div id="hotDealBorder" class="col-12 row align-items-center">
+                <div id="hotDealLinkImgTitle" class="col-xl-12 col-md-6 text-center">
+                    <h2>Gorąca okazja</h2>
+                    <a href="@Url.Action("Details", "Product", new { id = Model.HotDeal.ProductId })" id="hotDealLink">
+                        <img src="@Url.ProductImgPath(Model.HotDeal.Product.ProductImages.Where(c => c.MainImg == true).SingleOrDefault().ImgPath)" id="hotDealImg" class="w-100">
+                        <p class="text-center m-1">@Model.HotDeal.Product.Name</p>
+                    </a>
+                </div>
+                <div id="hotDealInfo" class="col-xl-12 col-md-6">
+                    @if (Model.HotDeal.Product.Promo)
+                    {
+                        <p id="hotDealPrice" class="my-0">@Model.HotDeal.Product.PromoPrice zł</p>
+                    }
+                    else
+                    {
+                        <p id="hotDealPrice" class="my-0">@Model.HotDeal.Product.Price zł</p>
+                    }
+                    <p id="hotDealPromoPrice" class="">@Model.HotDeal.PromotionPrice zł</p>
+                    <p id="hotDealCode" class="m-0">Kod promocyjny: @Model.HotDeal.Code</p>
+                    <p id="hotDealLeft" class="m-0">Pozostało: @Model.HotDeal.AmountLeft</p>
+                    <div class="progress my-2">
+                        <div class="progress-bar" role="progressbar" style="width: @((int)(decimal.Divide(Model.HotDeal.AmountLeft, Model.HotDeal.Amount) * 100) + "%");"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div id="hotDeal" class="col-xl-4 col-12 row rounded">
+            <div id="hotDealBorder" class="col-12 row align-items-center">
+                <div id="hotDealLinkImgTitle" class="col-xl-12 col-md-6 text-center">
+                    <h2>Gorąca okazja</h2>
+                    <a id="hotDealLink">
+                        <img src="@Url.Content("~/Content/images/hotdealnone.png")" id="hotDealImg" class="w-100">
+                        <p class="text-center m-1">Aktualnie brak gorącej okazji :(</p>
+                    </a>
+                </div>
+                <div id="hotDealInfo" class="col-xl-12 col-md-6">
+                    <p id="hotDealPromoPrice" class="">Zapraszamy w przyszłości!</p>
+                    <p id="hotDealCode" class="m-0">Kod promocyjny: </p>
+                    <p id="hotDealLeft" class="m-0">Pozostało: 0</p>
+                    <div class="progress my-2">
+                        <div class="progress-bar" role="progressbar" style="width: 0%;"
+                             aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <!-- RECOMMENDED PRODUCTS -->
+    <div id="recommendedProducts" class="col-xl-8 col-12 m-0 border-top">
+        <h2 id="" class="w-100">Polecamy</h2>
+        <div class="row row-cols-3 row-cols-md-4">
+            @foreach (var recommendedProd in Model.Recommended)
+            {
+                <div class="productCard card col">
+                    <a href="@Url.Action("Details", "Product", new { id = recommendedProd.Product.ProductId})" class="productLink">
+                        <img src="@Url.ProductImgPath(recommendedProd.GetMainImg())" class="card-img-top">
+                        <div class="card-body p-0">
+                            <h6 class="card-title m-0">@recommendedProd.Product.Name</h6>
+                        </div>
+                        <div class="productPricesButton">
+                            <a href="@Url.Action("AddToCart", "Cart", new { id = recommendedProd.Product.ProductId })" class="button-circle-buy" title="Dodaj do koszyka">
+                                @Html.Raw(HtmlImages.cartAddToCartCircle)
+                            </a>
+                            @if (!recommendedProd.Product.Promo)
+                            {
+                                <div class="productActualPrice">
+                                    <p class="m-0">@recommendedProd.GetProductPrice()</p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="productCrossedPrice">
+                                    <p class="m-0">@recommendedProd.GetProductPrice()</p>
+                                </div>
+                                <div class="productActualPrice">
+                                    <p class="m-0">@recommendedProd.GetProductPromoPrice()</p>
+                                </div>
+                            }
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <!-- BESTSELLERS -->
+    <div id="bestsellers" class="col-12 m-0 mt-4 pt-2 border-top">
+        <h2 id="" class="w-100">Bestsellery</h2>
+        <div class="row row-cols-3 row-cols-md-5">
+            @foreach (var bestsellerProd in Model.Bestsellers)
+            {
+                <div class="productCard card col">
+                    <a href="@Url.Action("Details", "Product", new { id = bestsellerProd.Product.ProductId})" class="productLink">
+                        <img src="@Url.ProductImgPath(bestsellerProd.GetMainImg())" class="card-img-top">
+                        <div class="card-body p-0">
+                            <h6 class="card-title m-0">@bestsellerProd.Product.Name</h6>
+                        </div>
+                        <div class="productPricesButton">
+                            <a href="@Url.Action("AddToCart", "Cart", new { id = bestsellerProd.Product.ProductId })" class="button-circle-buy">
+                                @Html.Raw(HtmlImages.cartAddToCartCircle)
+                            </a>
+                            @if (!bestsellerProd.Product.Promo)
+                            {
+                                <div class="productActualPrice">
+                                    <p class="m-0">@bestsellerProd.GetProductPrice()</p>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="productCrossedPrice">
+                                    <p class="m-0">@bestsellerProd.GetProductPrice()</p>
+                                </div>
+                                <div class="productActualPrice">
+                                    <p class="m-0">@bestsellerProd.GetProductPromoPrice()</p>
+                                </div>
+                            }
+                        </div>
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+
+</div>

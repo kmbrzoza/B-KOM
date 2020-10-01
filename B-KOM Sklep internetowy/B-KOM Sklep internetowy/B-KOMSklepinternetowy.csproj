@@ -1,0 +1,742 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F8B436AE-30CC-410D-BA88-549C4CA5520E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>B_KOM_Sklep_internetowy</RootNamespace>
+    <AssemblyName>B-KOM Sklep internetowy</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44355</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Elmah, Version=1.2.14706.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\elmah.corelibrary.1.2.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah.Mvc, Version=2.1.2.1389, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Elmah.Mvc.2.1.2\lib\net40\Elmah.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.7.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.7.13\lib\net46\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.7.13.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.7.13\lib\net45\Hangfire.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.1.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.3.3.2\lib\net45\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Common.WebHost, Version=3.3.2.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.Web.Common.WebHost.3.3.2\lib\net45\Ninject.Web.Common.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc, Version=3.3.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.MVC5.3.3.0\lib\net45\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.7.4\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog.Elmah, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.Elmah.4.0\lib\net35\NLog.Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Postal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=45719375b8b4d528, processorArchitecture=MSIL">
+      <HintPath>..\packages\Postal.Mvc5.1.2.0\lib\net45\Postal.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.4.1.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.4.1\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Deployment">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Webpages.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Webpages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers">
+      <HintPath>..\packages\Microsoft.AspNet.Webpages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\images\calendar.png" />
+    <Content Include="Content\images\clock.png" />
+    <Content Include="Content\images\delivery.png" />
+    <Content Include="Content\images\hotDeal.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\MainCategories\accessories.png" />
+    <Content Include="Content\images\MainCategories\cpu.png" />
+    <Content Include="Content\images\MainCategories\laptop.png" />
+    <Content Include="Content\images\MainCategories\peripherals.png" />
+    <Content Include="Content\images\MainCategories\smarthome.png" />
+    <Content Include="Content\images\MainCategories\smartphone.png" />
+    <Content Include="Content\images\Products\10\1.png" />
+    <Content Include="Content\images\Products\11\1.png" />
+    <Content Include="Content\images\Products\12\1.png" />
+    <Content Include="Content\images\Products\1\1.png" />
+    <Content Include="Content\images\Products\2\1.png" />
+    <Content Include="Content\images\Products\3\1.png" />
+    <Content Include="Content\images\Products\4\1.png" />
+    <Content Include="Content\images\Products\5\1.png" />
+    <Content Include="Content\images\Products\6\1.png" />
+    <Content Include="Content\images\Products\6\2.png" />
+    <Content Include="Content\images\Products\6\3.png" />
+    <Content Include="Content\images\Products\6\4.png" />
+    <Content Include="Content\images\Products\7\1.png" />
+    <Content Include="Content\images\Products\8\1.png" />
+    <Content Include="Content\images\Products\9\1.png" />
+    <Content Include="Content\images\promo1.png" />
+    <Content Include="Content\images\promo2.png" />
+    <Content Include="Content\images\promo3.png" />
+    <Content Include="Content\images\shop.png" />
+    <Content Include="Content\style.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Migrations\ELMAH-1.2-db-SQLServer.sql" />
+    <Content Include="Prototype\index.html" />
+    <Content Include="Prototype\kategoria.html" />
+    <Content Include="Prototype\koszyk.html" />
+    <Content Include="Prototype\produkt.html" />
+    <Content Include="Prototype\pustyKoszyk.html" />
+    <Content Include="scripts\tinymce\icons\default\icons.js" />
+    <Content Include="scripts\tinymce\icons\default\icons.min.js" />
+    <Content Include="scripts\tinymce\jquery.tinymce.min.js" />
+    <Content Include="scripts\tinymce\license.txt" />
+    <Content Include="scripts\tinymce\main.js" />
+    <Content Include="scripts\tinymce\plugins\advlist\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\anchor\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\autolink\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\autoresize\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\autosave\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\bbcode\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\charmap\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\codesample\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\code\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\colorpicker\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\contextmenu\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\directionality\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\emoticons\js\emojis.js" />
+    <Content Include="scripts\tinymce\plugins\emoticons\js\emojis.min.js" />
+    <Content Include="scripts\tinymce\plugins\emoticons\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\fullpage\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\fullscreen\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\help\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\hr\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\imagetools\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\image\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\importcss\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\insertdatetime\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\legacyoutput\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\link\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\lists\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\media\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\nonbreaking\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\noneditable\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\pagebreak\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\paste\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\preview\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\print\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\quickbars\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\quickbars\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\save\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\searchreplace\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\spellchecker\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\tabfocus\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\table\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\template\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\textcolor\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\textpattern\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\toc\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\visualblocks\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\visualchars\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="scripts\tinymce\plugins\wordcount\plugin.js" />
+    <Content Include="scripts\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="scripts\tinymce\skins\content\dark\content.css" />
+    <Content Include="scripts\tinymce\skins\content\dark\content.min.css" />
+    <Content Include="scripts\tinymce\skins\content\default\content.css" />
+    <Content Include="scripts\tinymce\skins\content\default\content.min.css" />
+    <Content Include="scripts\tinymce\skins\content\document\content.css" />
+    <Content Include="scripts\tinymce\skins\content\document\content.min.css" />
+    <Content Include="scripts\tinymce\skins\content\writer\content.css" />
+    <Content Include="scripts\tinymce\skins\content\writer\content.min.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide-dark\content.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide-dark\content.inline.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide-dark\content.inline.min.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide-dark\content.min.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide-dark\content.mobile.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide-dark\content.mobile.min.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide-dark\skin.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide-dark\skin.min.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide-dark\skin.mobile.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide-dark\skin.mobile.min.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide\content.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide\content.inline.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide\content.inline.min.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide\content.min.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide\content.mobile.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide\content.mobile.min.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide\skin.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide\skin.min.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide\skin.mobile.css" />
+    <Content Include="scripts\tinymce\skins\ui\oxide\skin.mobile.min.css" />
+    <Content Include="scripts\tinymce\themes\mobile\theme.js" />
+    <Content Include="scripts\tinymce\themes\mobile\theme.min.js" />
+    <Content Include="scripts\tinymce\themes\silver\theme.js" />
+    <Content Include="scripts\tinymce\themes\silver\theme.min.js" />
+    <Content Include="scripts\tinymce\tinymce.js" />
+    <Content Include="scripts\tinymce\tinymce.min.js" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
+    <Compile Include="Controllers\CommonController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="DAL\DatabaseInitializer.cs" />
+    <Compile Include="DAL\InternetShopContext.cs" />
+    <Compile Include="DTO\CartItemDTO.cs" />
+    <Compile Include="DTO\ProductDTO.cs" />
+    <Compile Include="DTO\ProductPromotionDTO.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\AppConfig.cs" />
+    <Compile Include="Infrastructure\CartManager.cs" />
+    <Compile Include="Infrastructure\Consts.cs" />
+    <Compile Include="Infrastructure\DefaultCacheProvider.cs" />
+    <Compile Include="Infrastructure\HangfirePostalMailService.cs" />
+    <Compile Include="Infrastructure\Helpers.cs" />
+    <Compile Include="Infrastructure\HtmlImages.cs" />
+    <Compile Include="Infrastructure\ICacheProvider.cs" />
+    <Compile Include="Infrastructure\IMailService.cs" />
+    <Compile Include="Infrastructure\ISessionManager.cs" />
+    <Compile Include="Infrastructure\PostalMailService.cs" />
+    <Compile Include="Infrastructure\SessionManager.cs" />
+    <Compile Include="Infrastructure\UrlHelpers.cs" />
+    <Compile Include="Migrations\202009070855440_InitialCreate.cs" />
+    <Compile Include="Migrations\202009070855440_InitialCreate.designer.cs">
+      <DependentUpon>202009070855440_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009071354062_addedLinkName.cs" />
+    <Compile Include="Migrations\202009071354062_addedLinkName.designer.cs">
+      <DependentUpon>202009071354062_addedLinkName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009071356547_addedLinkNamev2.cs" />
+    <Compile Include="Migrations\202009071356547_addedLinkNamev2.designer.cs">
+      <DependentUpon>202009071356547_addedLinkNamev2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009091342535_addedProductImg.cs" />
+    <Compile Include="Migrations\202009091342535_addedProductImg.designer.cs">
+      <DependentUpon>202009091342535_addedProductImg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009091347149_addedProductImgV2.cs" />
+    <Compile Include="Migrations\202009091347149_addedProductImgV2.designer.cs">
+      <DependentUpon>202009091347149_addedProductImgV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009091352576_addedProductImgV3.cs" />
+    <Compile Include="Migrations\202009091352576_addedProductImgV3.designer.cs">
+      <DependentUpon>202009091352576_addedProductImgV3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009101511147_editedProduct.cs" />
+    <Compile Include="Migrations\202009101511147_editedProduct.designer.cs">
+      <DependentUpon>202009101511147_editedProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009101525307_editedProductv2.cs" />
+    <Compile Include="Migrations\202009101525307_editedProductv2.designer.cs">
+      <DependentUpon>202009101525307_editedProductv2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009111331072_editedSpecsv1.cs" />
+    <Compile Include="Migrations\202009111331072_editedSpecsv1.designer.cs">
+      <DependentUpon>202009111331072_editedSpecsv1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009120729316_addedOpinions.cs" />
+    <Compile Include="Migrations\202009120729316_addedOpinions.designer.cs">
+      <DependentUpon>202009120729316_addedOpinions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009121004000_editedOpinionV1.cs" />
+    <Compile Include="Migrations\202009121004000_editedOpinionV1.designer.cs">
+      <DependentUpon>202009121004000_editedOpinionV1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009141339498_addedAspIdentity.cs" />
+    <Compile Include="Migrations\202009141339498_addedAspIdentity.designer.cs">
+      <DependentUpon>202009141339498_addedAspIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009161314339_updatedOrder.cs" />
+    <Compile Include="Migrations\202009161314339_updatedOrder.designer.cs">
+      <DependentUpon>202009161314339_updatedOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009161325399_updateOrdersv2.cs" />
+    <Compile Include="Migrations\202009161325399_updateOrdersv2.designer.cs">
+      <DependentUpon>202009161325399_updateOrdersv2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009191445086_Admin.cs" />
+    <Compile Include="Migrations\202009191445086_Admin.designer.cs">
+      <DependentUpon>202009191445086_Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009211017329_editedProduct1.cs" />
+    <Compile Include="Migrations\202009211017329_editedProduct1.designer.cs">
+      <DependentUpon>202009211017329_editedProduct1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009211640348_editedSpecs.cs" />
+    <Compile Include="Migrations\202009211640348_editedSpecs.designer.cs">
+      <DependentUpon>202009211640348_editedSpecs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009220845237_elmah.cs" />
+    <Compile Include="Migrations\202009220845237_elmah.designer.cs">
+      <DependentUpon>202009220845237_elmah.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009240832526_editedProductvv2.cs" />
+    <Compile Include="Migrations\202009240832526_editedProductvv2.designer.cs">
+      <DependentUpon>202009240832526_editedProductvv2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009240857241_somechanges.cs" />
+    <Compile Include="Migrations\202009240857241_somechanges.designer.cs">
+      <DependentUpon>202009240857241_somechanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009240921556_favourites.cs" />
+    <Compile Include="Migrations\202009240921556_favourites.designer.cs">
+      <DependentUpon>202009240921556_favourites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009240951409_editedFavouritev1.cs" />
+    <Compile Include="Migrations\202009240951409_editedFavouritev1.designer.cs">
+      <DependentUpon>202009240951409_editedFavouritev1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009241146367_editedCats.cs" />
+    <Compile Include="Migrations\202009241146367_editedCats.designer.cs">
+      <DependentUpon>202009241146367_editedCats.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009250818489_promotion.cs" />
+    <Compile Include="Migrations\202009250818489_promotion.designer.cs">
+      <DependentUpon>202009250818489_promotion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009250858338_editedPromotionv1.cs" />
+    <Compile Include="Migrations\202009250858338_editedPromotionv1.designer.cs">
+      <DependentUpon>202009250858338_editedPromotionv1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009281028159_changes.cs" />
+    <Compile Include="Migrations\202009281028159_changes.designer.cs">
+      <DependentUpon>202009281028159_changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009281053168_idk.cs" />
+    <Compile Include="Migrations\202009281053168_idk.designer.cs">
+      <DependentUpon>202009281053168_idk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009281059446_opn.cs" />
+    <Compile Include="Migrations\202009281059446_opn.designer.cs">
+      <DependentUpon>202009281059446_opn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009281100380_opnv2.cs" />
+    <Compile Include="Migrations\202009281100380_opnv2.designer.cs">
+      <DependentUpon>202009281100380_opnv2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009290832117_PromotionHotDeals.cs" />
+    <Compile Include="Migrations\202009290832117_PromotionHotDeals.designer.cs">
+      <DependentUpon>202009290832117_PromotionHotDeals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009301109525_editedHotDeal.cs" />
+    <Compile Include="Migrations\202009301109525_editedHotDeal.designer.cs">
+      <DependentUpon>202009301109525_editedHotDeal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CartItem.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Favourite.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MainCategory.cs" />
+    <Compile Include="Models\Opinion.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductImage.cs" />
+    <Compile Include="Models\ProductSpecification.cs" />
+    <Compile Include="Models\Promotion.cs" />
+    <Compile Include="Models\PromotionHotDeal.cs" />
+    <Compile Include="Models\PromotionProduct.cs" />
+    <Compile Include="Models\Specification.cs" />
+    <Compile Include="Models\UserData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AdminAddProductViewModel.cs" />
+    <Compile Include="ViewModels\AdminCategoriesViewModel.cs" />
+    <Compile Include="ViewModels\AdminHotDealViewModel.cs" />
+    <Compile Include="ViewModels\AdminProductDetailsViewModel.cs" />
+    <Compile Include="ViewModels\AdminPromotionDetailsViewModel.cs" />
+    <Compile Include="ViewModels\CartViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\AccountViewModel.cs" />
+    <Compile Include="ViewModels\ManageViewModels.cs" />
+    <Compile Include="ViewModels\OrderConfirmationEmail.cs" />
+    <Compile Include="ViewModels\PromotionsViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="NLog.config" />
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Dostawa.cshtml" />
+    <Content Include="Views\Home\Zwrot_i_reklamacje.cshtml" />
+    <Content Include="Views\Home\Raty.cshtml" />
+    <Content Include="Views\Home\Montaz.cshtml" />
+    <Content Include="Views\Home\O_nas.cshtml" />
+    <Content Include="Views\Home\Regulamin.cshtml" />
+    <Content Include="Views\Home\Polityka_prywatnosci.cshtml" />
+    <Content Include="Views\Product\CategoryProducts.cshtml" />
+    <Content Include="Views\Product\_CategoryProductsList.cshtml" />
+    <Content Include="Views\Common\_Menu.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\_SearchList.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Cart\Order.cshtml" />
+    <Content Include="Views\Cart\OrderConfirmation.cshtml" />
+    <Content Include="Views\Manage\AccountSettings.cshtml" />
+    <Content Include="Views\Manage\_LeftList.cshtml" />
+    <Content Include="Views\Manage\OrdersList.cshtml" />
+    <Content Include="Views\Manage\OrderDetails.cshtml" />
+    <Content Include="Views\Common\Error.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\_LeftListAdmin.cshtml" />
+    <Content Include="Views\Admin\OrdersList.cshtml" />
+    <Content Include="Views\Admin\OrderDetails.cshtml" />
+    <Content Include="Views\Admin\AddProduct.cshtml" />
+    <Content Include="Views\Admin\AddProductSuccess.cshtml" />
+    <Content Include="Views\Admin\ProductDetails.cshtml" />
+    <Content Include="scripts\tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
+    <Content Include="scripts\tinymce\skins\ui\oxide-dark\fonts\tinymce-mobile.woff" />
+    <Content Include="scripts\tinymce\langs\readme.md" />
+    <Content Include="Views\Admin\Search.cshtml" />
+    <Content Include="Views\Emails\_ViewStart.cshtml" />
+    <Content Include="Views\Emails\Web.config" />
+    <Content Include="Views\Emails\OrderConfirmation.cshtml" />
+    <Content Include="Views\Emails\OrderConfirmation.Text.cshtml" />
+    <Content Include="Views\Emails\OrderConfirmation.Html.cshtml" />
+    <Content Include="Views\Manage\Favourities.cshtml" />
+    <Content Include="Views\Admin\Categories.cshtml" />
+    <Content Include="Views\Admin\AddMainCategory.cshtml" />
+    <Content Include="Views\Admin\RemoveMainCategory.cshtml" />
+    <Content Include="Views\Admin\AddCategory.cshtml" />
+    <Content Include="Views\Admin\RemoveCategory.cshtml" />
+    <Content Include="Views\Admin\AddPromotion.cshtml" />
+    <Content Include="Views\Admin\PromotionDetails.cshtml" />
+    <Content Include="Views\Admin\EditPromotion.cshtml" />
+    <Content Include="Views\Admin\AddPromotionProduct.cshtml" />
+    <Content Include="Views\Admin\PromotionProductsList.cshtml" />
+    <Content Include="Views\Admin\SearchPromotion.cshtml" />
+    <Content Include="Views\Home\Promotions.cshtml" />
+    <Content Include="Views\Home\PromotionsList.cshtml" />
+    <Content Include="Views\Admin\HotDeal.cshtml" />
+    <Content Include="Views\Admin\HotDealDetails.cshtml" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
+    <Content Include="Views\Admin\Opinions.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202009070855440_InitialCreate.resx">
+      <DependentUpon>202009070855440_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009071354062_addedLinkName.resx">
+      <DependentUpon>202009071354062_addedLinkName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009071356547_addedLinkNamev2.resx">
+      <DependentUpon>202009071356547_addedLinkNamev2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009091342535_addedProductImg.resx">
+      <DependentUpon>202009091342535_addedProductImg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009091347149_addedProductImgV2.resx">
+      <DependentUpon>202009091347149_addedProductImgV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009091352576_addedProductImgV3.resx">
+      <DependentUpon>202009091352576_addedProductImgV3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009101511147_editedProduct.resx">
+      <DependentUpon>202009101511147_editedProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009101525307_editedProductv2.resx">
+      <DependentUpon>202009101525307_editedProductv2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009111331072_editedSpecsv1.resx">
+      <DependentUpon>202009111331072_editedSpecsv1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009120729316_addedOpinions.resx">
+      <DependentUpon>202009120729316_addedOpinions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009121004000_editedOpinionV1.resx">
+      <DependentUpon>202009121004000_editedOpinionV1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009141339498_addedAspIdentity.resx">
+      <DependentUpon>202009141339498_addedAspIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009161314339_updatedOrder.resx">
+      <DependentUpon>202009161314339_updatedOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009161325399_updateOrdersv2.resx">
+      <DependentUpon>202009161325399_updateOrdersv2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009191445086_Admin.resx">
+      <DependentUpon>202009191445086_Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009211017329_editedProduct1.resx">
+      <DependentUpon>202009211017329_editedProduct1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009211640348_editedSpecs.resx">
+      <DependentUpon>202009211640348_editedSpecs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009220845237_elmah.resx">
+      <DependentUpon>202009220845237_elmah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009240832526_editedProductvv2.resx">
+      <DependentUpon>202009240832526_editedProductvv2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009240857241_somechanges.resx">
+      <DependentUpon>202009240857241_somechanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009240921556_favourites.resx">
+      <DependentUpon>202009240921556_favourites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009240951409_editedFavouritev1.resx">
+      <DependentUpon>202009240951409_editedFavouritev1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009241146367_editedCats.resx">
+      <DependentUpon>202009241146367_editedCats.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009250818489_promotion.resx">
+      <DependentUpon>202009250818489_promotion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009250858338_editedPromotionv1.resx">
+      <DependentUpon>202009250858338_editedPromotionv1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009281028159_changes.resx">
+      <DependentUpon>202009281028159_changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009281053168_idk.resx">
+      <DependentUpon>202009281053168_idk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009281059446_opn.resx">
+      <DependentUpon>202009281059446_opn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009281100380_opnv2.resx">
+      <DependentUpon>202009281100380_opnv2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009290832117_PromotionHotDeals.resx">
+      <DependentUpon>202009290832117_PromotionHotDeals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009301109525_editedHotDeal.resx">
+      <DependentUpon>202009301109525_editedHotDeal.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>62410</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44355/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

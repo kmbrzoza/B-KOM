@@ -1,0 +1,55 @@
+﻿@model List<B_KOM_Sklep_internetowy.DTO.ProductPromotionDTO>
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+<h4 class="border-bottom pb-1">Lista produktów w promocji: </h4>
+
+@if (Model.Any())
+{
+    <div class="row row-cols-2 row-cols-md-3 mx-2 pt-2">
+        @foreach (var product in Model)
+        {
+            <div class="productCard card col">
+                <a href="@Url.Action("ProductDetails", "Admin", new { id = product.Product.ProductId })" class="productLink">
+                    <span class="small">Pozostało: @product.Amount</span>
+                    <img src="@Url.ProductImgPath(product.GetMainImg())" class="card-img-top">
+                    <div class="card-body p-0">
+                        <h6 class="card-title m-0">@product.Product.Name</h6>
+                        <span>Kod B-KOM: @product.Product.ProductId</span>
+                    </div>
+                    <div class="">
+                        @for (int i = 0; i < 6; i++)
+                        {
+                            if (i < product.GetNumberScoreYellowStarsInt())
+                            {
+                                @Html.Raw(HtmlImages.starOpinionYellow)
+                            }
+                            else
+                            {
+                                @Html.Raw(HtmlImages.starOpinionGrey)
+                            }
+                        }
+                        <span class="cardOpinionNumber p-0 m-0 text-secondary">(@product.GetNumberOpinionInt())</span>
+                    </div>
+                    <div class="productPricesButton">
+                        <a href="@Url.Action("RemovePromotionProduct", "Admin", new { promotionId = product.PromotionId, promotionProductId = product.PromotionProductId})" class="btn btn-danger rounded-button float-right m-0 px-2 py-1" title="Usuń">
+                            X
+                        </a>
+                        <div class="productCrossedPrice">
+                            <p class="m-0">@product.GetProductNormalPrice()</p>
+                        </div>
+                        <div class="productActualPrice">
+                            <p class="m-0">@product.PromotionPrice zł</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h4>W promocji nie ma jeszcze żadnych produktów!</h4>
+    </div>
+}

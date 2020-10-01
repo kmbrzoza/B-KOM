@@ -11,6 +11,7 @@ using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.ServiceModel.Configuration;
 using System.Web;
 using System.Web.Mvc;
 
@@ -780,6 +781,39 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
         #endregion
 
+        //OPINIONS
+        #region Opinions
+        public ActionResult Opinions()
+        {
+            var opinions = db.Opinions.Where(c => c.Accepted == false).ToList();
+            return View(opinions);
+        }
+
+
+        public ActionResult AddOpinion(int id)
+        {
+            var opinion = db.Opinions.Where(c => c.Opinionid == id).SingleOrDefault();
+            if(opinion != null)
+            {
+                opinion.Accepted = true;
+                db.SaveChanges();
+                TempData["OpinionSuccess"] = "Udało się zaakceptować komentarz";
+            }
+            return RedirectToAction("Opinions");
+        }
+
+        public ActionResult RemoveOpinion(int id)
+        {
+            var opinion = db.Opinions.Where(c => c.Opinionid == id).SingleOrDefault();
+            if(opinion != null)
+            {
+                db.Opinions.Remove(opinion);
+                db.SaveChanges();
+                TempData["OpinionSuccess"] = "Udało się usunąć komentarz";
+            }
+            return RedirectToAction("Opinions");
+        }
+        #endregion
 
         // E-MAILS / MAILING
         [AllowAnonymous]

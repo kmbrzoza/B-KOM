@@ -1,0 +1,148 @@
+﻿@model B_KOM_Sklep_internetowy.ViewModels.ManageCredentialViewModel
+@{
+    ViewBag.Title = "Ustawienia konta";
+    Layout = "~/Views/Manage/_LeftList.cshtml";
+}
+
+
+<div class="col-12 col-md-9 m-0">
+
+    <h2 class="pb-1 border-bottom">Twoje dane</h2>
+
+    @using (Html.BeginForm("ChangeProfile", "Manage"))
+    {
+        @Html.AntiForgeryToken()
+
+        <table id="UserData-table" class="pt-4 pb-4 justify-content-center d-flex">
+            <tr>
+                <td>@Html.LabelFor(c => c.UserData.FirstName, "Imię:") </td>
+                <td>
+                    @Html.TextBoxFor(c => c.UserData.FirstName, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.UserData.FirstName)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.UserData.LastName, "Nazwisko:") </td>
+                <td>
+                    @Html.TextBoxFor(c => c.UserData.LastName, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.UserData.LastName)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.UserData.Address, "Adres:") </td>
+                <td>
+                    @Html.TextBoxFor(c => c.UserData.Address, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.UserData.Address)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.UserData.City, "Miasto:") </td>
+                <td>
+                    @Html.TextBoxFor(c => c.UserData.City, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.UserData.City)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.UserData.PostCode, "Kod pocztowy:") </td>
+                <td>
+                    @Html.TextBoxFor(c => c.UserData.PostCode, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.UserData.PostCode)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.UserData.Phone, "Telefon:") </td>
+                <td>
+                    @Html.TextBoxFor(c => c.UserData.Phone, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.UserData.Phone)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.UserData.Email, "E-mail:") </td>
+                <td>
+                    @Html.TextBoxFor(c => c.UserData.Email, new { @class = "form-control" })
+                    <div class="validation-message">
+                        @Html.ValidationMessageFor(c => c.UserData.Email)
+                    </div>
+                </td>
+            </tr>
+            <tr class="text-right">
+        </table>
+        <div class="text-right w-100 d-inline-block">
+            <input type="submit" class="rounded-button btn btn-primary float-right" value="Aktualizuj" />
+        </div>
+    }
+
+    <h2 class="pb-1 border-bottom">Zmień hasło</h2>
+
+    @using (Html.BeginForm("ChangePassword", "Manage", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div>
+            @Html.ValidationMessage("password-error")
+        </div>
+
+        if (Model.Message.HasValue)
+        {
+            <div>
+                @switch (Model.Message)
+                {
+                    case B_KOM_Sklep_internetowy.Controllers.ManageController.ManageMessageId.ChangePasswordSuccess:
+                        @: Hasło zostało zmienione pomyślnie!
+                        break;
+                    case B_KOM_Sklep_internetowy.Controllers.ManageController.ManageMessageId.Error:
+                        @: Nie udało się zmienić hasła!
+                        break;
+                }
+            </div>
+        }
+
+        <table id="changePassword-table" class="pt-4 pb-4 d-flex justify-content-center">
+            <tr>
+                <td>@Html.LabelFor(c => c.ChangePasswordViewModel.OldPassword, "Stare hasło:")</td>
+                <td>
+                    @Html.PasswordFor(c => c.ChangePasswordViewModel.OldPassword, new { @class = "form-control" })
+                    <div class="login-validation-message">
+                        @Html.ValidationMessageFor(c => c.ChangePasswordViewModel.OldPassword)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.ChangePasswordViewModel.NewPassword, "Nowe hasło:")</td>
+                <td>
+                    @Html.PasswordFor(c => c.ChangePasswordViewModel.NewPassword, new { @class = "form-control" })
+                    <div class="login-validation-message">
+                        @Html.ValidationMessageFor(c => c.ChangePasswordViewModel.NewPassword)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.ChangePasswordViewModel.ConfirmNewPassword, "Potwierdź hasło:")</td>
+                <td>
+                    @Html.PasswordFor(c => c.ChangePasswordViewModel.ConfirmNewPassword, new { @class = "form-control" })
+                    <div class="login-validation-message">
+                        @Html.ValidationMessageFor(c => c.ChangePasswordViewModel.ConfirmNewPassword)
+                    </div>
+                </td>
+
+            </tr>
+        </table>
+        <div class="text-right w-100 d-inline-block">
+            <input type="submit" class="rounded-button btn btn-primary float-right" value="Zmień" />
+        </div>
+
+    }
+</div>
+

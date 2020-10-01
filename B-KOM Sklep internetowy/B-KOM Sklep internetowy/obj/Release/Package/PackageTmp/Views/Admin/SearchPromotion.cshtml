@@ -1,0 +1,44 @@
+﻿@model List<B_KOM_Sklep_internetowy.Models.Promotion>
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+@{
+    ViewBag.Title = "Admin - Wyszukaj promocję";
+    Layout = "~/Views/Admin/_LeftListAdmin.cshtml";
+}
+
+
+
+<div class="col-12 col-md-9 m-0">
+    <h2>Wyszukaj promocję</h2>
+
+    <form method="get" action="@Url.Action("SearchPromotion", "Admin")" class="form-inline flex-nowrap">
+        <input name="search" id="AdminFormSearchInput" class="form-control" type="text" placeholder="Wpisz nazwę lub numer promocji">
+        <button class="rounded-button btn btn-primary" type="submit" title="Wyszukaj">
+            @Html.Raw(HtmlImages.searchIcon)
+        </button>
+    </form>
+
+    @if (Model.Any())
+    {
+        foreach (var prom in Model)
+        {
+            <a href="@Url.Action("PromotionDetails", "Admin", new { id = prom.PromotionId })" class="link-none">
+                <div class="Admin-promotion-div m-0 p-0 my-2 text-center rounded border" style="background-image: url(@Url.PromotionImgPath(prom.ImgPath));">
+                    <h4>@prom.Name</h4>
+
+                    @if (prom.Hidden != true)
+                    {
+                        <p>Promocja aktywna</p>
+                    }
+                    else
+                    {
+                        <p>Promocja ukryta</p>
+                    }
+
+                    <p>ID: @prom.PromotionId</p>
+                </div>
+            </a>
+        }
+    }
+
+</div>

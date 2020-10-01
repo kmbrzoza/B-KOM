@@ -1,0 +1,56 @@
+﻿@model B_KOM_Sklep_internetowy.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2 class="pt-2">Zaloguj</h2>
+
+<div>
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+
+        <div id="login-error">
+            @Html.ValidationMessage("loginerror")
+        </div>
+
+        <table id="login-table" class="justify-content-center d-flex">
+            <tr>
+                <td>@Html.LabelFor(c => c.Email)</td>
+                <td>
+                    @Html.TextBoxFor(c => c.Email, new { @class = "form-control" })
+                    <div class="login-validation-message">
+                        @Html.ValidationMessageFor(c => c.Email)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(c => c.Password)</td>
+                <td>
+                    @Html.PasswordFor(c => c.Password, new { @class = "form-control" })
+                    <div class="login-validation-message">
+                        @Html.ValidationMessageFor(c => c.Password)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        @Html.CheckBoxFor(c => c.RememberMe)
+                        @Html.LabelFor(c => c.RememberMe)
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Zaloguj" class="btn btn-primary" />
+                </td>
+            </tr>
+        </table>
+    }
+
+    <div class="justify-content-center d-flex">
+        <a href="@Url.Action("Register")">Nie masz jeszcze konta? Zarejestruj się!</a>
+    </div>
+
+</div>

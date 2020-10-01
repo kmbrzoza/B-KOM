@@ -1,0 +1,60 @@
+﻿@using Microsoft.AspNet.Identity
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Scripts
+{
+    <script src="~/scripts/tinymce/tinymce.js"></script>
+    <script src="~/scripts/tinymce/main.js"></script>
+}
+
+<div class="row m-0 p-0 pt-4 pb-2">
+    <div class="col-12 col-md-3 m-0 p-0 border-right">
+        <div>
+            <h4 class="pl-2">@User.Identity.GetUserName()</h4>
+
+            <a href="@Url.Action("OrdersList", "Admin")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.orderList)
+                Zamówienia
+            </a>
+            <a href="@Url.Action("AddProduct", "Admin")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.rightArrow32px)
+                Dodaj nowy produkt
+            </a>
+            <a href="@Url.Action("Search", "Admin")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.searchIcon32px)
+                Wyszukaj produkt
+            </a>
+            <a href="@Url.Action("AddPromotion", "Admin")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.cartIcon)
+                Dodaj promocję
+            </a>
+            <a href="@Url.Action("SearchPromotion", "Admin")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.searchIcon32px)
+                Wyszukaj promocję
+            </a>
+            <a href="@Url.Action("HotDeal", "Admin")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.fire32px)
+                Gorąca okazja
+            </a>
+            <a href="@Url.Action("Categories", "Admin")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.rightArrow32px)
+                Kategorie
+            </a>
+            <a href="@Url.Content("~/elmah")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.shieldProtect)
+                Logi strony (Elmah)
+            </a>
+            <a href="@Url.Content("~/hangfire")" class="Admin-left-button">
+                @Html.Raw(HtmlImages.shieldProtect)
+                Wykonane zadania (Hangfire)
+            </a>
+        </div>
+    </div>
+
+    @RenderBody()
+
+</div>

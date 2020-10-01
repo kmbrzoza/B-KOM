@@ -1,0 +1,70 @@
+﻿@model B_KOM_Sklep_internetowy.ViewModels.PromotionsViewModel
+@using B_KOM_Sklep_internetowy.Infrastructure
+@{
+    ViewBag.Title = "Promocja!";
+}
+
+
+
+<div class="m-0 p-0 py-2">
+    <div class="m-0 p-0 pb-2">
+        <ol class="breadcrumb m-0 p-0 bg-white">
+            <li class="breadcrumb-item"><a href="@Url.Content("~/")">B-KOM</a></li>
+            <li class="breadcrumb-item"><a href="@Url.Action("PromotionsList", "Home")">Wszystkie promocje</a></li>
+            <li class="breadcrumb-item"><a href="@Url.Action("Promotions", "Home", new { id = Model.Promotion.PromotionId })">@Model.Promotion.Name</a></li>
+        </ol>
+    </div>
+
+    <div class="text-center">
+        <img src="@Url.PromotionImgPath(Model.Promotion.ImgPath)" class="img-fluid promotion-img" />
+        <h2>@Model.Promotion.Name</h2>
+        <h4>Kod promocyjny: <span class="bg-primary text-white p-2 rounded-button">@Model.Promotion.Code</span></h4>
+    </div>
+
+    <div>
+        @if (Model.ProductsPromotionDTO.Any())
+        {
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 mx-2 pt-2">
+                @foreach (var product in Model.ProductsPromotionDTO)
+                {
+                    <div class="productCard card col">
+                        <a href="@Url.Action("Details", "Product", new { id = product.Product.ProductId })" class="productLink">
+                            <span class="small">Pozostało: @product.Amount</span>
+                            <img src="@Url.ProductImgPath(product.GetMainImg())" class="card-img-top">
+                            <div class="card-body p-0">
+                                <h6 class="card-title m-0">@product.Product.Name</h6>
+                                @*<span>Kod B-KOM: @product.Product.ProductId</span>*@
+                            </div>
+                            <div class="">
+                                @for (int i = 0; i < 6; i++)
+                                {
+                                    if (i < product.GetNumberScoreYellowStarsInt())
+                                    {
+                                        @Html.Raw(HtmlImages.starOpinionYellow)
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw(HtmlImages.starOpinionGrey)
+                                    }
+                                }
+                                <span class="cardOpinionNumber p-0 m-0 text-secondary">(@product.GetNumberOpinionInt())</span>
+                            </div>
+                            <div class="productPricesButton">
+                                <a href="@Url.Action("AddToCart", "Cart", new { id = product.Product.ProductId})" class="button-circle-buy" title="Dodaj do koszyka">
+                                    @Html.Raw(HtmlImages.cartAddToCartCircle)
+                                </a>
+                                <div class="productCrossedPrice">
+                                    <p class="m-0">@product.GetProductNormalPrice()</p>
+                                </div>
+                                <div class="productActualPrice">
+                                    <p class="m-0">@product.PromotionPrice zł</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+
+            </div>
+        }
+    </div>
+</div>

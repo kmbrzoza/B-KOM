@@ -1,0 +1,92 @@
+﻿@model B_KOM_Sklep_internetowy.ViewModels.AdminPromotionDetailsViewModel
+
+<h4 class="border-bottom pb-1">Dodaj produkt do promocji:</h4>
+
+@if (TempData["PromoProdSuccess"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        @TempData["PromoProdSuccess"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@if (TempData["PromoProdIsAlready"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["PromoProdIsAlready"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@if (TempData["PromoProdNotExist"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["PromoProdNotExist"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@if (TempData["PromoProdAmount"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["PromoProdAmount"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@if (TempData["PromoProdPrice"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["PromoProdPrice"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+@using (Html.BeginForm("AddPromotionProduct", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" name="promotionProduct.PromotionId" value="@Model.Promotion.PromotionId" />
+
+    <table>
+        <tr>
+            <td>@Html.LabelFor(c => c.PromotionProduct.ProductId, "ID Produktu: ")</td>
+            <td>
+                @Html.TextBoxFor(c => c.PromotionProduct.ProductId, new { @class = "form-control" })
+                <div class="validation-message">
+                    @Html.ValidationMessageFor(c => c.PromotionProduct.ProductId)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(c => c.PromotionProduct.Amount, "Ilość produktów: ")</td>
+            <td>
+                @Html.TextBoxFor(c => c.PromotionProduct.Amount, new { @class = "form-control" })
+                <div class="validation-message">
+                    @Html.ValidationMessageFor(c => c.PromotionProduct.Amount)
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(c => c.PromotionProduct.PromotionPrice, "Cena: ")</td>
+            <td>
+                @Html.TextBoxFor(c => c.PromotionProduct.PromotionPrice, new { @class = "form-control" })
+                <div class="validation-message">
+                    @Html.ValidationMessageFor(c => c.PromotionProduct.PromotionPrice)
+                </div>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" class="btn btn-primary rounded-button" value="Dodaj produkt" />
+
+}

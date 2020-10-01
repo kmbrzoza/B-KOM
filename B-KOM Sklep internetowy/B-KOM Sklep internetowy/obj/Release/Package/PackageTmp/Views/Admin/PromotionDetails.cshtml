@@ -1,0 +1,29 @@
+﻿@model B_KOM_Sklep_internetowy.ViewModels.AdminPromotionDetailsViewModel
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+@{
+    ViewBag.Title = "PromotionDetails";
+    Layout = "~/Views/Admin/_LeftListAdmin.cshtml";
+}
+
+<div class="col-12 col-md-9 m-0">
+
+    <h2 class="border-bottom pb-1">Szczegóły promocji:</h2>
+
+    <div class="m-0 p-0 py-2">
+        <a href="@Url.Action("RemovePromotion", "Admin", new { promotionId = Model.Promotion.PromotionId })" class="btn btn-danger rounded-button">Usuń promocję</a>
+    </div>
+
+    <div class="m-0 p-0 py-2">
+        @Html.Partial("EditPromotion", Model.Promotion)
+    </div>
+
+    <div class="m-0 p-0 py-2">
+        @Html.Partial("AddPromotionProduct", Model)
+    </div>
+
+    <div class="m-0 p-0 py-2">
+        @Html.Partial("PromotionProductsList", Model.ActualProductsList)
+    </div>
+
+</div>

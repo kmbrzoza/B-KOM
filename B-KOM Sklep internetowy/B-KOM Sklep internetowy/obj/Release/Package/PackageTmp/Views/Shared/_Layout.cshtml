@@ -1,0 +1,200 @@
+﻿@using B_KOM_Sklep_internetowy.Models
+@using B_KOM_Sklep_internetowy.Infrastructure
+@{
+
+    var listMainCategories = (List<MainCategory>)ViewData["mainCategories"];
+}
+
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="@Url.Content("~/Content/style.css")">
+
+    <link rel="icon" type="image/png" href="~/Content/Bico.png" />
+
+    <title>@ViewBag.Title</title>
+</head>
+
+<body>
+
+    <div class="container-xl">
+
+        <!--        FIRST NAVBAR - SEARCH MENU -->
+        <nav id="navbar1" class="navbar navbar-expand-md p-0">
+            <!-- IT IS BUTTON FOR MENU CATEGORY            -->
+            <button id="buttonCategory" class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarCategory" aria-controls="navbarCategory" aria-expanded="false"
+                    aria-label="Toggle navigation" title="Menu">
+                @Html.Raw(HtmlImages.navbarButtonCategoryLines)
+                <span>Menu</span>
+            </button>
+
+            <!-- LOGO?    <a id="navbarLogoLink" class="navbar-brand p-0 m-0" href="#"><img id="navbarLogoImg" class="" src="images/logo.png" alt="" /></a>-->
+            <a id="navbarLogoLink" class="navbar-brand p-0 m-0" href="@Url.Content("~/")" title="B-KOM">
+                <span class="text-primary">B</span>-KOM
+            </a>
+
+            <button id="navbarButtonMenu" class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                @Html.Raw(HtmlImages.navbarButtonMenu)
+            </button>
+
+            <div id="navbarSearch" class="collapse navbar-collapse">
+                <form method="get" action="@Url.Action("Search", "Home")" id="navbarFormSearch" class="form-inline flex-nowrap px-2">
+                    <input name="wyszukaj" id="navbarFormSearchInput" class="form-control" type="text" placeholder="Wyszukaj">
+                    <button id="navbarFormSearchButton" class="btn btn-primary" type="submit" title="Wyszukaj">
+                        <!-- Icon search -->
+                        @Html.Raw(HtmlImages.searchIcon)
+                    </button>
+                </form>
+                <ul id="navbarMenu" class="navbar-nav">
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li id="MenuAdmin" class="navbarMenuLi nav-item text-center">
+                            <a id="MenuTextAdmin" class="nav-link" href="@Url.Action("Index", "Admin")" title="Admin">
+                                @Html.Raw(HtmlImages.accountIcon)
+                                <span class="navbarMenuText">Admin</span>
+                            </a>
+                        </li>
+                    }
+                    <li class="navbarMenuLi nav-item text-center">
+                        <div class="dropdown">
+                            <a class=" nav-link" href="#" role="button" id="dropdownMenuLink"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                @Html.Raw(HtmlImages.accountIcon)
+                                <span class="navbarMenuText">Konto</span>
+                            </a>
+
+                            @Html.Partial("_LoginPartial")
+
+                        </div>
+                    </li>
+                    <li class="navbarMenuLi nav-item text-center">
+                        <a class="nav-link" href="@Url.Action("Favourities", "Manage")" title="Ulubione">
+                            @Html.Raw(HtmlImages.favouriteIcon)
+                            <span class="navbarMenuText">Ulubione</span>
+                        </a>
+                    </li>
+                    <li class="navbarMenuLi nav-item text-center">
+                        <a class="nav-link" href="@Url.Action("Index", "Koszyk")" title="Koszyk">
+                            @Html.Raw(HtmlImages.cartIcon)
+                            <span class="navbarMenuText">Koszyk <span class="badge badge-primary">@Html.Action("GetAmountCartItems", "Cart")</span></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- SECOND NAVBAR - MENU -->
+        @Html.Action("Menu", "Common")
+        <!-- ---- -->
+
+
+        <main>
+            @RenderBody()
+        </main>
+
+
+
+
+        <footer class="rounded bg-light m-0 mt-4 p-0 pt-2">
+            <div class="row row-cols-2 row-cols-lg-4 m-0">
+                <!-- First column - Contact -->
+                <div class="col">
+                    <h5>Kontakt</h5>
+                    <p id="footerPhoneNumber" class="m-0">
+                        @Html.Raw(HtmlImages.phone)
+                        123 456 789
+                    </p>
+                    <p class="m-0"><span class="small pl-4">pon. - pt.</span> 8:00 - 21:00</p>
+                    <p class="m-0"><span class="small pl-4">sob. - niedz.</span> 8:00 - 20:00</p>
+                    <p class="pt-2 m-0">
+                        @Html.Raw(HtmlImages.email)
+                        b-kom@b-kom.pl
+                    </p>
+                    <a id="footerSalons" href="#" class="">
+                        @Html.Raw(HtmlImages.salon)
+                        Salony B-KOM
+                    </a>
+                    <div class="my-4">
+                        <a href="#" class="footerSocialmedia">
+                            @Html.Raw(HtmlImages.facebook)
+                        </a>
+                        <a href="#" class="footerSocialmedia">
+                            @Html.Raw(HtmlImages.instagram)
+                        </a>
+                        <a href="#" class="footerSocialmedia">
+                            @Html.Raw(HtmlImages.youtube)
+                        </a>
+                        <a href="#" class="footerSocialmedia">
+                            @Html.Raw(HtmlImages.twitter)
+                        </a>
+                    </div>
+                </div>
+                <!-- Second Column - Orders -->
+                <div id="footerCol" class="col">
+                    <h5>Zamówienia</h5>
+                    <ul id="footerUl">
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "Dostawa"})" class="footerLink">Dostawa</a></li>
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "Zwrot_i_reklamacje"})" class="footerLink">Zwrot i reklamacje</a></li>
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "Raty"})" class="footerLink">Raty</a></li>
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "Montaz"})" class="footerLink">Montaż</a></li>
+                    </ul>
+                </div>
+                <!-- Third Column - About us -->
+                <div id="footerCol" class="col">
+                    <h5>B-KOM</h5>
+                    <ul id="footerUl">
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "O_nas"})" class="footerLink">O nas</a></li>
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "Regulamin"})" class="footerLink">Regulamin</a></li>
+                        <li class="footerLi"><a href="@Url.Action("FooterPage", "Home", new { footerPageName = "Polityka_prywatnosci"})" class="footerLink">Polityka prywatności</a></li>
+                    </ul>
+                </div>
+                <!-- Fourth Column - Promotions -->
+                <div id="footerCol" class="col">
+                    <h5>Promocje</h5>
+                    <ul id="footerUl">
+                        <li class="footerLi"><a href="@Url.Action("PromotionsList", "Home")" class="footerLink">Wszystkie promocje</a></li>
+                        <li class="footerLi"><a href="#" class="footerLink">Gorąca okazja</a></li>
+                        <li class="footerLi"><a href="#" class="footerLink">Karty podarunkowe</a></li>
+                        <li class="footerLi"><a href="#" class="footerLink">Outlet</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="copyright" class="border-top align-items-center p-2">
+                @Html.Raw(HtmlImages.copyrightIcon)
+                <span>B-KOM 2020</span>
+            </div>
+        </footer>
+    </div>
+
+
+    @RenderSection("Scripts", required: false)
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+            integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+            integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

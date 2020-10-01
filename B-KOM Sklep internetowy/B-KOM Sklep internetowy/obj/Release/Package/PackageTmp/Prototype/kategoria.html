@@ -1,0 +1,883 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>B-KOM</title>
+</head>
+
+<body>
+
+    <div class="container-xl">
+        <!--        FIRST NAVBAR - SEARCH MENU -->
+        <nav id="navbar1" class="navbar navbar-expand-md p-0">
+            <!-- IT IS BUTTON FOR MENU CATEGORY            -->
+            <button id="buttonCategory" class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarCategory" aria-controls="navbarCategory" aria-expanded="false"
+                aria-label="Toggle navigation" title="Menu">
+                <svg id="navbarButtonCategoryLines" class="navbarButtonImg" fill="currentColor" version="1.1"
+                    id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                    y="0px" viewBox="0 0 124 124" style="enable-background:new 0 0 124 124;" xml:space="preserve">
+                    <path d="M112,6H12C5.4,6,0,11.4,0,18s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,6,112,6z" />
+                    <path
+                        d="M112,50H12C5.4,50,0,55.4,0,62c0,6.6,5.4,12,12,12h100c6.6,0,12-5.4,12-12C124,55.4,118.6,50,112,50z" />
+                    <path d="M112,94H12c-6.6,0-12,5.4-12,12s5.4,12,12,12h100c6.6,0,12-5.4,12-12S118.6,94,112,94z" />
+                </svg>
+                <span>Menu</span>
+            </button>
+
+            <!-- LOGO?    <a id="navbarLogoLink" class="navbar-brand p-0 m-0" href="#"><img id="navbarLogoImg" class="" src="images/logo.png" alt="" /></a>-->
+            <a id="navbarLogoLink" class="navbar-brand p-0 m-0" href="#" title="B-KOM"><span
+                    class="text-primary">B</span>-KOM</a>
+
+            <button id="navbarButtonMenu" class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSearch" aria-controls="navbarSearch" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <svg id="navbarButtonMenuDots" class="navbarButtonImg" fill="currentColor"
+                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                    <path
+                        d="M8 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM1.5 9a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm13 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z">
+                    </path>
+                </svg>
+            </button>
+
+            <div id="navbarSearch" class="collapse navbar-collapse">
+                <form id="navbarFormSearch" class="form-inline flex-nowrap px-2">
+                    <input id="navbarFormSearchInput" class="form-control" type="text" placeholder="Wyszukaj">
+                    <button id="navbarFormSearchButton" class="btn btn-primary" type="submit" title="Wyszukaj">
+                        <!--                                        Icon search-->
+                        <svg fill="currentColor" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z" />
+                            <path fill-rule="evenodd"
+                                d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z" />
+                        </svg>
+                    </button>
+                </form>
+                <ul id="navbarMenu" class="navbar-nav">
+                    <li class="navbarMenuLi nav-item text-center">
+                        <a class="nav-link" href="#" title="Konto">
+                            <svg fill="currentColor" class="navbarMenuImg" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M12 2.5a5.5 5.5 0 00-3.096 10.047 9.005 9.005 0 00-5.9 8.18.75.75 0 001.5.045 7.5 7.5 0 0114.993 0 .75.75 0 101.499-.044 9.005 9.005 0 00-5.9-8.181A5.5 5.5 0 0012 2.5zM8 8a4 4 0 118 0 4 4 0 01-8 0z">
+                                </path>
+                            </svg>
+                            <span class="navbarMenuText">Konto</span>
+                        </a>
+                    </li>
+                    <li class="navbarMenuLi nav-item text-center">
+                        <a class="nav-link" href="#" title="Ulubione">
+                            <svg fill="currentColor" class="navbarMenuImg" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M6.736 4C4.657 4 2.5 5.88 2.5 8.514c0 3.107 2.324 5.96 4.861 8.12a29.66 29.66 0 004.566 3.175l.073.041.073-.04c.271-.153.661-.38 1.13-.674.94-.588 2.19-1.441 3.436-2.502 2.537-2.16 4.861-5.013 4.861-8.12C21.5 5.88 19.343 4 17.264 4c-2.106 0-3.801 1.389-4.553 3.643a.75.75 0 01-1.422 0C10.537 5.389 8.841 4 6.736 4zM12 20.703l.343.667a.75.75 0 01-.686 0l.343-.667zM1 8.513C1 5.053 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262a31.146 31.146 0 01-5.233 3.576l-.025.013-.007.003-.002.001-.344-.666-.343.667-.003-.002-.007-.003-.025-.013A29.308 29.308 0 0110 20.408a31.147 31.147 0 01-3.611-2.632C3.8 15.573 1 12.332 1 8.514z">
+                                </path>
+                            </svg>
+                            <span class="navbarMenuText">Ulubione</span>
+                        </a>
+                    </li>
+                    <li class="navbarMenuLi nav-item text-center">
+                        <a class="nav-link" href="#" title="Koszyk">
+                            <svg fill="currentColor" class="navbarMenuImg" version="1.1" id="Capa_1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+                                y="0px" viewBox="0 0 446.853 446.853" style="enable-background:new 0 0 446.853 446.853;"
+                                xml:space="preserve">
+                                <path d="M444.274,93.36c-2.558-3.666-6.674-5.932-11.145-6.123L155.942,75.289c-7.953-0.348-14.599,5.792-14.939,13.708
+		                          c-0.338,7.913,5.792,14.599,13.707,14.939l258.421,11.14L362.32,273.61H136.205L95.354,51.179
+                                         c-0.898-4.875-4.245-8.942-8.861-10.753L19.586,14.141c-7.374-2.887-15.695,0.735-18.591,8.1c-2.891,7.369,0.73,15.695,8.1,18.591
+		                          l59.491,23.371l41.572,226.335c1.253,6.804,7.183,11.746,14.104,11.746h6.896l-15.747,43.74c-1.318,3.664-0.775,7.733,1.468,10.916
+		                          c2.24,3.184,5.883,5.078,9.772,5.078h11.045c-6.844,7.617-11.045,17.646-11.045,28.675c0,23.718,19.299,43.012,43.012,43.012
+		                          s43.012-19.294,43.012-43.012c0-11.028-4.201-21.058-11.044-28.675h93.777c-6.847,7.617-11.047,17.646-11.047,28.675
+		                          c0,23.718,19.294,43.012,43.012,43.012c23.719,0,43.012-19.294,43.012-43.012c0-11.028-4.2-21.058-11.042-28.675h13.432
+		                          c6.6,0,11.948-5.349,11.948-11.947c0-6.6-5.349-11.948-11.948-11.948H143.651l12.902-35.843h216.221
+		                          c6.235,0,11.752-4.028,13.651-9.96l59.739-186.387C447.536,101.679,446.832,97.028,444.274,93.36z M169.664,409.814
+		                          c-10.543,0-19.117-8.573-19.117-19.116s8.574-19.117,19.117-19.117s19.116,8.574,19.116,19.117S180.207,409.814,169.664,409.814z
+                                    M327.373,409.814c-10.543,0-19.116-8.573-19.116-19.116s8.573-19.117,19.116-19.117s19.116,8.574,19.116,19.117
+		                          S337.916,409.814,327.373,409.814z" />
+                            </svg>
+                            <span class="navbarMenuText">Koszyk <span class="badge badge-primary">2</span></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!--        SECOND NAVBAR - CATEGORY MENU -->
+        <nav id="navbar2" class="navbar navbar-expand-md p-0 shadow rounded">
+            <div id="navbarCategory" class="collapse navbar-collapse px-2">
+                <ul id="navbarListCategory" class="navbar-nav justify-content-center flex-nowrap">
+                    <li class="navbarCategoryLi nav-item rounded">
+                        <div class="dropdown">
+                            <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
+                            <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img fill="currentColor" class="navbarImgCategory" src="images/laptop.png">
+                                Laptopy i komputery
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Laptopy</a>
+                                <a class="dropdown-item" href="#">Notebooki</a>
+                                <a class="dropdown-item" href="#">Komputery</a>
+                                <a class="dropdown-item" href="#">Komputery biurowe</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbarCategoryLi nav-item rounded">
+                        <div class="dropdown">
+                            <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
+                            <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img class="navbarImgCategory" src="images/cpu.png">
+                                Podzespoły komputerowe
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Procesory</a>
+                                <a class="dropdown-item" href="#">Karty graficzne</a>
+                                <a class="dropdown-item" href="#">Pamięci RAM</a>
+                                <a class="dropdown-item" href="#">Dyski</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbarCategoryLi nav-item rounded">
+                        <div class="dropdown">
+                            <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
+                            <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img class="navbarImgCategory" src="images/peripherals.png">
+                                Urządzenia peryferyjne
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Monitory</a>
+                                <a class="dropdown-item" href="#">Myszki</a>
+                                <a class="dropdown-item" href="#">Klawiatury</a>
+                                <a class="dropdown-item" href="#">Słuchawki</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbarCategoryLi nav-item rounded">
+                        <div class="dropdown">
+                            <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
+                            <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img class="navbarImgCategory" src="images/smartphone.png">
+                                Smartfony i akcesoria
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Smartfony</a>
+                                <a class="dropdown-item" href="#">Etui do smartfonów</a>
+                                <a class="dropdown-item" href="#">Szkła i folie do smartfonów</a>
+                                <a class="dropdown-item" href="#">Akcesoria do smartfonów</a>
+                                <a class="dropdown-item" href="#">Smartwatche</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbarCategoryLi nav-item rounded">
+                        <div class="dropdown">
+                            <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
+                            <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img class="navbarImgCategory" src="images/accessories.png">
+                                Akcesoria
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Kable i przejściówki</a>
+                                <a class="dropdown-item" href="#">Zasilanie</a>
+                                <a class="dropdown-item" href="#">Pamięci Flash</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="navbarCategoryLi nav-item rounded">
+                        <div class="dropdown">
+                            <!-- FROM THIS <a> I REMOVED CLASS "dropdown-toggle" -->
+                            <a class="navbarCategoryLiLink nav-link" href="#" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img class="navbarImgCategory" src="images/smarthome.png">
+                                TV, Smarthome, Lifestyle
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Telewizory</a>
+                                <a class="dropdown-item" href="#">Kino domowe</a>
+                                <a class="dropdown-item" href="#">Aparaty fotograficzne i kamery</a>
+                                <a class="dropdown-item" href="#">Drony i akcesoria</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <main>
+            <div class="m-0 my-2 p-0">
+                <ol class="breadcrumb m-0 p-0 bg-white">
+                    <li class="breadcrumb-item"><a href="#">Smartfony i akcesoria</a></li>
+                    <li class="breadcrumb-item"><a href="#">Smartfony</a></li>
+                </ol>
+            </div>
+
+            <h3 class="font-weight-normal">Smartfony</h3>
+
+            <div class="row m-0 p-0">
+                <div class="col-12 col-md-3 m-0 p-0 border rounded">
+                    <div class="navbar navbar-expand-md p-0">
+                        <button id="buttonFiltr" class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#filtr" aria-controls="filtr" aria-expanded="false"
+                            aria-label="Toggle navigation" title="Filtruj">
+                            <span>Filtruj</span>
+                        </button>
+                    </div>
+
+                    <div class="navbar navbar-expand-md p-0">
+                        <div id="filtr" class="collapse navbar-collapse px-2">
+                            <div class="">
+                                Tutaj będą w przyszłości filtry
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-9 m-0">
+                    <div class="row row-cols-2 row-cols-md-3 mx-2 py-4 border-top border-bottom">
+                        <div class="productCard card col">
+                            <a href="#" class="productLink">
+                                <img src="images/recommended6.png" class="card-img-top">
+                                <div class="card-body p-0">
+                                    <h6 class="card-title m-0">Xiaomi Mi 10 8/128 GB Twilight Grey</h6>
+                                </div>
+                                <div class="">
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                    94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                    94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionGrey" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <span class="cardOpinionNumber p-0 m-0 text-secondary">(2)</span>
+                                </div>
+                                <div class="productPricesButton">
+                                    <a href="#" class="button-circle-buy" title="Dodaj do koszyka">
+                                        <svg class="button-circle-buy-img" fill="currentColor" version="1.1" id="Capa_1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 484.955 484.955"
+                                            style="enable-background:new 0 0 484.955 484.955;" xml:space="preserve">
+                                            <path d="M258.005,218.355c2.3,2.3,5.4,3.5,8.5,3.5s6.1-1.2,8.5-3.5l73.9-73.9c4.7-4.7,4.7-12.3,0-17s-12.3-4.7-17,0l-65.4,65.5
+                                         l-26.4-26.4c-4.7-4.7-12.3-4.7-17,0s-4.7,12.3,0,17L258.005,218.355z" />
+                                            <path
+                                                d="M145.005,318.355h268.9c29.7,0,53.8-24.2,53.8-53.8v-113.3c0-6.6-5.4-12-12-12s-12,5.4-12,12v113.2
+                                                 c0,16.5-13.4,29.8-29.8,29.8h-268.9c-16.5,0-29.8-13.4-29.8-29.8v-66.7v-74.6v-9.7v-70.2c0-0.4,0-0.9-0.1-1.3c0-0.1,0-0.2,0-0.3
+                                                 c0-0.3-0.1-0.6-0.1-0.8s-0.1-0.5-0.2-0.7c0-0.1-0.1-0.3-0.1-0.4c-0.1-0.3-0.2-0.5-0.3-0.8c0-0.1-0.1-0.2-0.1-0.3
+                                                 c-0.1-0.2-0.2-0.5-0.3-0.7c-0.1-0.1-0.1-0.3-0.2-0.4c-0.1-0.2-0.2-0.4-0.3-0.6c-0.1-0.2-0.2-0.3-0.3-0.5c-0.1-0.1-0.2-0.3-0.3-0.4
+                                                 c-0.1-0.2-0.3-0.4-0.4-0.5s-0.2-0.2-0.3-0.3c-0.2-0.2-0.3-0.4-0.5-0.6c-0.1-0.1-0.2-0.2-0.3-0.2c-0.2-0.2-0.4-0.4-0.6-0.5
+                                                 c-0.1-0.1-0.2-0.2-0.3-0.3c-0.2-0.1-0.4-0.3-0.6-0.4c-0.2-0.2-0.5-0.3-0.7-0.5c-0.1,0-0.2-0.1-0.2-0.2c-0.4-0.2-0.8-0.4-1.2-0.6
+                                                 l-73.9-31c-6.1-2.6-13.1,0.3-15.7,6.4c-2.6,6,0.3,13.1,6.4,15.7l66.5,28.1v62.3v9.7v74.6v66.7v84.3c0,28.2,21.7,51.3,49.3,53.6
+                                                 c-5.6,8.4-8.9,18.5-8.9,29.4c0,29.3,23.9,53.2,53.2,53.2s53.2-23.9,53.2-53.2c0-10.8-3.2-20.8-8.7-29.2h127.3
+                                                 c-5.5,8.4-8.7,18.4-8.7,29.2c0,29.3,23.9,53.2,53.2,53.2s53.2-23.9,53.2-53.2s-23.9-53.2-53.2-53.2h-256
+                                                 c-16.5,0-29.8-13.4-29.8-29.8v-39.5C123.705,314.955,134.005,318.355,145.005,318.355z M213.905,431.755
+                                                 c0,16.1-13.1,29.2-29.2,29.2s-29.2-13.1-29.2-29.2s13.1-29.2,29.2-29.2S213.905,415.655,213.905,431.755z M430.105,431.755
+                                                 c0,16.1-13.1,29.2-29.2,29.2s-29.2-13.1-29.2-29.2s13.1-29.2,29.2-29.2S430.105,415.655,430.105,431.755z" />
+                                        </svg>
+                                    </a>
+                                    <div class="productCrossedPrice">
+                                        <p class="m-0">3499,00 zł</p>
+                                    </div>
+                                    <div class="productActualPrice">
+                                        <p class="m-0">2999,00 zł</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="productCard card col">
+                            <a href="#" class="productLink">
+                                <img src="images/xiaomirm9.png" class="card-img-top">
+                                <div class="card-body p-0">
+                                    <h6 class="card-title m-0">Xiaomi Redmi Note 9 Pro 6/128GB Grey</h6>
+                                </div>
+                                <div class="">
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                    94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                    94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <span class="cardOpinionNumber p-0 m-0 text-secondary">(4)</span>
+                                </div>
+                                <div class="productPricesButton">
+                                    <a href="#" class="button-circle-buy" title="Dodaj do koszyka">
+                                        <svg class="button-circle-buy-img" fill="currentColor" version="1.1" id="Capa_1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 484.955 484.955"
+                                            style="enable-background:new 0 0 484.955 484.955;" xml:space="preserve">
+                                            <path d="M258.005,218.355c2.3,2.3,5.4,3.5,8.5,3.5s6.1-1.2,8.5-3.5l73.9-73.9c4.7-4.7,4.7-12.3,0-17s-12.3-4.7-17,0l-65.4,65.5
+                                         l-26.4-26.4c-4.7-4.7-12.3-4.7-17,0s-4.7,12.3,0,17L258.005,218.355z" />
+                                            <path
+                                                d="M145.005,318.355h268.9c29.7,0,53.8-24.2,53.8-53.8v-113.3c0-6.6-5.4-12-12-12s-12,5.4-12,12v113.2
+                                                 c0,16.5-13.4,29.8-29.8,29.8h-268.9c-16.5,0-29.8-13.4-29.8-29.8v-66.7v-74.6v-9.7v-70.2c0-0.4,0-0.9-0.1-1.3c0-0.1,0-0.2,0-0.3
+                                                 c0-0.3-0.1-0.6-0.1-0.8s-0.1-0.5-0.2-0.7c0-0.1-0.1-0.3-0.1-0.4c-0.1-0.3-0.2-0.5-0.3-0.8c0-0.1-0.1-0.2-0.1-0.3
+                                                 c-0.1-0.2-0.2-0.5-0.3-0.7c-0.1-0.1-0.1-0.3-0.2-0.4c-0.1-0.2-0.2-0.4-0.3-0.6c-0.1-0.2-0.2-0.3-0.3-0.5c-0.1-0.1-0.2-0.3-0.3-0.4
+                                                 c-0.1-0.2-0.3-0.4-0.4-0.5s-0.2-0.2-0.3-0.3c-0.2-0.2-0.3-0.4-0.5-0.6c-0.1-0.1-0.2-0.2-0.3-0.2c-0.2-0.2-0.4-0.4-0.6-0.5
+                                                 c-0.1-0.1-0.2-0.2-0.3-0.3c-0.2-0.1-0.4-0.3-0.6-0.4c-0.2-0.2-0.5-0.3-0.7-0.5c-0.1,0-0.2-0.1-0.2-0.2c-0.4-0.2-0.8-0.4-1.2-0.6
+                                                 l-73.9-31c-6.1-2.6-13.1,0.3-15.7,6.4c-2.6,6,0.3,13.1,6.4,15.7l66.5,28.1v62.3v9.7v74.6v66.7v84.3c0,28.2,21.7,51.3,49.3,53.6
+                                                 c-5.6,8.4-8.9,18.5-8.9,29.4c0,29.3,23.9,53.2,53.2,53.2s53.2-23.9,53.2-53.2c0-10.8-3.2-20.8-8.7-29.2h127.3
+                                                 c-5.5,8.4-8.7,18.4-8.7,29.2c0,29.3,23.9,53.2,53.2,53.2s53.2-23.9,53.2-53.2s-23.9-53.2-53.2-53.2h-256
+                                                 c-16.5,0-29.8-13.4-29.8-29.8v-39.5C123.705,314.955,134.005,318.355,145.005,318.355z M213.905,431.755
+                                                 c0,16.1-13.1,29.2-29.2,29.2s-29.2-13.1-29.2-29.2s13.1-29.2,29.2-29.2S213.905,415.655,213.905,431.755z M430.105,431.755
+                                                 c0,16.1-13.1,29.2-29.2,29.2s-29.2-13.1-29.2-29.2s13.1-29.2,29.2-29.2S430.105,415.655,430.105,431.755z" />
+                                        </svg>
+                                    </a>
+                                    <div class="productCrossedPrice">
+                                        <p class="m-0">1399,00 zł</p>
+                                    </div>
+                                    <div class="productActualPrice">
+                                        <p class="m-0">1229,00 zł</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="productCard card col">
+                            <a href="#" class="productLink">
+                                <img src="images/ip11promax.png" class="card-img-top">
+                                <div class="card-body p-0">
+                                    <h6 class="card-title m-0">Apple iPhone 11 Pro Max 64GB Space Gray</h6>
+                                </div>
+                                <div class="">
+                                    <svg class="cardStarOpinionGrey" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                    94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionGrey" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                    94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionGrey" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionGrey" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionGrey" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionGrey" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <span class="cardOpinionNumber p-0 m-0 text-secondary">(0)</span>
+                                </div>
+                                <div class="productPricesButton">
+                                    <a href="#" class="button-circle-buy" title="Dodaj do koszyka">
+                                        <svg class="button-circle-buy-img" fill="currentColor" version="1.1" id="Capa_1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 484.955 484.955"
+                                            style="enable-background:new 0 0 484.955 484.955;" xml:space="preserve">
+                                            <path d="M258.005,218.355c2.3,2.3,5.4,3.5,8.5,3.5s6.1-1.2,8.5-3.5l73.9-73.9c4.7-4.7,4.7-12.3,0-17s-12.3-4.7-17,0l-65.4,65.5
+                                         l-26.4-26.4c-4.7-4.7-12.3-4.7-17,0s-4.7,12.3,0,17L258.005,218.355z" />
+                                            <path
+                                                d="M145.005,318.355h268.9c29.7,0,53.8-24.2,53.8-53.8v-113.3c0-6.6-5.4-12-12-12s-12,5.4-12,12v113.2
+                                                 c0,16.5-13.4,29.8-29.8,29.8h-268.9c-16.5,0-29.8-13.4-29.8-29.8v-66.7v-74.6v-9.7v-70.2c0-0.4,0-0.9-0.1-1.3c0-0.1,0-0.2,0-0.3
+                                                 c0-0.3-0.1-0.6-0.1-0.8s-0.1-0.5-0.2-0.7c0-0.1-0.1-0.3-0.1-0.4c-0.1-0.3-0.2-0.5-0.3-0.8c0-0.1-0.1-0.2-0.1-0.3
+                                                 c-0.1-0.2-0.2-0.5-0.3-0.7c-0.1-0.1-0.1-0.3-0.2-0.4c-0.1-0.2-0.2-0.4-0.3-0.6c-0.1-0.2-0.2-0.3-0.3-0.5c-0.1-0.1-0.2-0.3-0.3-0.4
+                                                 c-0.1-0.2-0.3-0.4-0.4-0.5s-0.2-0.2-0.3-0.3c-0.2-0.2-0.3-0.4-0.5-0.6c-0.1-0.1-0.2-0.2-0.3-0.2c-0.2-0.2-0.4-0.4-0.6-0.5
+                                                 c-0.1-0.1-0.2-0.2-0.3-0.3c-0.2-0.1-0.4-0.3-0.6-0.4c-0.2-0.2-0.5-0.3-0.7-0.5c-0.1,0-0.2-0.1-0.2-0.2c-0.4-0.2-0.8-0.4-1.2-0.6
+                                                 l-73.9-31c-6.1-2.6-13.1,0.3-15.7,6.4c-2.6,6,0.3,13.1,6.4,15.7l66.5,28.1v62.3v9.7v74.6v66.7v84.3c0,28.2,21.7,51.3,49.3,53.6
+                                                 c-5.6,8.4-8.9,18.5-8.9,29.4c0,29.3,23.9,53.2,53.2,53.2s53.2-23.9,53.2-53.2c0-10.8-3.2-20.8-8.7-29.2h127.3
+                                                 c-5.5,8.4-8.7,18.4-8.7,29.2c0,29.3,23.9,53.2,53.2,53.2s53.2-23.9,53.2-53.2s-23.9-53.2-53.2-53.2h-256
+                                                 c-16.5,0-29.8-13.4-29.8-29.8v-39.5C123.705,314.955,134.005,318.355,145.005,318.355z M213.905,431.755
+                                                 c0,16.1-13.1,29.2-29.2,29.2s-29.2-13.1-29.2-29.2s13.1-29.2,29.2-29.2S213.905,415.655,213.905,431.755z M430.105,431.755
+                                                 c0,16.1-13.1,29.2-29.2,29.2s-29.2-13.1-29.2-29.2s13.1-29.2,29.2-29.2S430.105,415.655,430.105,431.755z" />
+                                        </svg>
+                                    </a>
+                                    <div class="productCrossedPrice">
+                                        <p class="m-0"></p>
+                                    </div>
+                                    <div class="productActualPrice">
+                                        <p class="m-0">5099,00 zł</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="productCard card col">
+                            <a href="#" class="productLink">
+                                <img src="images/smsngnote20u.png" class="card-img-top">
+                                <div class="card-body p-0">
+                                    <h6 class="card-title m-0">Samsung Galaxy Note 20 Ultra 5G Dual SIM 12/256 Czarny
+                                    </h6>
+                                </div>
+                                <div class="">
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                    94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                    94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionGrey" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionGrey" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <span class="cardOpinionNumber p-0 m-0 text-secondary">(1)</span>
+                                </div>
+                                <div class="productPricesButton">
+                                    <a href="#" class="button-circle-buy" title="Dodaj do koszyka">
+                                        <svg class="button-circle-buy-img" fill="currentColor" version="1.1" id="Capa_1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 484.955 484.955"
+                                            style="enable-background:new 0 0 484.955 484.955;" xml:space="preserve">
+                                            <path d="M258.005,218.355c2.3,2.3,5.4,3.5,8.5,3.5s6.1-1.2,8.5-3.5l73.9-73.9c4.7-4.7,4.7-12.3,0-17s-12.3-4.7-17,0l-65.4,65.5
+                                         l-26.4-26.4c-4.7-4.7-12.3-4.7-17,0s-4.7,12.3,0,17L258.005,218.355z" />
+                                            <path
+                                                d="M145.005,318.355h268.9c29.7,0,53.8-24.2,53.8-53.8v-113.3c0-6.6-5.4-12-12-12s-12,5.4-12,12v113.2
+                                                 c0,16.5-13.4,29.8-29.8,29.8h-268.9c-16.5,0-29.8-13.4-29.8-29.8v-66.7v-74.6v-9.7v-70.2c0-0.4,0-0.9-0.1-1.3c0-0.1,0-0.2,0-0.3
+                                                 c0-0.3-0.1-0.6-0.1-0.8s-0.1-0.5-0.2-0.7c0-0.1-0.1-0.3-0.1-0.4c-0.1-0.3-0.2-0.5-0.3-0.8c0-0.1-0.1-0.2-0.1-0.3
+                                                 c-0.1-0.2-0.2-0.5-0.3-0.7c-0.1-0.1-0.1-0.3-0.2-0.4c-0.1-0.2-0.2-0.4-0.3-0.6c-0.1-0.2-0.2-0.3-0.3-0.5c-0.1-0.1-0.2-0.3-0.3-0.4
+                                                 c-0.1-0.2-0.3-0.4-0.4-0.5s-0.2-0.2-0.3-0.3c-0.2-0.2-0.3-0.4-0.5-0.6c-0.1-0.1-0.2-0.2-0.3-0.2c-0.2-0.2-0.4-0.4-0.6-0.5
+                                                 c-0.1-0.1-0.2-0.2-0.3-0.3c-0.2-0.1-0.4-0.3-0.6-0.4c-0.2-0.2-0.5-0.3-0.7-0.5c-0.1,0-0.2-0.1-0.2-0.2c-0.4-0.2-0.8-0.4-1.2-0.6
+                                                 l-73.9-31c-6.1-2.6-13.1,0.3-15.7,6.4c-2.6,6,0.3,13.1,6.4,15.7l66.5,28.1v62.3v9.7v74.6v66.7v84.3c0,28.2,21.7,51.3,49.3,53.6
+                                                 c-5.6,8.4-8.9,18.5-8.9,29.4c0,29.3,23.9,53.2,53.2,53.2s53.2-23.9,53.2-53.2c0-10.8-3.2-20.8-8.7-29.2h127.3
+                                                 c-5.5,8.4-8.7,18.4-8.7,29.2c0,29.3,23.9,53.2,53.2,53.2s53.2-23.9,53.2-53.2s-23.9-53.2-53.2-53.2h-256
+                                                 c-16.5,0-29.8-13.4-29.8-29.8v-39.5C123.705,314.955,134.005,318.355,145.005,318.355z M213.905,431.755
+                                                 c0,16.1-13.1,29.2-29.2,29.2s-29.2-13.1-29.2-29.2s13.1-29.2,29.2-29.2S213.905,415.655,213.905,431.755z M430.105,431.755
+                                                 c0,16.1-13.1,29.2-29.2,29.2s-29.2-13.1-29.2-29.2s13.1-29.2,29.2-29.2S430.105,415.655,430.105,431.755z" />
+                                        </svg>
+                                    </a>
+                                    <div class="productCrossedPrice">
+                                        <p class="m-0"></p>
+                                    </div>
+                                    <div class="productActualPrice">
+                                        <p class="m-0">5949,00 zł</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="productCard card col">
+                            <a href="#" class="productLink">
+                                <img src="images/xiaomiminote10lite.png" class="card-img-top">
+                                <div class="card-body p-0">
+                                    <h6 class="card-title m-0">Xiaomi Mi Note 10 Lite 6/128GB Midnight Black</h6>
+                                </div>
+                                <div class="">
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                    94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                    94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionYellow" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <svg class="cardStarOpinionGrey" fill="currentColor" version="1.1" id="Capa_1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                        x="0px" y="0px" viewBox="0 0 306 306" style="enable-background:new 0 0 306 306;"
+                                        xml:space="preserve">
+                                        <polygon points="153,230.775 247.35,299.625 211.65,187.425 306,121.125 191.25,121.125 153,6.375 114.75,121.125 0,121.125 
+                                     94.35,187.425 58.65,299.625" />
+                                    </svg>
+                                    <span class="cardOpinionNumber p-0 m-0 text-secondary">(2)</span>
+                                </div>
+                                <div class="productPricesButton">
+                                    <a href="#" class="button-circle-buy" title="Dodaj do koszyka">
+                                        <svg class="button-circle-buy-img" fill="currentColor" version="1.1" id="Capa_1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                            viewBox="0 0 484.955 484.955"
+                                            style="enable-background:new 0 0 484.955 484.955;" xml:space="preserve">
+                                            <path d="M258.005,218.355c2.3,2.3,5.4,3.5,8.5,3.5s6.1-1.2,8.5-3.5l73.9-73.9c4.7-4.7,4.7-12.3,0-17s-12.3-4.7-17,0l-65.4,65.5
+                                         l-26.4-26.4c-4.7-4.7-12.3-4.7-17,0s-4.7,12.3,0,17L258.005,218.355z" />
+                                            <path
+                                                d="M145.005,318.355h268.9c29.7,0,53.8-24.2,53.8-53.8v-113.3c0-6.6-5.4-12-12-12s-12,5.4-12,12v113.2
+                                                 c0,16.5-13.4,29.8-29.8,29.8h-268.9c-16.5,0-29.8-13.4-29.8-29.8v-66.7v-74.6v-9.7v-70.2c0-0.4,0-0.9-0.1-1.3c0-0.1,0-0.2,0-0.3
+                                                 c0-0.3-0.1-0.6-0.1-0.8s-0.1-0.5-0.2-0.7c0-0.1-0.1-0.3-0.1-0.4c-0.1-0.3-0.2-0.5-0.3-0.8c0-0.1-0.1-0.2-0.1-0.3
+                                                 c-0.1-0.2-0.2-0.5-0.3-0.7c-0.1-0.1-0.1-0.3-0.2-0.4c-0.1-0.2-0.2-0.4-0.3-0.6c-0.1-0.2-0.2-0.3-0.3-0.5c-0.1-0.1-0.2-0.3-0.3-0.4
+                                                 c-0.1-0.2-0.3-0.4-0.4-0.5s-0.2-0.2-0.3-0.3c-0.2-0.2-0.3-0.4-0.5-0.6c-0.1-0.1-0.2-0.2-0.3-0.2c-0.2-0.2-0.4-0.4-0.6-0.5
+                                                 c-0.1-0.1-0.2-0.2-0.3-0.3c-0.2-0.1-0.4-0.3-0.6-0.4c-0.2-0.2-0.5-0.3-0.7-0.5c-0.1,0-0.2-0.1-0.2-0.2c-0.4-0.2-0.8-0.4-1.2-0.6
+                                                 l-73.9-31c-6.1-2.6-13.1,0.3-15.7,6.4c-2.6,6,0.3,13.1,6.4,15.7l66.5,28.1v62.3v9.7v74.6v66.7v84.3c0,28.2,21.7,51.3,49.3,53.6
+                                                 c-5.6,8.4-8.9,18.5-8.9,29.4c0,29.3,23.9,53.2,53.2,53.2s53.2-23.9,53.2-53.2c0-10.8-3.2-20.8-8.7-29.2h127.3
+                                                 c-5.5,8.4-8.7,18.4-8.7,29.2c0,29.3,23.9,53.2,53.2,53.2s53.2-23.9,53.2-53.2s-23.9-53.2-53.2-53.2h-256
+                                                 c-16.5,0-29.8-13.4-29.8-29.8v-39.5C123.705,314.955,134.005,318.355,145.005,318.355z M213.905,431.755
+                                                 c0,16.1-13.1,29.2-29.2,29.2s-29.2-13.1-29.2-29.2s13.1-29.2,29.2-29.2S213.905,415.655,213.905,431.755z M430.105,431.755
+                                                 c0,16.1-13.1,29.2-29.2,29.2s-29.2-13.1-29.2-29.2s13.1-29.2,29.2-29.2S430.105,415.655,430.105,431.755z" />
+                                        </svg>
+                                    </a>
+                                    <div class="productCrossedPrice">
+                                        <p class="m-0"></p>
+                                    </div>
+                                    <div class="productActualPrice">
+                                        <p class="m-0">1699,00 zł</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+
+        <footer class="rounded bg-light m-0 mt-4 p-0 pt-2">
+            <div class="row row-cols-2 row-cols-lg-4 m-0">
+                <!-- First column - Contact -->
+                <div class="col">
+                    <h5>Kontakt</h5>
+                    <p id="footerPhoneNumber" class="m-0">
+                        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px" height="24px"
+                            viewBox="0 0 401.998 401.998" style="enable-background:new 0 0 401.998 401.998;"
+                            xml:space="preserve">
+                            <path
+                                d="M401.129,311.475c-1.137-3.426-8.371-8.473-21.697-15.129c-3.61-2.098-8.754-4.949-15.41-8.566
+                                 c-6.662-3.617-12.709-6.95-18.13-9.996c-5.432-3.045-10.521-5.995-15.276-8.846c-0.76-0.571-3.139-2.234-7.136-5
+                                 c-4.001-2.758-7.375-4.805-10.14-6.14c-2.759-1.327-5.473-1.995-8.138-1.995c-3.806,0-8.56,2.714-14.268,8.135
+                                 c-5.708,5.428-10.944,11.324-15.7,17.706c-4.757,6.379-9.802,12.275-15.126,17.7c-5.332,5.427-9.713,8.138-13.135,8.138
+                                 c-1.718,0-3.86-0.479-6.427-1.424c-2.566-0.951-4.518-1.766-5.858-2.423c-1.328-0.671-3.607-1.999-6.845-4.004
+                                 c-3.244-1.999-5.048-3.094-5.428-3.285c-26.075-14.469-48.438-31.029-67.093-49.676c-18.649-18.658-35.211-41.019-49.676-67.097
+                                 c-0.19-0.381-1.287-2.19-3.284-5.424c-2-3.237-3.333-5.518-3.999-6.854c-0.666-1.331-1.475-3.283-2.425-5.852
+                                 s-1.427-4.709-1.427-6.424c0-3.424,2.713-7.804,8.138-13.134c5.424-5.327,11.326-10.373,17.7-15.128
+                                 c6.379-4.755,12.275-9.991,17.701-15.699c5.424-5.711,8.136-10.467,8.136-14.273c0-2.663-0.666-5.378-1.997-8.137
+                                 c-1.332-2.765-3.378-6.139-6.139-10.138c-2.762-3.997-4.427-6.374-4.999-7.139c-2.852-4.755-5.799-9.846-8.848-15.271
+                                 c-3.049-5.424-6.377-11.47-9.995-18.131c-3.615-6.658-6.468-11.799-8.564-15.415C98.986,9.233,93.943,1.997,90.516,0.859
+                                 C89.183,0.288,87.183,0,84.521,0c-5.142,0-11.85,0.95-20.129,2.856c-8.282,1.903-14.799,3.899-19.558,5.996
+                                 c-9.517,3.995-19.604,15.605-30.264,34.826C4.863,61.566,0.01,79.271,0.01,96.78c0,5.135,0.333,10.131,0.999,14.989
+                                 c0.666,4.853,1.856,10.326,3.571,16.418c1.712,6.09,3.093,10.614,4.137,13.56c1.045,2.948,2.996,8.229,5.852,15.845
+                                 c2.852,7.614,4.567,12.275,5.138,13.988c6.661,18.654,14.56,35.307,23.695,49.964c15.03,24.362,35.541,49.539,61.521,75.521
+                                 c25.981,25.98,51.153,46.49,75.517,61.526c14.655,9.134,31.314,17.032,49.965,23.698c1.714,0.568,6.375,2.279,13.986,5.141
+                                 c7.614,2.854,12.897,4.805,15.845,5.852c2.949,1.048,7.474,2.43,13.559,4.145c6.098,1.715,11.566,2.905,16.419,3.576
+                                 c4.856,0.657,9.853,0.996,14.989,0.996c17.508,0,35.214-4.856,53.105-14.562c19.219-10.656,30.826-20.745,34.823-30.269
+                                 c2.102-4.754,4.093-11.273,5.996-19.555c1.909-8.278,2.857-14.985,2.857-20.126C401.99,314.814,401.703,312.819,401.129,311.475z" />
+                        </svg>
+                        123 456 789
+                    </p>
+                    <p class="m-0"><span class="small pl-4">pon. - pt.</span> 8:00 - 21:00</p>
+                    <p class="m-0"><span class="small pl-4">sob. - niedz.</span> 8:00 - 20:00</p>
+                    <p class="pt-2 m-0">
+                        <svg width="18px" height="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 230.17 230.17"
+                            style="enable-background:new 0 0 230.17 230.17;" xml:space="preserve">
+
+                            <path
+                                d="M230,49.585c0-0.263,0.181-0.519,0.169-0.779l-70.24,67.68l70.156,65.518c0.041-0.468-0.085-0.94-0.085-1.418V49.585z" />
+                            <path
+                                d="M149.207,126.901l-28.674,27.588c-1.451,1.396-3.325,2.096-5.2,2.096c-1.836,0-3.672-0.67-5.113-2.013l-28.596-26.647
+                                 L11.01,195.989c1.717,0.617,3.56,1.096,5.49,1.096h197.667c2.866,0,5.554-0.873,7.891-2.175L149.207,126.901z" />
+                            <path d="M115.251,138.757L222.447,35.496c-2.427-1.443-5.252-2.411-8.28-2.411H16.5c-3.943,0-7.556,1.531-10.37,3.866
+                                 L115.251,138.757z" />
+                            <path d="M0,52.1v128.484c0,1.475,0.339,2.897,0.707,4.256l69.738-67.156L0,52.1z" />
+                        </svg>
+                        b-kom@b-kom.pl
+                    </p>
+                    <a id="footerSalons" href="#" class="">
+                        <svg width="18px" height="18px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 434.174 434.174"
+                            style="enable-background:new 0 0 434.174 434.174;" xml:space="preserve">
+
+                            <path
+                                d="M217.087,119.397c-24.813,0-45,20.187-45,45s20.187,45,45,45s45-20.187,45-45S241.901,119.397,217.087,119.397z" />
+                            <path d="M217.087,0c-91.874,0-166.62,74.745-166.62,166.619c0,38.93,13.421,74.781,35.878,103.177l130.742,164.378l130.742-164.378
+                                 c22.457-28.396,35.878-64.247,35.878-103.177C383.707,74.745,308.961,0,217.087,0z M217.087,239.397c-41.355,0-75-33.645-75-75
+                                 s33.645-75,75-75s75,33.645,75,75S258.443,239.397,217.087,239.397z" />
+                        </svg>
+                        Salony B-KOM
+                    </a>
+                    <div class="my-4">
+                        <a href="#" class="footerSocialmedia">
+                            <svg id="footerSocialmediaFacebook" class="footerSocialmediaImg" fill="currentColor"
+                                version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 42.054 42.054"
+                                style="enable-background:new 0 0 42.054 42.054;" xml:space="preserve">
+                                <path d="M42.054,21.168c0,10.001-6.987,18.354-16.344,20.485V24.185h5.053v-5.833h-5.104V17.05c0-2.5,1.094-4.532,3.697-4.532
+                                     c1.043,0,1.877,0.157,2.555,0.365l0.311-6.094c-1.094-0.312-2.445-0.522-4.217-0.522c-2.291,0-5.053,0.68-7.031,2.554
+                                     c-2.293,2.084-3.23,5.469-3.23,8.541v0.989H14.41v5.833h3.333v17.729C7.694,40.334,0,31.661,0,21.168
+                                     C0,9.555,9.415,0.14,21.028,0.14C32.641,0.139,42.054,9.554,42.054,21.168z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footerSocialmedia">
+                            <svg id="footerSocialmediaInstagram" class="footerSocialmediaImg" fill="currentColor"
+                                version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 169.063 169.063"
+                                style="enable-background:new 0 0 169.063 169.063;" xml:space="preserve">
+
+                                <path d="M122.406,0H46.654C20.929,0,0,20.93,0,46.655v75.752c0,25.726,20.929,46.655,46.654,46.655h75.752
+                                     c25.727,0,46.656-20.93,46.656-46.655V46.655C169.063,20.93,148.133,0,122.406,0z M154.063,122.407
+                                     c0,17.455-14.201,31.655-31.656,31.655H46.654C29.2,154.063,15,139.862,15,122.407V46.655C15,29.201,29.2,15,46.654,15h75.752
+                                     c17.455,0,31.656,14.201,31.656,31.655V122.407z" />
+                                <path
+                                    d="M84.531,40.97c-24.021,0-43.563,19.542-43.563,43.563c0,24.02,19.542,43.561,43.563,43.561s43.563-19.541,43.563-43.561
+                                     C128.094,60.512,108.552,40.97,84.531,40.97z M84.531,113.093c-15.749,0-28.563-12.812-28.563-28.561
+                                     c0-15.75,12.813-28.563,28.563-28.563s28.563,12.813,28.563,28.563C113.094,100.281,100.28,113.093,84.531,113.093z" />
+                                <path d="M129.921,28.251c-2.89,0-5.729,1.17-7.77,3.22c-2.051,2.04-3.23,4.88-3.23,7.78c0,2.891,1.18,5.73,3.23,7.78
+                                     c2.04,2.04,4.88,3.22,7.77,3.22c2.9,0,5.73-1.18,7.78-3.22c2.05-2.05,3.22-4.89,3.22-7.78c0-2.9-1.17-5.74-3.22-7.78
+                                     C135.661,29.421,132.821,28.251,129.921,28.251z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footerSocialmedia">
+                            <svg id="footerSocialmediaYoutube" class="footerSocialmediaImg" fill="currentColor"
+                                version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 96.875 96.875"
+                                style="enable-background:new 0 0 96.875 96.875;" xml:space="preserve">
+                                <path d="M95.201,25.538c-1.186-5.152-5.4-8.953-10.473-9.52c-12.013-1.341-24.172-1.348-36.275-1.341
+                                     c-12.105-0.007-24.266,0-36.279,1.341c-5.07,0.567-9.281,4.368-10.467,9.52C0.019,32.875,0,40.884,0,48.438
+                                     C0,55.992,0,64,1.688,71.336c1.184,5.151,5.396,8.952,10.469,9.52c12.012,1.342,24.172,1.349,36.277,1.342
+                                     c12.107,0.007,24.264,0,36.275-1.342c5.07-0.567,9.285-4.368,10.471-9.52c1.689-7.337,1.695-15.345,1.695-22.898
+                                     C96.875,40.884,96.889,32.875,95.201,25.538z M35.936,63.474c0-10.716,0-21.32,0-32.037c10.267,5.357,20.466,10.678,30.798,16.068
+                                     C56.434,52.847,46.23,58.136,35.936,63.474z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="footerSocialmedia">
+                            <svg id="footerSocialmediaTwitter" class="footerSocialmediaImg" fill="currentColor"
+                                version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 449.956 449.956"
+                                style="enable-background:new 0 0 449.956 449.956;" xml:space="preserve">
+                                <path
+                                    d="M449.956,85.657c-17.702,7.614-35.408,12.369-53.102,14.279c19.985-11.991,33.503-28.931,40.546-50.819
+                                     c-18.281,10.847-37.787,18.268-58.532,22.267c-18.274-19.414-40.73-29.125-67.383-29.125c-25.502,0-47.246,8.992-65.24,26.98
+                                     c-17.984,17.987-26.977,39.731-26.977,65.235c0,6.851,0.76,13.896,2.284,21.128c-37.688-1.903-73.042-11.372-106.068-28.407
+                                     C82.46,110.158,54.433,87.46,31.403,59.101c-8.375,14.272-12.564,29.787-12.564,46.536c0,15.798,3.711,30.456,11.138,43.97
+                                     c7.422,13.512,17.417,24.455,29.98,32.831c-14.849-0.572-28.743-4.475-41.684-11.708v1.142c0,22.271,6.995,41.824,20.983,58.674
+                                     c13.99,16.848,31.645,27.453,52.961,31.833c-7.995,2.091-16.086,3.138-24.269,3.138c-5.33,0-11.136-0.475-17.416-1.42
+                                     c5.9,18.459,16.75,33.633,32.546,45.535c15.799,11.896,33.691,18.028,53.677,18.418c-33.498,26.262-71.66,39.393-114.486,39.393
+                                     c-8.186,0-15.607-0.373-22.27-1.139c42.827,27.596,90.03,41.394,141.612,41.394c32.738,0,63.478-5.181,92.21-15.557
+                                     c28.746-10.369,53.297-24.267,73.665-41.686c20.362-17.415,37.925-37.448,52.674-60.097c14.75-22.651,25.738-46.298,32.977-70.946
+                                     c7.23-24.653,10.848-49.344,10.848-74.092c0-5.33-0.096-9.325-0.287-11.991C421.785,120.202,437.202,104.306,449.956,85.657z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <!-- Second Column - Orders -->
+                <div id="footerCol" class="col">
+                    <h5>Zamówienia</h5>
+                    <ul id="footerUl">
+                        <li class="footerLi"><a href="#" class="footerLink">Dostawa</a></li>
+                        <li class="footerLi"><a href="#" class="footerLink">Zwrot i reklamacje</a></li>
+                        <li class="footerLi"><a href="#" class="footerLink">Raty</a></li>
+                        <li class="footerLi"><a href="#" class="footerLink">Montaż</a></li>
+                    </ul>
+                </div>
+                <!-- Third Column - About us -->
+                <div id="footerCol" class="col">
+                    <h5>B-KOM</h5>
+                    <ul id="footerUl">
+                        <li class="footerLi"><a href="#" class="footerLink">O nas</a></li>
+                        <li class="footerLi"><a href="#" class="footerLink">Regulamin</a></li>
+                        <li class="footerLi"><a href="#" class="footerLink">Polityka prywatności</a></li>
+                    </ul>
+                </div>
+                <!-- Fourth Column - Promotions -->
+                <div id="footerCol" class="col">
+                    <h5>Promocje</h5>
+                    <ul id="footerUl">
+                        <li class="footerLi"><a href="#" class="footerLink">Wyprzedaż</a></li>
+                        <li class="footerLi"><a href="#" class="footerLink">Gorąca okazja</a></li>
+                        <li class="footerLi"><a href="#" class="footerLink">Karty podarunkowe</a></li>
+                        <li class="footerLi"><a href="#" class="footerLink">Outlet</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="copyright" class="border-top align-items-center p-2">
+                <svg id="copyrightImg" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 276.715 276.715"
+                    style="enable-background:new 0 0 276.715 276.715;" xml:space="preserve">
+                    <path d="M138.357,0C62.066,0,0,62.066,0,138.357s62.066,138.357,138.357,138.357s138.357-62.066,138.357-138.357
+	            	S214.648,0,138.357,0z M138.357,258.715C71.992,258.715,18,204.723,18,138.357S71.992,18,138.357,18
+		            s120.357,53.992,120.357,120.357S204.723,258.715,138.357,258.715z" />
+                    <path d="M194.798,160.903c-4.188-2.677-9.753-1.454-12.432,2.732c-8.694,13.593-23.503,21.708-39.614,21.708
+		            c-25.908,0-46.985-21.078-46.985-46.986s21.077-46.986,46.985-46.986c15.633,0,30.2,7.747,38.968,20.723
+	            	c2.782,4.117,8.375,5.201,12.496,2.418c4.118-2.782,5.201-8.377,2.418-12.496c-12.118-17.937-32.262-28.645-53.882-28.645
+	            	c-35.833,0-64.985,29.152-64.985,64.986s29.152,64.986,64.985,64.986c22.281,0,42.759-11.218,54.778-30.009
+                    C200.208,169.147,198.985,163.582,194.798,160.903z" />
+                </svg>
+                <span>B-KOM 2020</span>
+            </div>
+        </footer>
+
+
+    </div>
+
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+﻿@model List<B_KOM_Sklep_internetowy.Models.Order>
+@using B_KOM_Sklep_internetowy.Infrastructure
+
+@{
+    ViewBag.Title = "Zamówienia";
+    Layout = "~/Views/Manage/_LeftList.cshtml";
+}
+
+<div class="col-12 col-md-9 m-0">
+    <h2>Twoje zamówienia</h2>
+
+    @if (Model.Any())
+    {
+        <div class="row pl-1">
+            @foreach (var order in Model)
+            {
+                <a href="@Url.Action("OrderDetails", "Manage", new { id = order.OrderId })" class="orderListPositionLink col-12 m-0 p-0 my-1">
+                    <div class="orderListPositionDiv row m-0 p-0 border rounded">
+                        <div class="col-4 bg-light py-1">
+                            <h5>@order.OrderStatus</h5>
+                            <span class="d-flex d-inline">@order.OrderDate.ToShortDateString()</span>
+                            <span class="d-flex d-inline">nr @order.OrderId</span>
+                            <span class="d-flex d-inline font-weight-bold">@order.OrderValue zł</span>
+                        </div>
+
+                        <div class="col-8 text-right">
+                            @foreach (var orderItem in order.OrderItems)
+                            {
+                                <img class="orderListImg" src="@Url.ProductImgPath(orderItem.Product.ProductImages.Where(c => c.MainImg == true).SingleOrDefault().ImgPath)" />
+                            }
+                        </div>
+                    </div>
+                </a>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="pl-1 text-center">
+            <h2>Brak zamówień w twojej historii</h2>
+            <h5 class="text-muted">Szukasz czegoś ciekawego?</h5>
+            <a href="@Url.Action("Index", "Home")" id="buttonGoToHome" class="btn btn-primary mt-2 px-5">Przejdź do strony głównej</a>
+        </div>
+    }
+</div>
