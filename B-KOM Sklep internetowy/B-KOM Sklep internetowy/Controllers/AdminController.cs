@@ -125,12 +125,15 @@ namespace B_KOM_Sklep_internetowy.Controllers
 
                     foreach (var img in productImages)
                     {
-                        var fileExtImage = Path.GetExtension(img.FileName);
-                        var fileNameImage = Guid.NewGuid() + fileExtImage;
-                        var pathImage = Path.Combine(Server.MapPath(AppConfig.ProductImgFolder), fileNameImage);
-                        img.SaveAs(pathImage);
+                        if (img != null)
+                        {
+                            var fileExtImage = Path.GetExtension(img.FileName);
+                            var fileNameImage = Guid.NewGuid() + fileExtImage;
+                            var pathImage = Path.Combine(Server.MapPath(AppConfig.ProductImgFolder), fileNameImage);
+                            img.SaveAs(pathImage);
 
-                        db.ProductImages.Add(new ProductImage() { ImgPath = fileNameImage, ProductId = model.Product.ProductId });
+                            db.ProductImages.Add(new ProductImage() { ImgPath = fileNameImage, ProductId = model.Product.ProductId });
+                        }
                     }
                     db.SaveChanges();
 

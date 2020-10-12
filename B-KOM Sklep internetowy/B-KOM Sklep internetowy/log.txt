@@ -19565,3 +19565,58 @@
 2020-09-30 16:53:22.4440|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
 2020-09-30 16:53:27.4597|TRACE|Hangfire.Server.ServerJobCancellationWatcher|Checking for aborted jobs...
 2020-09-30 16:53:27.4597|TRACE|Hangfire.Server.ServerJobCancellationWatcher|No newly aborted jobs found.
+2020-10-02 13:47:19.0430|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 13:47:19.1070|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 13:47:19.1070|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration.
+2020-10-02 13:47:19.1070|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2020-10-02 13:47:19.1736|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is in the Failed state now due to an exception, execution will be retried no more than in 00:00:15
+2020-10-02 13:47:48.6949|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:00:29.5195975 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 13:48:18.0587|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:00:58.8826519 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 13:48:33.0766|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:01:13.9013197 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 13:49:59.6507|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 13:49:59.6825|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 13:49:59.6884|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration.
+2020-10-02 13:49:59.6884|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2020-10-02 13:49:59.7559|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is in the Failed state now due to an exception, execution will be retried no more than in 00:00:15
+2020-10-02 13:51:56.9331|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 13:51:56.9672|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 13:51:56.9672|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration.
+2020-10-02 13:51:56.9672|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2020-10-02 13:51:57.0327|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is in the Failed state now due to an exception, execution will be retried no more than in 00:00:15
+2020-10-02 13:52:26.5663|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:00:29.5310038 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 13:52:55.9803|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:00:58.9446120 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 13:53:10.9976|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:01:13.9626508 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 14:05:50.5113|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 14:05:50.5504|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 14:05:50.5544|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration.
+2020-10-02 14:05:50.5544|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2020-10-02 14:05:50.6107|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is in the Failed state now due to an exception, execution will be retried no more than in 00:00:15
+2020-10-02 14:06:20.1521|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:00:29.5368725 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 14:06:49.6003|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:00:58.9855020 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 14:07:04.6170|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:01:14.0013736 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 14:16:35.0661|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 14:16:35.1004|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 14:16:35.1004|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration.
+2020-10-02 14:16:35.1004|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2020-10-02 14:16:35.1642|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is in the Failed state now due to an exception, execution will be retried no more than in 00:00:15
+2020-10-02 14:17:04.6413|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:00:29.4727057 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 14:17:34.0705|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:00:58.9014602 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 14:17:49.0965|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:01:13.9277051 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 14:21:06.7265|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 14:21:06.7603|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 14:21:06.7603|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration.
+2020-10-02 14:21:06.7603|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2020-10-02 14:21:06.8253|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is in the Failed state now due to an exception, execution will be retried no more than in 00:00:15
+2020-10-02 14:21:36.3162|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:00:29.4884613 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 14:22:05.6554|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:00:58.8277817 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 14:22:20.6743|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is still in the Failed state for 00:01:13.8468345 due to an exception, will be retried no more than in 00:00:15
+2020-10-02 14:23:36.0690|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 14:23:36.0959|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-02 14:23:36.1029|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration.
+2020-10-02 14:23:36.1029|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2020-10-02 14:23:36.1547|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is in the Failed state now due to an exception, execution will be retried no more than in 00:00:15
+2020-10-03 10:55:42.8297|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-03 10:55:42.8696|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration. Retrying...
+2020-10-03 10:55:42.8696|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|An exception occurred while trying to perform the migration.
+2020-10-03 10:55:42.8696|WARN|Hangfire.SqlServer.SqlServerObjectsInstaller|Was unable to perform the Hangfire schema migration due to an exception. Ignore this message unless you've just installed or upgraded Hangfire.
+2020-10-03 10:55:42.9245|ERROR|Hangfire.Processing.BackgroundExecution|Execution BackgroundServerProcess is in the Failed state now due to an exception, execution will be retried no more than in 00:00:15
